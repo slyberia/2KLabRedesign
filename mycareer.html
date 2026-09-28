@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NBA 2K27 MyCareer Progression | NBA2KLab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --neutral-950:oklch(.150 .010 25);--neutral-900:oklch(.185 .012 25);--neutral-850:oklch(.225 .014 25);
+  --neutral-800:oklch(.260 .016 25);--neutral-700:oklch(.320 .016 25);--neutral-600:oklch(.440 .015 25);
+  --neutral-500:oklch(.560 .012 25);--neutral-400:oklch(.620 .012 25);--neutral-300:oklch(.720 .012 25);--neutral-050:oklch(.960 .004 25);
+  --red-900:oklch(.300 .110 25);--red-500:oklch(.560 .190 25);--red-400:oklch(.640 .170 25);--red-300:oklch(.720 .140 25);--white:oklch(.990 0 0);
+  --tier-bronze:oklch(.700 .150 55);--tier-silver:oklch(.830 .045 240);--tier-gold:oklch(.830 .190 92);--tier-hof:oklch(.700 .200 300);
+  --op-or:oklch(.640 .210 25);--op-and:oklch(.720 .170 55);
+  --status-success:oklch(.720 .150 145);
+  --skill-finishing:oklch(.640 .140 258);--skill-shooting:oklch(.740 .130 158);--skill-playmaking:oklch(.770 .130 72);
+  --skill-defense:oklch(.600 .175 18);--skill-rebounding:oklch(.640 .150 320);--skill-physical:oklch(.700 .035 250);
+  --font-display:'Barlow Condensed',system-ui,sans-serif;--font-body:'Hanken Grotesk',system-ui,sans-serif;--font-mono:ui-monospace,monospace;
+  --size-xs:.75rem;--size-sm:.875rem;--size-base:1rem;--size-md:1.125rem;--size-lg:1.375rem;--size-xl:1.75rem;--size-2xl:2.25rem;
+  --leading-snug:1.2;--leading-normal:1.55;
+  --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;
+  --radius-sm:2px;--radius-md:3px;--radius-lg:6px;--radius-pill:999px;--border-1:1px;--border-2:2px;--border-rule:3px;--z-sticky:1100;--z-tray:1200;
+  --duration-fast:120ms;--duration-base:200ms;--ease-standard:cubic-bezier(.2,0,0,1);
+  --surface:var(--neutral-900);--surface-raised:var(--neutral-850);--surface-sunken:var(--neutral-950);--surface-hover:var(--neutral-800);
+  --text:var(--neutral-050);--text-muted:var(--neutral-300);--text-subtle:var(--neutral-400);--border:var(--neutral-700);--border-strong:var(--neutral-600);
+  --accent:var(--red-500);--accent-hover:var(--red-400);--accent-text:var(--red-400);--on-accent:var(--white);--focus-ring:var(--red-300);
+  --font-heading:var(--font-display);--font-text:var(--font-body);
+  --skill-balanced:oklch(.720 .012 25);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+body{background:var(--surface-sunken);color:var(--text);font-family:var(--font-text);line-height:var(--leading-normal)}
+a{color:inherit}
+:where(a,button,input,[tabindex]):focus-visible{outline:var(--border-2) solid var(--focus-ring);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+h1,h2,h3,h4{font-family:var(--font-heading);line-height:var(--leading-snug);font-weight:700}
+.eyebrow{font-family:var(--font-heading);font-weight:700;font-size:var(--size-sm);letter-spacing:.1em;color:var(--accent-text);text-transform:uppercase}
+.topbar{position:sticky;top:0;z-index:var(--z-sticky);background:var(--surface-raised);border-bottom:var(--border-1) solid var(--border)}
+.topbar .wrap{display:flex;align-items:center;gap:var(--space-4);min-height:60px}
+.logo{font-family:var(--font-heading);font-weight:700;font-size:var(--size-lg);text-decoration:none}.logo em{font-style:normal;color:var(--accent-text)}
+.topbar nav{display:flex;gap:.1rem;margin-left:var(--space-2);flex-wrap:wrap}
+.topbar nav a{color:var(--text-muted);text-decoration:none;font-weight:600;font-size:var(--size-sm);padding:.5rem .7rem;border-radius:var(--radius-md)}
+.topbar nav a:hover,.topbar nav a[aria-current=page]{color:var(--text);background:var(--surface-hover)}
+.topbar .go{margin-left:auto;background:var(--accent);color:var(--on-accent);text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:var(--size-sm);padding:.55rem .9rem;border-radius:var(--radius-md);min-height:44px;display:inline-flex;align-items:center}
+.crumb{font-size:var(--size-sm);color:var(--text-muted);padding:var(--space-4) 0 0}.crumb a{color:var(--accent-text);text-decoration:none}
+.pagehead{padding:var(--space-4) 0 var(--space-5)}
+.pagehead h1{font-size:var(--size-2xl);margin:.2rem 0 .4rem}
+.pagehead p{color:var(--text-muted);max-width:68ch;font-size:var(--size-md)}
+
+.tabs{display:flex;gap:.25rem;flex-wrap:wrap;background:var(--surface-raised);border:var(--border-1) solid var(--border);border-radius:var(--radius-md);padding:.25rem;margin-top:var(--space-4);width:fit-content;max-width:100%}
+.tabs [role=tab]{font-family:var(--font-heading);font-weight:700;font-size:var(--size-sm);color:var(--text-muted);background:transparent;border:0;padding:.5rem .9rem;min-height:42px;border-radius:var(--radius-sm);cursor:pointer}
+.tabs [role=tab][aria-selected=true]{background:var(--accent);color:var(--on-accent)}
+.panel{padding:var(--space-6) 0 var(--space-12)}
+.panel[hidden]{display:none}
+.panel-lede{color:var(--text-muted);max-width:70ch;margin-bottom:var(--space-5)}
+.srcnote{color:var(--text-subtle);font-size:var(--size-xs);margin-top:var(--space-5);max-width:80ch}
+
+/* shared: category group with skill rail */
+.cat-group{border:var(--border-1) solid var(--border);border-left:var(--border-rule) solid var(--sk);border-radius:var(--radius-md);margin-bottom:var(--space-4);background:var(--surface);overflow:hidden}
+.cat-head{display:flex;align-items:center;gap:.6rem;padding:.6rem var(--space-5);background:var(--surface-raised);border-bottom:var(--border-1) solid var(--border)}
+.cat-head .dot{width:10px;height:10px;border-radius:50%;background:var(--sk)}
+.cat-head h3{font-size:var(--size-md)}
+.op-chip{display:inline-flex;align-items:center;font-family:var(--font-heading);font-weight:700;font-size:.62rem;letter-spacing:.06em;padding:.1rem .4rem;border-radius:var(--radius-sm);background:var(--surface-sunken);border:1.5px solid var(--op);color:var(--op);text-transform:uppercase}
+.op-chip.or{--op:var(--op-or)}.op-chip.and{--op:var(--op-and)}
+
+/* attributes */
+.attr-row{display:grid;grid-template-columns:180px 1fr auto;gap:var(--space-4);align-items:start;padding:.8rem var(--space-5);border-bottom:var(--border-1) solid var(--border)}
+.attr-row:last-child{border-bottom:0}
+.attr-name{font-family:var(--font-heading);font-weight:700;font-size:var(--size-base)}
+.attr-desc{color:var(--text-muted);font-size:var(--size-sm)}
+.attr-meta{display:flex;flex-direction:column;gap:.3rem;align-items:flex-end}
+.meta-pill{font-family:var(--font-heading);font-weight:600;font-size:.72rem;color:var(--text-muted);background:var(--surface-sunken);border:var(--border-1) solid var(--border-strong);border-radius:var(--radius-pill);padding:.1rem .55rem;white-space:nowrap;text-decoration:none}
+a.meta-pill:hover{color:var(--text);border-color:var(--sk)}
+@media(max-width:760px){.attr-row{grid-template-columns:1fr}.attr-meta{flex-direction:row;flex-wrap:wrap;align-items:center}}
+
+/* specializations */
+.spec-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:var(--space-4)}
+.spec-tab{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-heading);font-weight:700;font-size:var(--size-sm);color:var(--text-muted);background:var(--surface);border:var(--border-1) solid var(--border);border-radius:var(--radius-pill);padding:.45rem .9rem;min-height:40px;cursor:pointer}
+.spec-tab .cdot{width:9px;height:9px;border-radius:50%;background:var(--sk)}
+.spec-tab[aria-selected=true]{color:var(--text);border-color:var(--sk);background:var(--surface-hover)}
+.spec-body{display:grid;grid-template-columns:260px 1fr;gap:var(--space-5);align-items:start}
+@media(max-width:860px){.spec-body{grid-template-columns:1fr}}
+.unlock{background:var(--surface);border:var(--border-1) solid var(--border);border-left:var(--border-rule) solid var(--sk);border-radius:var(--radius-md);padding:var(--space-4)}
+.unlock h3{font-size:var(--size-sm);text-transform:uppercase;letter-spacing:.05em;color:var(--text-subtle);margin-bottom:var(--space-3)}
+.unlock-list{display:flex;flex-direction:column;gap:.5rem;align-items:flex-start}
+.unlock-group{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;width:100%;border:1px dashed var(--border-strong);border-radius:var(--radius-md);padding:.45rem}
+.unlock-list > .op-chip{margin-left:.45rem}
+.req-pill{font-family:var(--font-heading);font-weight:700;font-size:.85rem;background:var(--surface-sunken);border:1.5px solid var(--sk);border-radius:var(--radius-md);padding:.25rem .55rem}
+.req-pill b{color:var(--sk)}
+.unlock-none{color:var(--text-muted);font-size:var(--size-sm)}
+table.goals{width:100%;border-collapse:collapse;font-size:var(--size-sm);background:var(--surface);border:var(--border-1) solid var(--border);border-radius:var(--radius-md);overflow:hidden}
+table.goals th{font-family:var(--font-heading);font-weight:700;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;text-align:left;padding:.55rem .8rem;background:var(--surface-raised);color:var(--text-muted);border-bottom:var(--border-2) solid var(--border)}
+table.goals td{padding:.65rem .8rem;border-bottom:var(--border-1) solid var(--border);vertical-align:top}
+table.goals tr:last-child td{border-bottom:0}
+.goal-num{font-family:var(--font-heading);font-weight:700;color:var(--sk);font-size:var(--size-md);width:3rem}
+.goal-name{font-family:var(--font-heading);font-weight:700}
+.rewards{display:flex;flex-wrap:wrap;gap:.3rem}
+.reward{font-size:.74rem;background:var(--surface-sunken);border:var(--border-1) solid var(--border);border-radius:var(--radius-sm);padding:.12rem .45rem;color:var(--text-muted)}
+.goals-wrap{overflow-x:auto}
+
+/* rebirth */
+.tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3);list-style:none}
+@media(max-width:900px){.tier-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tier-grid{grid-template-columns:1fr}}
+.tier{background:var(--surface);border:var(--border-1) solid var(--border);border-top:var(--border-rule) solid var(--tc);border-radius:var(--radius-md);padding:var(--space-5) var(--space-4);display:flex;flex-direction:column;gap:.4rem}
+.tier-num{font-family:var(--font-heading);font-weight:700;font-size:var(--size-sm);letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle)}
+.tier-tokens{font-family:var(--font-heading);font-weight:700;font-size:2.4rem;line-height:1;color:var(--tc)}
+.tier-tokens-lbl{font-size:.8rem;color:var(--text-muted)}
+.tier-extra{font-size:.8rem;color:var(--text-muted)}
+.tier-status{margin-top:auto;padding-top:.6rem;border-top:var(--border-1) solid var(--border);font-size:var(--size-sm)}
+.tier-status span{display:block;font-family:var(--font-heading);font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-subtle)}
+.shared-note{margin:var(--space-4) 0 var(--space-6);color:var(--text-muted);font-size:var(--size-sm)}
+.how-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3)}
+@media(max-width:760px){.how-grid{grid-template-columns:1fr}}
+.how-item{background:var(--surface);border:var(--border-1) solid var(--border);border-radius:var(--radius-md);padding:var(--space-4)}
+.how-item h3{font-size:var(--size-base);margin-bottom:.3rem}
+.how-item p{color:var(--text-muted);font-size:var(--size-sm)}
+.sec-title{font-size:var(--size-lg);margin-bottom:var(--space-3)}
+
+/* workout warrior */
+.answer{background:color-mix(in oklch,var(--accent) 10%,var(--surface));border:var(--border-1) solid var(--border);border-left:var(--border-rule) solid var(--accent);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5);margin-bottom:var(--space-6);max-width:78ch}
+.answer h2{font-size:var(--size-md);margin-bottom:.3rem}
+.answer p{color:var(--text-muted)}
+.ww-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--space-6);align-items:start}
+@media(max-width:860px){.ww-cols{grid-template-columns:1fr}}
+.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:var(--space-3)}
+.steps li{counter-increment:s;background:var(--surface);border:var(--border-1) solid var(--border);border-radius:var(--radius-md);padding:var(--space-4) var(--space-4) var(--space-4) 3.4rem;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:1rem;top:1rem;font-family:var(--font-heading);font-weight:700;font-size:var(--size-xl);line-height:1;color:var(--accent-text)}
+.steps h3{font-size:var(--size-base);margin-bottom:.25rem}
+.steps p{color:var(--text-muted);font-size:var(--size-sm)}
+.check-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--space-3)}
+.progress{font-family:var(--font-heading);font-weight:700;color:var(--accent-text)}
+.checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem;list-style:none}
+.checklist label{display:flex;align-items:center;gap:.55rem;background:var(--surface);border:var(--border-1) solid var(--border);border-radius:var(--radius-md);padding:.55rem .7rem;cursor:pointer;font-size:var(--size-sm);min-height:44px}
+.checklist input{width:18px;height:18px;accent-color:var(--accent);flex:none}
+.checklist input:checked + span{color:var(--text-subtle);text-decoration:line-through}
+.check-note{color:var(--text-subtle);font-size:var(--size-xs);margin-top:.5rem}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-top:var(--space-6)}
+@media(max-width:600px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--surface);border:var(--border-1) solid var(--border);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4)}
+.fact dt{font-family:var(--font-heading);font-weight:700;margin-bottom:.2rem}
+.fact dd{color:var(--text-muted);font-size:var(--size-sm)}
+</style><style id="site-shell">/* NBA2KLab site shell -- shared header, mobile drawer, footer. One source of
+   truth for every page. sh- prefixed so it never collides with page-local
+   .topbar/.logo/.btn rules. Reads the same design tokens each page defines. */
+.sh-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sh-bar{position:sticky;top:0;z-index:var(--z-sticky,1100);height:60px;background:var(--surface-raised);border-bottom:var(--border-1,1px) solid var(--border)}
+.sh-wrap{max-width:1280px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+.sh-bar .sh-wrap{display:flex;align-items:center;gap:var(--space-4,1rem);height:100%}
+.sh-logo{font-family:var(--font-heading);font-weight:700;font-size:var(--size-lg,1.375rem);white-space:nowrap;text-decoration:none;color:var(--text)}
+.sh-logo em{font-style:normal;color:var(--accent-text)}
+.sh-nav{display:flex;gap:.1rem;margin-left:var(--space-2,.5rem);flex-wrap:nowrap}
+.sh-link{color:var(--text-muted);text-decoration:none;font-weight:600;font-size:var(--size-sm,.875rem);padding:.5rem .65rem;border-radius:var(--radius-md,3px);min-height:40px;display:inline-flex;align-items:center;white-space:nowrap}
+.sh-link:hover,.sh-link[aria-current=page]{color:var(--text);background:var(--surface-hover)}
+.sh-link[aria-current=page]{box-shadow:inset 0 -2px 0 var(--accent)}
+a.ext::after{content:"\2197";font-size:.78em;margin-left:.2em;opacity:.65}
+.sh-actions{margin-left:auto;display:flex;gap:var(--space-2,.5rem);flex-shrink:0;align-items:center}
+.sh-btn{text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:var(--size-sm,.875rem);padding:.55rem .9rem;min-height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-md,3px);white-space:nowrap}
+.sh-primary{background:var(--accent);color:var(--on-accent)}.sh-primary:hover{background:var(--accent-hover)}
+button.sh-btn{font-family:var(--font-heading);cursor:pointer;border:var(--border-1,1px) solid transparent}
+.sh-ghost{color:var(--text);background:transparent;border:var(--border-1,1px) solid var(--border)}.sh-ghost:hover{border-color:var(--border-strong)}
+.sh-toggle{display:none;margin-left:auto;width:44px;height:44px;border:var(--border-1,1px) solid var(--border);border-radius:var(--radius-md,3px);background:transparent;color:var(--text);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.sh-toggle span{display:block;width:20px;height:2px;background:currentColor;transition:transform .12s,opacity .12s}
+.sh-toggle[aria-expanded=true] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.sh-toggle[aria-expanded=true] span:nth-child(2){opacity:0}
+.sh-toggle[aria-expanded=true] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.sh-drawer{display:none}
+@media(max-width:1080px){
+  .sh-nav,.sh-actions{display:none}
+  .sh-toggle{display:flex}
+  .sh-drawer{display:block;position:fixed;inset:60px 0 auto 0;z-index:1300;background:var(--surface-raised);border-bottom:var(--border-1,1px) solid var(--border);box-shadow:0 12px 30px oklch(0 0 0 / .5);max-height:calc(100vh - 60px);overflow:auto}
+  .sh-drawer[hidden]{display:none}
+  .sh-drawer .sh-wrap{display:flex;flex-direction:column;padding-top:var(--space-4,1rem);padding-bottom:var(--space-4,1rem);gap:var(--space-1,.25rem)}
+  .sh-dl{color:var(--text);text-decoration:none;font-family:var(--font-heading);font-weight:600;font-size:var(--size-md,1.125rem);padding:.85rem .5rem;min-height:48px;display:flex;align-items:center;border-bottom:var(--border-1,1px) solid var(--border)}
+  .sh-dl:hover,.sh-dl[aria-current=page]{color:var(--accent-text)}
+  .sh-drawer-actions{display:flex;gap:var(--space-3,.75rem);margin-top:var(--space-4,1rem);flex-wrap:wrap}
+  .sh-drawer-actions .sh-btn{flex:1}
+}
+/* Builder / Requirements compare panel reflows the page with body padding-right;
+   the header should keep spanning the full viewport (the panel sits beneath it). */
+@media(min-width:768px){
+  body.side-has-items .sh-bar{margin-right:-300px}
+  body.side-extended .sh-bar{margin-right:calc(-1 * min(780px,60vw))}
+}
+.sh-foot{background:var(--surface-raised);border-top:var(--border-1,1px) solid var(--border);padding:var(--space-10,2.5rem) 0 var(--space-6,1.5rem);margin-top:var(--space-10,2.5rem)}
+.sh-cols{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:var(--space-8,2rem) var(--space-6,1.5rem)}
+.sh-brand .sh-logo{font-size:var(--size-xl,1.75rem)}
+.sh-brand p{color:var(--text-subtle);font-size:var(--size-sm,.875rem);line-height:1.5;margin-top:var(--space-2,.5rem);max-width:30ch}
+.sh-fcol{display:flex;flex-direction:column;align-items:flex-start}
+.sh-fh{font-family:var(--font-heading);font-weight:700;font-size:var(--size-sm,.875rem);letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle);margin:0 0 var(--space-3,.75rem)}
+.sh-fl{color:var(--text-muted);text-decoration:none;font-size:var(--size-sm,.875rem);line-height:1.35;padding:.3rem 0;border-radius:var(--radius-sm,2px)}
+.sh-fl:hover{color:var(--text)}
+.sh-fine{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--space-2,.5rem) var(--space-6,1.5rem);margin-top:var(--space-8,2rem);padding-top:var(--space-4,1rem);border-top:var(--border-1,1px) solid var(--border);color:var(--text-subtle);font-size:var(--size-xs,.75rem)}
+.sh-fine p{margin:0}
+:where(.sh-bar,.sh-drawer,.sh-foot) :where(a,button):focus-visible{outline:2px solid var(--focus-ring,var(--accent));outline-offset:2px}
+@media(max-width:960px){.sh-cols{grid-template-columns:repeat(2,1fr)}.sh-brand{grid-column:1/-1}}
+@media(max-width:300px){.sh-cols{grid-template-columns:1fr}}
+/* ---- demo accounts: header control, menu, sign-in dialog ---- */
+.sh-acct{position:relative;display:inline-flex}
+.sh-acct-btn{gap:.45rem}
+.sh-acct-btn .sh-prem{font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-text);border:1px solid var(--accent);border-radius:999px;padding:.02rem .4rem}
+.sh-menu{position:absolute;right:0;top:calc(100% + .4rem);min-width:190px;background:var(--surface-raised);border:var(--border-1,1px) solid var(--border-strong);border-radius:var(--radius-md,3px);box-shadow:0 10px 28px oklch(0 0 0/.45);padding:.3rem;z-index:1400;display:flex;flex-direction:column}
+.sh-menu[hidden]{display:none}
+.sh-menu a,.sh-menu button{display:flex;align-items:center;min-height:40px;padding:0 .7rem;border-radius:var(--radius-sm,2px);background:none;border:0;color:var(--text);font:inherit;font-size:var(--size-sm,.875rem);text-decoration:none;text-align:left;cursor:pointer}
+.sh-menu a:hover,.sh-menu button:hover{background:var(--surface-hover)}
+.sh-menu .sh-menu-note{font-size:.72rem;color:var(--text-subtle);padding:.35rem .7rem .2rem}
+.sh-drawer .sh-menu{position:static;box-shadow:none;margin-top:.4rem;width:100%}
+.sh-dialog{margin:auto;max-width:min(460px,calc(100vw - 2rem));width:100%;background:var(--surface-raised);color:var(--text);border:var(--border-1,1px) solid var(--border-strong);border-radius:var(--radius-md,3px);padding:0}
+.sh-dialog::backdrop{background:oklch(0 0 0/.6)}
+.sh-signin-form{display:flex;flex-direction:column;gap:.7rem;padding:var(--space-6,1.5rem)}
+.sh-signin-form h2{font-family:var(--font-heading);font-size:var(--size-lg,1.375rem)}
+.sh-demo-note{font-size:var(--size-sm,.875rem);color:var(--text-muted);background:var(--surface-sunken);border-left:3px solid var(--accent);padding:.6rem .75rem;border-radius:var(--radius-sm,2px)}
+.sh-field{display:flex;flex-direction:column;gap:.3rem;font-weight:600;font-size:var(--size-sm,.875rem)}
+.sh-field input{background:var(--surface-sunken);border:var(--border-1,1px) solid var(--border-strong);color:var(--text);border-radius:var(--radius-sm,2px);padding:.6rem .7rem;font:inherit;font-weight:400;min-height:44px}
+.sh-check{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;font-size:var(--size-sm,.875rem)}
+.sh-check input{width:18px;height:18px;accent-color:var(--accent)}
+.sh-hint{font-size:.75rem;color:var(--text-subtle);font-weight:400}
+.sh-err{color:var(--accent-text);font-size:var(--size-sm,.875rem)}
+.sh-err[hidden]{display:none}
+.sh-dialog-actions{display:flex;justify-content:flex-end;gap:.5rem;margin-top:.3rem}
+</style>
+</head><body>
+<header class="sh-bar"><div class="sh-wrap">
+  <a class="sh-logo" href="index.html">NBA2K<em>LAB</em></a>
+  <nav class="sh-nav" aria-label="Primary"><a class="sh-link" href="builds.html">Builds</a><a class="sh-link" href="builder.html">Builder</a><a class="sh-link" href="reference-table.html">Requirements</a><a class="sh-link" href="mycareer.html" aria-current="page">MyCareer</a><a class="sh-link" href="shooting.html">Shooting</a><a class="sh-link" href="game-details.html">Game Details</a></nav>
+  <div class="sh-actions"><span class="sh-acct" data-acct><button type="button" class="sh-btn sh-ghost" data-acct-open>Log In</button></span><a class="sh-btn sh-primary" href="index.html#premium">Go Premium</a></div>
+  <button class="sh-toggle" type="button" aria-expanded="false" aria-controls="sh-drawer" aria-label="Open menu"><span></span><span></span><span></span></button>
+</div></header>
+<div class="sh-drawer" id="sh-drawer" hidden><div class="sh-wrap">
+  <a class="sh-dl" href="builds.html">Builds</a><a class="sh-dl" href="builder.html">Builder</a><a class="sh-dl" href="reference-table.html">Requirements</a><a class="sh-dl" href="mycareer.html" aria-current="page">MyCareer</a><a class="sh-dl" href="shooting.html">Shooting</a><a class="sh-dl" href="game-details.html">Game Details</a>
+  <div class="sh-drawer-actions"><span class="sh-acct" data-acct><button type="button" class="sh-btn sh-ghost" data-acct-open>Log In</button></span><a class="sh-btn sh-primary" href="index.html#premium">Go Premium</a></div>
+</div></div>
+
+<div class="wrap">
+  <div class="crumb"><a href="index.html">Home</a> / MyCareer</div>
+  <div class="pagehead">
+    <div class="eyebrow">MyCareer</div>
+    <h1>NBA 2K27 MyCareer Progression</h1>
+    <p>What each attribute does, how Build Specializations unlock and what they pay out, Rebirth tiers, and the Workout Warrior checklist.</p>
+    <div class="tabs" role="tablist" aria-label="MyCareer sections">
+      <button role="tab" id="tab-attributes" aria-controls="panel-attributes" aria-selected="true">Attributes</button>
+      <button role="tab" id="tab-specializations" aria-controls="panel-specializations" aria-selected="false" tabindex="-1">Specializations</button>
+      <button role="tab" id="tab-rebirth" aria-controls="panel-rebirth" aria-selected="false" tabindex="-1">Rebirth</button>
+      <button role="tab" id="tab-workout" aria-controls="panel-workout" aria-selected="false" tabindex="-1">Workout Warrior</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="panel" id="panel-attributes" role="tabpanel" aria-labelledby="tab-attributes">
+    <p class="panel-lede">All 21 attributes, grouped by category. Each one shows how many badges key on it and which Specialization it can unlock.</p>
+    <div id="attrGroups"></div>
+  </section>
+
+  <section class="panel" id="panel-specializations" role="tabpanel" aria-labelledby="tab-specializations" hidden>
+    <p class="panel-lede">Six Specializations, ten goals each. A build qualifies for a Specialization by meeting its attribute requirement; Physicals has none.</p>
+    <div class="spec-tabs" id="specTabs" role="tablist" aria-label="Specialization"></div>
+    <div id="specBody"></div>
+  </section>
+
+  <section class="panel" id="panel-rebirth" role="tabpanel" aria-labelledby="tab-rebirth" hidden>
+    <ol class="tier-grid" id="tierGrid"></ol>
+    <p class="shared-note" id="rebirthShared"></p>
+    <h2 class="sec-title">How Rebirth Works in 2K27</h2>
+    <div class="how-grid" id="howGrid"></div>
+    <p class="srcnote" id="rebirthSrc"></p>
+  </section>
+
+  <section class="panel" id="panel-workout" role="tabpanel" aria-labelledby="tab-workout" hidden>
+    <aside class="answer"><h2>The short answer</h2><p id="wwAnswer"></p></aside>
+    <div class="ww-cols">
+      <div><h2 class="sec-title">How a gym session works</h2><ol class="steps" id="wwSteps"></ol></div>
+      <div>
+        <div class="check-head"><h2 class="sec-title" style="margin:0">All 12 workouts</h2><span class="progress" id="wwProgress" aria-live="polite"></span></div>
+        <ul class="checklist" id="wwList"></ul>
+        <p class="check-note">Ticks are for this visit only. They aren't saved.</p>
+      </div>
+    </div>
+    <h2 class="sec-title" style="margin-top:var(--space-8)">What the gym gives you</h2>
+    <dl class="facts" id="wwFacts"></dl>
+  </section>
+</main>
+
+<script id="data-attributes" type="application/json">{"Close Shot": "Ability to shoot when standing still, including post shooks, out to 10 feet from the basket. Is also use to determine the ability to make standing alley-oop and putback layup attempts", "Driving Layup": "Ability to successfully complete all types of layup attempts while moving towards the basket", "Driving Dunk": "Ability to successfully complete regular, contact, alley-oop and putback dunk attempts while moving towards the basket", "Standing Dunk": "Ability to successfully complete regular, contact, alley-oop and putback dunk attempts while standing under the basket", "Post Control": "Helps determine success when performing all types of moves from post position. Used along with strength and size to determine the ability to back down a defender", "Mid-Range Shot": "Ability to make shots of all types from mid-range distance, including shots from the post.", "Three-Point Shot": "Ability to make shots of all types from three-point distance", "Free Throw": "Ability to successfully make free throw shot attempts", "Pass Accuracy": "Ability to throw the ball on target in all types of passing situations, such as bounce, chest, lob, overhead, flashy and alley-oop passes", "Ball Handle": "Determines skill while dribbling the ball, both in terms of moves allowed and securing the ball from steal attempts", "Speed With Ball": "Affects how fast the player can launch, run, or sprint while dribbling the ball", "Interior Defense": "Ability to defend the paint both on and off the ball, as well as contest shots near the rim", "Perimeter Defense": "Ability to defend the perimeter both on and off the ball, as well as contest shots from outside", "Steal": "Ability to intercept or deflect passes and steal the ball from opposing ball-handlers in all situations", "Block": "Determines the chance to successfuly block shots of all types", "Offensive Rebound": "Ability to grab Offensive rebounds. Along with vertical, unlocks rebound content to reach the ball more easily on missed shots. Helps determine ability to box out or navigate around box outs", "Defensive Rebound": "Ability to grab Defensive rebounds. Along with vertical, unlocks rebound content to reach the ball more easily on missed shots. Helps determine ability to box out or navigate around box outs", "Speed": "Affects how fast the player can run or sprint around the court without the ball.", "Agility": "Without the ball, affects how fast the player can accelerate, move in short bursts, and move laterally.", "Strength": "Determines who wins a contact battle offensively and defensively, and helps dictate how successful a player will be when backing down or being backed down in the post, both with and without the ball", "Vertical": "Used as a gate for dunk animations, and in combination with attribute counterparts, allows a player to jump higher on rebounds and blocks"}</script>
+<script id="data-specs" type="application/json">[{"id": "finishing", "name": "Finishing", "unlock": [[{"attribute": "Driving Layup", "min": 60}], [{"attribute": "Driving Dunk", "min": 60}], [{"attribute": "Close Shot", "min": 60}], [{"attribute": "Standing Dunk", "min": 60}]], "goals": [{"goal": 1, "name": "Interior Identity", "requirement": "Win 25 Games", "rewards": ["Layups / Dunks Skill Boosts (10 games)"]}, {"goal": 2, "name": "Layup Line", "requirement": "Get 200 Layups", "rewards": ["Layups / Dunks Skill Boosts (10 games)", "Finishing Player Banner"]}, {"goal": 3, "name": "Rim Rocket", "requirement": "Get 200 Dunks", "rewards": ["Layups / Dunks Skill Boosts (25 games)", "Finishing Varsity Jacket"]}, {"goal": 4, "name": "Inside Advantage", "requirement": "Win 50 Games with 4 or more Shots Made in the Paint in each win", "rewards": ["Finishing Basketball Shorts", "In-Game Celebration - Euro Celly"]}, {"goal": 5, "name": "Elevation", "requirement": "Get 250 Alley-Oop Finishes", "rewards": ["Julius Erving Jersey"]}, {"goal": 6, "name": "Winning at the Rim", "requirement": "Win 75 Games with Teammate Grade A- or higher", "rewards": ["Finishing Archetype Names"]}, {"goal": 7, "name": "Soft Touch", "requirement": "Get 500 Layups", "rewards": ["1 Bonus Badge Slot", "4 Bonus Badge Tokens"]}, {"goal": 8, "name": "Poster", "requirement": "Get 500 Dunks", "rewards": ["1 Bonus Badge Slot", "5 Bonus Badge Tokens"]}, {"goal": 9, "name": "Certified Closer", "requirement": "Win 125 Games with 6 or more Shots Made in the Paint in each win", "rewards": ["Finishing Cap Breaker", "Finishing Cap Breaker"]}, {"goal": 10, "name": "Own the Block", "requirement": "Get 2500 Shots Made in the Paint", "rewards": ["Finishing +2 Synergy Slot", "Finishing Calf Sleeve"]}]}, {"id": "shooting", "name": "Shooting", "unlock": [[{"attribute": "Mid-Range Shot", "min": 60}, {"attribute": "Three-Point Shot", "min": 60}]], "goals": [{"goal": 1, "name": "Warm up", "requirement": "Win 25 Games", "rewards": ["Jump Shots Skill Boosts (10 games)"]}, {"goal": 2, "name": "Living in the Middy", "requirement": "Make 200 Mid-Range Shots", "rewards": ["Jump Shots Skill Boosts (10 games)", "Shooting Player Banner"]}, {"goal": 3, "name": "Range Finder", "requirement": "Make 300 3PT Shots", "rewards": ["Jump Shots Skill Boosts (25 games)", "Shooting Varsity Jacket"]}, {"goal": 4, "name": "Nothing but Net", "requirement": "Win 50 Games with 4 or more Jumpshots Made in each win", "rewards": ["Shooting Basketball Shorts", "Jumpshot Celebration - Peek-A-Boo"]}, {"goal": 5, "name": "Corner Pocket", "requirement": "Get 500 Corner 3's", "rewards": ["Ray Allen Jersey"]}, {"goal": 6, "name": "Sniper School", "requirement": "Win 75 Games with Teammate Grade A- or higher", "rewards": ["Shooting Archetype Names"]}, {"goal": 7, "name": "The Lost Art", "requirement": "Make 600 Mid-Range Shots", "rewards": ["1 Bonus Badge Slot", "4 Bonus Badge Tokens"]}, {"goal": 8, "name": "The Perfect Release", "requirement": "Make 600 3PT Shots", "rewards": ["1 Bonus Badge Slot", "5 Bonus Badge Tokens"]}, {"goal": 9, "name": "Victory from Deep", "requirement": "Win 125 Games with 5 or more Jumpshots Made in each win", "rewards": ["Shooting Cap Breaker", "Shooting Cap Breaker"]}, {"goal": 10, "name": "Sharpshooter's Legacy", "requirement": "Make 2500 Mid-Range Shots OR Make 2500 3PT Shots", "rewards": ["Shooting +2 Synergy Slot", "Shooting Arm Sleeve"]}]}, {"id": "playmaking", "name": "Playmaking", "unlock": [[{"attribute": "Pass Accuracy", "min": 60}], [{"attribute": "Ball Handle", "min": 60}]], "goals": [{"goal": 1, "name": "Open Season", "requirement": "Win 25 Games", "rewards": ["Ball Handling / Passing Skill Boosts (10 games)"]}, {"goal": 2, "name": "Dish and Swish", "requirement": "Get 200 Assists OR Get 200 Relay Assists", "rewards": ["Ball Handling / Passing Skill Boosts (10 games)", "Playmaking Player Banner"]}, {"goal": 3, "name": "It's Showtime", "requirement": "Get 250 Alley-Oop Assists", "rewards": ["Ball Handling / Passing Skill Boosts (25 games)", "Playmaking Varsity Jacket"]}, {"goal": 4, "name": "Unselfish Ambition", "requirement": "Win 50 Games with 5 or more Assists in each win", "rewards": ["Playmaking Basketball Shorts", "Pass Style - Josh Giddey"]}, {"goal": 5, "name": "Saucy", "requirement": "Get 350 Flashy Assists", "rewards": ["Magic Johnson Jersey"]}, {"goal": 6, "name": "Unselfish Victory", "requirement": "Win 75 Games with Teammate Grade A- or higher", "rewards": ["Playmaking Archetype Names"]}, {"goal": 7, "name": "Playmakers Club", "requirement": "Get 500 Assists OR Get 500 Relay Assists", "rewards": ["1 Bonus Badge Slot", "4 Bonus Badge Tokens"]}, {"goal": 8, "name": "Style Points Only", "requirement": "Get 550 Flashy Assists", "rewards": ["1 Bonus Badge Slot", "5 Bonus Badge Tokens"]}, {"goal": 9, "name": "Game-Winning Dimes", "requirement": "Win 125 Games with 5 or more Assists in each win", "rewards": ["Playmaking Cap Breaker", "Playmaking Cap Breaker"]}, {"goal": 10, "name": "Playmaking Prodigy", "requirement": "Get 2500 Assists", "rewards": ["Playmaking +2 Synergy Slot", "Playmaking Headband"]}]}, {"id": "defense", "name": "Defense", "unlock": [[{"attribute": "Perimeter Defense", "min": 60}, {"attribute": "Steal", "min": 60}], [{"attribute": "Interior Defense", "min": 60}, {"attribute": "Block", "min": 60}]], "goals": [{"goal": 1, "name": "Strictly Business", "requirement": "Win 25 Games", "rewards": ["Steal / Blocks Skill Boosts (10 games)"]}, {"goal": 2, "name": "Back to the Basics", "requirement": "Defend 250 Shots Well", "rewards": ["Steal / Blocks Skill Boosts (10 games)", "Defense Player Banner"]}, {"goal": 3, "name": "Deny Everything", "requirement": "Get 250 Steals OR Get 250 Blocks", "rewards": ["Steal / Blocks Skill Boosts (25 games)", "Defense Varsity Jacket"]}, {"goal": 4, "name": "Gritty Grind", "requirement": "Win 50 Games with at least 3 Blocks and Steals Combined in each win", "rewards": ["Defense Basketball Shorts", "Standing Emote - Slap Floor"]}, {"goal": 5, "name": "No Breathing Room", "requirement": "Defend 400 Shots Well", "rewards": ["Scottie Pippen Jersey"]}, {"goal": 6, "name": "The Gold Standard", "requirement": "Win 75 Games with Teammate Grade A- or higher", "rewards": ["Defensive Archetype Names"]}, {"goal": 7, "name": "Sticky Fingers", "requirement": "Get 500 Steals OR Get 500 Blocks", "rewards": ["1 Bonus Badge Slot", "4 Bonus Badge Tokens"]}, {"goal": 8, "name": "The Stopper's Mentality", "requirement": "Defend 600 Shots Well", "rewards": ["1 Bonus Badge Slot", "5 Bonus Badge Tokens"]}, {"goal": 9, "name": "Earning the Ws", "requirement": "Win 125 Games with at least 3 Blocks and Steals Combined in each win", "rewards": ["Defense Cap Breaker", "Defense Cap Breaker"]}, {"goal": 10, "name": "Defensive Throne", "requirement": "Defend 1500 Shots Well AND Complete one of the following: Get 1000 Steals OR Get 1000 Blocks", "rewards": ["Defensive +2 Synergy Slot", "Defense Forearm Sleeve"]}]}, {"id": "rebounding", "name": "Rebounding", "unlock": [[{"attribute": "Offensive Rebound", "min": 60}], [{"attribute": "Defensive Rebound", "min": 60}]], "goals": [{"goal": 1, "name": "Foundational Force", "requirement": "Win 25 Games", "rewards": ["Rebounding Skill Boosts (10 games)"]}, {"goal": 2, "name": "Possession Secured", "requirement": "Get 250 Defensive Rebounds", "rewards": ["Rebounding Skill Boosts (10 games)", "Rebounding Player Banner"]}, {"goal": 3, "name": "Crashing the Glass", "requirement": "Get 250 Offensive Rebounds", "rewards": ["Rebounding Skill Boosts (25 games)", "Rebounding Varsity Jacket"]}, {"goal": 4, "name": "Grit and Glass", "requirement": "Win 50 Games with 5 or more Rebounds in each win", "rewards": ["Rebounding Basketball Shorts", "Standing Emote - Gimme Dat"]}, {"goal": 5, "name": "Fundamentals", "requirement": "Get 400 Successful Box Outs", "rewards": ["Kevin Garnett Jersey"]}, {"goal": 6, "name": "Board Master", "requirement": "Win 75 Games with Teammate Grade A- or higher", "rewards": ["Rebounding Archetype Names"]}, {"goal": 7, "name": "Janitor's Shift", "requirement": "Get 500 Defensive Rebounds", "rewards": ["1 Bonus Badge Slot", "4 Bonus Badge Tokens"]}, {"goal": 8, "name": "Crash the Party", "requirement": "Get 500 Offensive Rebounds", "rewards": ["1 Bonus Badge Slot", "5 Bonus Badge Tokens"]}, {"goal": 9, "name": "Wiping the Slate", "requirement": "Win 125 Games with 5 or more Rebounds in each win", "rewards": ["Rebounding Cap Breaker", "Rebounding Cap Breaker"]}, {"goal": 10, "name": "The Board Room CEO", "requirement": "Get 1250 Defensive Rebounds AND Get 1250 Offensive Rebounds", "rewards": ["Rebounding +2 Synergy Slot", "Rebounding Arm Sleeve"]}]}, {"id": "physicals", "name": "Physicals", "unlock": [], "goals": [{"goal": 1, "name": "It's Go Time", "requirement": "Win 25 Games", "rewards": ["Muscle Milk (5 games)"]}, {"goal": 2, "name": "Screening Service", "requirement": "Get 250 Good Screens", "rewards": ["Gatorade Thirst Quencher (5 games)", "Physicals Player Banner"]}, {"goal": 3, "name": "Second Chance Hero", "requirement": "Get 200 Putback Buckets", "rewards": ["Gatorlyte (10 games)", "Physicals Varsity Jacket"]}, {"goal": 4, "name": "A Little bit of Everything", "requirement": "Win 50 Games with 1 or more Points in each win", "rewards": ["Physicals Basketball Shorts", "Standing Emote - Strength"]}, {"goal": 5, "name": "Immovable Object", "requirement": "Win 50 Games with 1 Point, 1 Rebound, 1 Assist, and 1 Steal or Block in each win", "rewards": ["LeBron James Jersey"]}, {"goal": 6, "name": "Winner Winner", "requirement": "Win 75 Games with Teammate Grade A- or higher", "rewards": ["Physicals Archetype Names"]}, {"goal": 7, "name": "Follow Through", "requirement": "Get 400 Putback Buckets", "rewards": ["1 Bonus Badge Slot", "4 Bonus Badge Tokens"]}, {"goal": 8, "name": "Physicality", "requirement": "Get 600 Good Screens", "rewards": ["1 Bonus Badge Slot", "5 Bonus Badge Tokens"]}, {"goal": 9, "name": "Pure Hustle", "requirement": "Get 900 Good Screens AND Get 600 Putback Dunks", "rewards": ["Physicals Cap Breaker", "Physicals Cap Breaker"]}, {"goal": 10, "name": "Jack of all Trades", "requirement": "Win 200 Games with 1 Point, 1 Rebound, 1 Assist, and 1 Steal or Block in each win", "rewards": ["Physicals +2 Synergy Slot", "Physicals Elbow Band"]}]}]</script>
+<script id="data-rebirth" type="application/json">{"tiers": [{"tier": "I", "badgeTokens": "25%", "extra": "15% faster badge progression", "status": "Build at 90+ Overall"}, {"tier": "II", "badgeTokens": "50%", "extra": "15% faster badge progression", "status": "Build at 95+ Overall"}, {"tier": "III", "badgeTokens": "75%", "extra": "15% faster badge progression", "status": "2 Builds at 95+ Overall"}, {"tier": "IV", "badgeTokens": "All", "extra": null, "status": "3 Builds at 95+ Overall"}], "shared": "Every tier also unlocks your past Max OVR on a new save.", "how": [{"title": "Getting Rebirth", "body": "Rebirth opens up once one of your builds reaches 90 Overall. Which tier you land on is set by the requirement listed on each card above."}, {"title": "Your Starting Overall", "body": "A Rebirth build does not climb from the bottom again. It starts at the highest Overall any of your builds has already reached, which is what the Max OVR unlock on every tier refers to."}, {"title": "Badge Tokens on Day One", "body": "Badges run on tokens in 2K27, and Rebirth releases a share of your default badge tokens the moment the new build is created. The core badges you rely on go straight on instead of being earned back, and that share grows with the tier, from a quarter at Tier I to all of them at Tier IV."}, {"title": "What Changed for 2K27", "body": "Rebirth returns with the same four tiers, but the reward was rebuilt around 2K27's new badge system. The token release is the new piece, so what a tier is worth is now measured in how much of your badge loadout is live on day one."}], "source": "The tier cards are read off the in-game Rebirth Rewards screen. The notes here come from 2K's own public description of how Rebirth works in 2K27."}</script>
+<script id="data-ww" type="application/json">{"answer": "Complete all 12 unique workouts at the Gatorade Training Facility. That unlocks the Workout Warrior badge, which makes the gym rewards permanent on all new and existing saves.", "steps": [{"title": "Attend a session", "body": "A session is four workouts. Each one you attempt raises your Stamina, and the stars you earn convert into MyPOINTS."}, {"title": "Aim for an Excellent Session", "body": "Score 3 or more stars on all 4 workouts and the session counts as Excellent. That permanently grants your next body type and gives you an additional turbo meter for the week."}, {"title": "Work through all 12", "body": "Keep going until every one of the 12 unique workouts has been completed. That is the Workout Warrior unlock, and it makes those rewards permanent across your saves."}], "workouts": ["Agility Ladder", "Agility Hurdles", "Punching Bag", "Bench Press", "Box Jump", "Exercise Bike", "Pull-Ups", "3-on-3 Scrimmage", "Sprints", "Squats", "Treadmill", "Yoga Ball"], "facts": [{"term": "Stamina", "detail": "Starts at 85. Every workout attempted gives you +2 Stamina."}, {"term": "Stars", "detail": "Each of the 4 workouts in a session is rated out of 4 stars."}, {"term": "MyPOINTS", "detail": "Awarded based on the stars gained in a workout."}, {"term": "Additional turbo meter", "detail": "An Excellent Session gives an additional turbo meter for the week. Workout Warrior makes it permanent."}, {"term": "Body type", "detail": "An Excellent Session permanently grants your next body type. The checklist shows your current type, the next one and how many Excellent Sessions are left to reach it."}, {"term": "Gatorade discounts", "detail": "Completing the Tennis Ball Toss, which tests your reaction time, earns discounts on Gatorade products."}]}</script>
+<script id="data-badge-attrs" type="application/json">[["Driving Dunk", "Standing Dunk"], ["Close Shot", "Driving Layup"], ["Close Shot", "Post Control"], ["Close Shot", "Post Control"], ["Driving Layup"], ["Close Shot"], ["Driving Layup", "Strength"], ["Post Control", "Strength"], ["Post Control"], ["Driving Dunk", "Vertical"], ["Standing Dunk", "Vertical"], ["Three-Point Shot"], ["Mid-Range Shot", "Three-Point Shot"], ["Three-Point Shot"], ["Mid-Range Shot", "Three-Point Shot"], ["Mid-Range Shot", "Post Control"], ["Mid-Range Shot", "Three-Point Shot"], ["Three-Point Shot"], ["Mid-Range Shot"], ["Mid-Range Shot"], ["Ball Handle"], ["Pass Accuracy"], ["Pass Accuracy"], ["Pass Accuracy"], ["Ball Handle"], ["Speed With Ball"], ["Speed With Ball"], ["Ball Handle", "Strength"], ["Post Control", "Ball Handle"], ["Pass Accuracy"], ["Perimeter Defense", "Agility"], ["Perimeter Defense"], ["Steal"], ["Block", "Vertical"], ["Perimeter Defense", "Strength"], ["Steal"], ["Interior Defense", "Perimeter Defense"], ["Interior Defense", "Block"], ["Perimeter Defense", "Agility"], ["Interior Defense", "Strength"], ["Perimeter Defense", "Agility"], ["Interior Defense", "Strength"], ["Defensive Rebound", "Strength"], ["Offensive Rebound", "Strength"], ["Offensive Rebound", "Vertical"], ["Defensive Rebound", "Vertical"], ["Offensive Rebound", "Defensive Rebound"], ["Strength"], ["Strength"], ["Speed", "Agility"], ["Vertical"], ["Speed", "Agility"], ["Agility", "Strength"]]</script>
+<script src="mycareer-app.js"></script>
+<footer class="sh-foot"><div class="sh-wrap">
+  <div class="sh-cols"><div class="sh-brand"><a class="sh-logo" href="index.html">NBA2K<em>LAB</em></a><p>Data-tested jumpers, badges and builds for NBA 2K27, backed by 10 years of large-sample testing.</p></div><nav class="sh-fcol" aria-labelledby="sh-fh-0"><h2 class="sh-fh" id="sh-fh-0">Tools</h2><a class="sh-fl" href="builds.html">Builds</a><a class="sh-fl" href="builder.html">MyPlayer Builder</a><a class="sh-fl" href="reference-table.html">Requirements</a><a class="sh-fl" href="mycareer.html">MyCareer Progression</a><a class="sh-fl" href="shooting.html">Shooting Guide</a><a class="sh-fl" href="game-details.html">Game Details</a></nav><nav class="sh-fcol" aria-labelledby="sh-fh-1"><h2 class="sh-fh" id="sh-fh-1">Reference</h2><a class="sh-fl" href="builds.html#blueprints">Signature Blueprints</a><a class="sh-fl" href="mycareer.html#specializations">Build Specializations</a><a class="sh-fl" href="game-details.html?track=rep#rewards">REP &amp; Lifetime Rewards</a><a class="sh-fl" href="mycareer.html#rebirth">Rebirth Rewards</a><a class="sh-fl" href="reference-table.html#takeovers">Takeover Requirements</a><a class="sh-fl" href="game-details.html?track=cap-breakers#rewards">Cap Breakers</a><a class="sh-fl" href="game-details.html#settings">Best Settings</a><a class="sh-fl" href="game-details.html#controls">Controls</a></nav><nav class="sh-fcol" aria-labelledby="sh-fh-2"><h2 class="sh-fh" id="sh-fh-2">Support</h2><a class="sh-fl" href="index.html#premium">Go Premium</a><a class="sh-fl ext" href="https://www.nba2klab.com/jumpshot-recommender" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">Jumpshot Lab</a><a class="sh-fl ext" href="https://www.nba2klab.com/contact" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">Contact</a><a class="sh-fl ext" href="https://www.nba2klab.com/terms-and-conditions" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">Terms</a><a class="sh-fl ext" href="https://www.nba2klab.com/privacy-policy" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">Privacy</a></nav></div>
+  <div class="sh-fine"><p>&copy; 2026 NBA2KLab. Not associated with NBA 2K, Take-Two Interactive, or the NBA.</p><p class="sh-extnote"><span aria-hidden="true">&#8599;</span> Opens the current NBA2KLab site in a new tab</p></div>
+  <span id="sh-ext-desc" hidden>Opens the current NBA2KLab site in a new tab</span>
+  <dialog class="sh-dialog" id="sh-signin" aria-labelledby="sh-signin-h">
+    <form method="dialog" class="sh-signin-form" novalidate>
+      <h2 id="sh-signin-h">Sign in (demo)</h2>
+      <p class="sh-demo-note">This redesign can&rsquo;t reach real 2KLab accounts, so sign-in here is a <b>demo</b>. There&rsquo;s no password: anyone who uses the same name gets the same account. Don&rsquo;t use your real name or anything personal.</p>
+      <label class="sh-field">Display name<input name="name" autocomplete="off" maxlength="20" required aria-describedby="sh-name-hint"></label>
+      <span class="sh-hint" id="sh-name-hint">2&ndash;20 letters, numbers, spaces, - or _</span>
+      <label class="sh-check"><input type="checkbox" name="premium"> Make it a demo Premium account <span class="sh-hint">(Premium can rate community builds, as on the live site. Set when the account is created.)</span></label>
+      <p class="sh-err" role="alert" hidden></p>
+      <div class="sh-dialog-actions"><button type="button" class="sh-btn sh-ghost" data-close>Cancel</button><button type="submit" class="sh-btn sh-primary">Sign in</button></div>
+    </form>
+  </dialog>
+</div></footer>
+<script id="site-shell-js">/* NBA2KLab site shell -- mobile drawer. Same behavior the homepage v5 drawer
+   was verified with: focus moves into the drawer, Tab is trapped, Escape
+   closes and returns focus to the toggle, resizing to desktop closes it. */
+(function () {
+  "use strict";
+  var toggle = document.querySelector(".sh-toggle");
+  var drawer = document.getElementById("sh-drawer");
+  if (!toggle || !drawer) return;
+  function focusables() { return drawer.querySelectorAll("a,button"); }
+  function open() {
+    drawer.hidden = false; toggle.setAttribute("aria-expanded", "true"); toggle.setAttribute("aria-label", "Close menu");
+    var f = focusables(); if (f.length) f[0].focus();
+    document.addEventListener("keydown", onKey);
+  }
+  function close(returnFocus) {
+    drawer.hidden = true; toggle.setAttribute("aria-expanded", "false"); toggle.setAttribute("aria-label", "Open menu");
+    document.removeEventListener("keydown", onKey);
+    if (returnFocus !== false) toggle.focus();
+  }
+  function onKey(e) {
+    if (e.key === "Escape") return close();
+    if (e.key !== "Tab" || drawer.hidden) return;
+    var f = focusables(); if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+  toggle.addEventListener("click", function () { drawer.hidden ? open() : close(); });
+  drawer.addEventListener("click", function (e) { if (e.target.closest("a")) close(false); });
+  window.addEventListener("resize", function () { if (window.innerWidth > 1080 && !drawer.hidden) close(false); });
+})();
+/* ---- demo accounts (shared by every page) ----
+   window.NBA2KLab.account: { user, ready, onChange(fn), api(path, opts), signIn() }.
+   Talks to /api/session. Where there is no API (a page opened from disk), sign-in says so instead of failing silently. */
+(function () {
+  "use strict";
+  var subs = [], state = { user: null, available: null };
+  function emit() { subs.forEach(function (f) { try { f(state.user); } catch (e) { console.error(e); } }); render(); }
+  function api(path, opts) {
+    opts = opts || {};
+    return fetch(path, { method: opts.method || "GET", credentials: "same-origin", headers: opts.body ? { "content-type": "application/json" } : {},
+      body: opts.body ? JSON.stringify(opts.body) : undefined }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (d) { if (!r.ok) { var e = new Error(d.error || ("HTTP " + r.status)); e.status = r.status; throw e; } return d; });
+    });
+  }
+  var dlg = document.getElementById("sh-signin"), pending = null;
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function render() {
+    document.querySelectorAll("[data-acct]").forEach(function (slot, i) {
+      if (!state.user) { slot.innerHTML = '<button type="button" class="sh-btn sh-ghost" data-acct-open>Log In</button>'; return; }
+      var u = state.user, id = "sh-menu-" + i;
+      slot.innerHTML = '<button type="button" class="sh-btn sh-ghost sh-acct-btn" aria-haspopup="true" aria-expanded="false" aria-controls="' + id + '" data-acct-menu>' + esc(u.name) +
+        (u.premium ? ' <span class="sh-prem">Premium</span>' : "") + '</button><div class="sh-menu" id="' + id + '" hidden><span class="sh-menu-note">Demo account</span>' +
+        '<a href="builder.html#my-builds">My builds</a><a href="game-details.html?track=rep#rewards">My progress</a><button type="button" data-acct-out>Sign out</button></div>';
+    });
+  }
+  function openDialog(then) {
+    pending = then || null;
+    if (state.available === false) { alert("Sign-in works on the deployed site. This copy of the page has no server behind it."); return; }
+    var f = dlg.querySelector("form"); f.reset(); dlg.querySelector(".sh-err").hidden = true;
+    dlg.showModal(); f.elements.name.focus();
+  }
+  if (dlg) {
+    dlg.querySelector("[data-close]").addEventListener("click", function () { dlg.close(); });
+    dlg.querySelector("form").addEventListener("submit", function (e) {
+      e.preventDefault(); var f = e.target, err = dlg.querySelector(".sh-err");
+      api("/api/session", { method: "POST", body: { name: f.elements.name.value, premium: f.elements.premium.checked } }).then(function (d) {
+        state.user = d.user; dlg.close(); emit(); if (pending) { var p = pending; pending = null; p(d.user); }
+      }).catch(function (x) { err.textContent = x.message; err.hidden = false; });
+    });
+  }
+  document.addEventListener("click", function (e) {
+    if (e.target.closest("[data-acct-open]")) { openDialog(); return; }
+    var m = e.target.closest("[data-acct-menu]");
+    if (m) { var menu = document.getElementById(m.getAttribute("aria-controls")), open = menu.hidden; menu.hidden = !open; m.setAttribute("aria-expanded", String(open)); return; }
+    if (e.target.closest("[data-acct-out]")) { api("/api/session", { method: "DELETE" }).then(function () { state.user = null; emit(); }); return; }
+    document.querySelectorAll(".sh-menu:not([hidden])").forEach(function (x) { if (!x.parentElement.contains(e.target)) { x.hidden = true; var b = x.parentElement.querySelector("[data-acct-menu]"); if (b) b.setAttribute("aria-expanded", "false"); } });
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") document.querySelectorAll(".sh-menu:not([hidden])").forEach(function (x) { x.hidden = true; }); });
+  var ready = (location.protocol === "file:" ? Promise.reject(new Error("no server")) : api("/api/session"))
+    .then(function (d) { state.available = true; state.user = d.user; }, function () { state.available = false; })
+    .then(function () { emit(); return state.user; });
+  window.NBA2KLab = window.NBA2KLab || {};
+  window.NBA2KLab.account = {
+    get user() { return state.user; }, get available() { return state.available; }, ready: ready, api: api,
+    onChange: function (f) { subs.push(f); }, signIn: function (then) { openDialog(then); },
+  };
+})();
+</script>
+</body></html>

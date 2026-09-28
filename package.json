@@ -1,0 +1,9 @@
+{
+  "name": "nba2klab-redesign",
+  "version": "1.0.0",
+  "dependencies": {
+    "@vercel/blob": "2.8.0"
+  },
+  "private": true,
+  "type": "module"
+}
