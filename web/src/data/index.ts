@@ -18,3 +18,5 @@ export { seasonRewards } from "./seasonRewards";
 export { starterRewards } from "./starterRewards";
 export { settings, controls, howToInputs, dribbleMoves, tvEpisode } from "./guides";
 export { shootingBadgeTests } from "./shootingBadgeTests";
+export { faceCreations } from "./faceCreations";
+export { vcPrices } from "./vcPrices";

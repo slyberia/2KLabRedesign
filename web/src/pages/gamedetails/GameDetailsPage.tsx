@@ -1,6 +1,8 @@
 import { Tabs, type TabDef } from "../../components/Tabs";
 import { initialParams, replaceUrl, useHashTab } from "../../lib/url";
-import { ControlsPanel, FacePanel, HowToPanel, SettingsPanel, TvPanel, VcPanel } from "./GuidePanels";
+import { FacePanel } from "./FacePanel";
+import { ControlsPanel, HowToPanel, SettingsPanel, TvPanel } from "./GuidePanels";
+import { VcPanel } from "./VcPanel";
 import { RewardsPanel } from "./RewardsPanel";
 import "./gamedetails.css";
 

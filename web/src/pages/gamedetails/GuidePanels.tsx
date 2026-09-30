@@ -3,7 +3,6 @@ import { controls, dribbleMoves, howToInputs, settings, tvEpisode, type HowToGui
 import { Tabs, type TabDef } from "../../components/Tabs";
 import { ExtLink } from "../../shell/Layout";
 import { live } from "../../shell/links";
-import { FACES, VC_PACKS } from "./content";
 
 /** Short reasons shown next to each recommended setting (summarized from 2KLab's settings FAQ). */
 const SETTING_WHY: Record<string, React.ReactNode> = {
@@ -186,86 +185,6 @@ export function HowToPanel() {
             )}
           </div>
         </div>
-      </div>
-    </>
-  );
-}
-
-/** Coin art drawn in SVG: each column is a stack of coin edges with a face on top. */
-function CoinArt({ stacks }: { stacks: [number, number][] }) {
-  return (
-    <svg className="coinart" viewBox="0 0 124 160" aria-hidden="true">
-      {stacks.map(([x, n]) => {
-        const top = 150 - 7 * (n - 1);
-        return (
-          <g key={x}>
-            {Array.from({ length: n }, (_, i) => {
-              const y = 150 - 7 * i;
-              const face = i === n - 1;
-              return (
-                <ellipse key={i} cx={x} cy={y} rx="32" ry="11" fill={face ? "url(#coinFace)" : "url(#coinEdge)"}
-                  stroke={face ? "oklch(.58 .11 68)" : "oklch(.5 .1 66)"} strokeWidth={face ? 1.2 : 1} />
-              );
-            })}
-            <ellipse cx={x} cy={top} rx="26" ry="8" fill="none" stroke="oklch(.70 .10 78)" strokeWidth="1" opacity=".7" />
-            <path d={`M${x - 9},${top + 2} q9,-8 18,0`} fill="none" stroke="oklch(.55 .10 66)" strokeWidth="1.6" opacity=".8" />
-          </g>
-        );
-      })}
-    </svg>
-  );
-}
-
-export function VcPanel() {
-  const fmt = (n: number) => n.toLocaleString("en-US");
-  return (
-    <>
-      <h2>VC Prices</h2>
-      <p className="plead">Every Virtual Currency pack and its bonus VC. Bigger packs give more free VC per dollar.</p>
-      <svg className="coin-defs" width="0" height="0" aria-hidden="true" focusable="false" style={{ position: "absolute" }}>
-        <defs>
-          <radialGradient id="coinFace" cx="38%" cy="32%" r="75%">
-            <stop offset="0%" stopColor="oklch(.92 .10 92)" />
-            <stop offset="55%" stopColor="oklch(.82 .13 86)" />
-            <stop offset="100%" stopColor="oklch(.66 .12 72)" />
-          </radialGradient>
-          <linearGradient id="coinEdge" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="oklch(.74 .12 80)" />
-            <stop offset="100%" stopColor="oklch(.55 .11 66)" />
-          </linearGradient>
-        </defs>
-      </svg>
-      <div className="packgrid">
-        {VC_PACKS.map((p) => (
-          <div className={`pack${p.featured ? " is-featured" : ""}`} key={p.vc}>
-            <div className="pack-top"><span className="amt">{fmt(p.vc)}</span><span className="unit">VC PACK</span></div>
-            {p.payFor == null ? (
-              <div className="bonus none">Base bundle</div>
-            ) : (
-              <div className="bonus"><span className="pf">Pay for {fmt(p.payFor)}</span><span className="free">GET {fmt(p.free)} FREE</span></div>
-            )}
-            <div className="pack-art"><CoinArt stacks={p.coins} /></div>
-            <div className="price">{p.price}</div>
-          </div>
-        ))}
-      </div>
-      <p className="mediahint">Coin art built in-system; a licensed render can drop into each card&rsquo;s media slot.</p>
-    </>
-  );
-}
-
-export function FacePanel() {
-  return (
-    <>
-      <h2>Face Creations</h2>
-      <p className="plead">Slider sets to recreate {FACES.length} NBA players on your MyPlayer. Pick a player for the full face-creation values.</p>
-      <div className="facegrid">
-        {FACES.map((f) => (
-          <ExtLink key={f.name} className="face-card" href={live("/nba2k-face-creations")}>
-            <div className="portrait"><img src={f.image} alt={`${f.name} MyPlayer face creation`} loading="lazy" width={800} height={450} /></div>
-            <div className="face-meta"><span className="face-name">{f.name}</span><span className="face-cta">View Sliders &rarr;</span></div>
-          </ExtLink>
-        ))}
       </div>
     </>
   );

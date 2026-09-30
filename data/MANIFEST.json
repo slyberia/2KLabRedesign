@@ -230,6 +230,31 @@
    "records": 17,
    "captured": "2026-09-27",
    "contents": "Full controller mapping (Xbox / PlayStation), offense and defense"
+  },
+  {
+   "file": "data/face-creations.json",
+   "source": [
+    "/nba2k-face-creations"
+   ],
+   "records": {
+    "players": 108,
+    "current": 61,
+    "legend": 47
+   },
+   "captured": "2026-09-30",
+   "contents": "Face creation settings per player (14 sections, values as published, some marked with an unexplained warning sign), finished-face image URL; tutorials by 2KFace. Rebuilt by scripts/scrape_face_vc.py"
+  },
+  {
+   "file": "data/vc-prices.json",
+   "source": [
+    "/nba2k-vc-prices"
+   ],
+   "records": {
+    "tiers": 7,
+    "season1Bundles": 2
+   },
+   "captured": "2026-09-30",
+   "contents": "VC tiers with price and stated VC per $1, Season 1 bundles, approximate VC to max a build. Rebuilt by scripts/scrape_face_vc.py"
   }
  ]
 }

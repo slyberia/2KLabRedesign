@@ -32,13 +32,36 @@ test.describe("Game Details", () => {
     await expectNoHorizontalOverflow(page);
   });
 
-  test("VC, face creations and 2KTV render from their sources", async ({ page }) => {
+  test("VC prices: tiers with VC per $1, and the Season 1 bundles", async ({ page }) => {
     await page.goto("/game-details#vc-prices");
-    await expect(page.locator(".pack")).toHaveCount(6);
-    await expect(page.locator(".pack.is-featured .amt")).toHaveText("35,000");
-    await page.getByRole("tab", { name: "Face Creations" }).click();
-    await expect(page.locator(".face-card")).toHaveCount(20);
-    await page.getByRole("tab", { name: "2KTV Answers" }).click();
+    await expect(page.locator(".pack")).toHaveCount(7);
+    await expect(page.locator(".pack.is-featured .amt")).toHaveText("700,000");
+    await expect(page.locator(".pack.is-featured")).toContainText("4,667 VC per $1");
+    await expect(page.locator(".bundle")).toHaveCount(2);
+    await expect(page.locator(".vc-max")).toContainText("360,000 VC");
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test("face creations: groups, search across both, and full settings", async ({ page }) => {
+    await page.goto("/game-details#face-creations");
+    await expect(page.locator(".face-card")).toHaveCount(61);
+    await page.getByRole("tab", { name: "Legends (47)" }).click();
+    await expect(page.locator(".face-card")).toHaveCount(47);
+    await page.getByLabel("Search players").fill("lebron");
+    await expect(page.getByText("2 results across both groups")).toBeVisible();
+    await page.getByLabel("Search players").fill("Hakeem");
+    const card = page.locator(".face-card", { hasText: "Hakeem Olajuwon" });
+    await card.getByRole("button", { name: "Show settings" }).click();
+    const skull = card.locator(".fs", { has: page.getByRole("heading", { name: /^Skull/ }) });
+    await expect(skull.locator("dd").last()).toContainText("7");
+    await expect(skull.locator(".fv-flag")).toHaveCount(1);
+    await expect(card.locator(".fs")).toHaveCount(13);
+    await expect(page.getByRole("link", { name: "2KFace on TikTok" })).toHaveAttribute("href", "https://www.tiktok.com/@2kface");
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test("2KTV renders the snapshot", async ({ page }) => {
+    await page.goto("/game-details#2ktv");
     await expect(page.locator(".qa")).toHaveCount(12);
     await expect(page.locator(".qa-head")).toContainText("snapshot");
   });

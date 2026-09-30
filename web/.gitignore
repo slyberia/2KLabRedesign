@@ -8,3 +8,5 @@ playwright-report/
 .shot2.mjs
 .probe.mjs
 .shot3.mjs
+.live.mjs
+.shot4.mjs
