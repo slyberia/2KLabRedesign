@@ -1,0 +1,25 @@
+from playwright.sync_api import sync_playwright
+import json
+exp=json.load(open('/tmp/expect.json'))
+with sync_playwright() as p:
+    b=p.chromium.launch(args=["--no-sandbox"]); errs=[]
+    pg=b.new_page(viewport={"width":1280,"height":900}); pg.on("pageerror",lambda e:errs.append(str(e)))
+    pg.goto("file:///home/claude/site/builds.html"); pg.wait_for_timeout(700)
+    names=lambda n=6: pg.evaluate(f"()=>[...document.querySelectorAll('.bp-card .bp-name')].slice(0,{n}).map(e=>e.textContent)")
+    card=lambda nm: pg.evaluate(f"()=>{{const c=[...document.querySelectorAll('.bp-card')].find(c=>c.querySelector('.bp-name').textContent==='{nm}');return c&&c.querySelector('.bp-metric')?.textContent}}")
+    pg.click('[data-sort="attr"]'); pg.select_option('#selAttr','Three-Point Shot'); pg.wait_for_timeout(100)
+    print("attr 3PT      :",names()==exp['attr_3pt'],names())
+    pg.click('[data-sort="badges"]'); pg.select_option('#selTier','gold'); pg.select_option('#selCat','shooting'); pg.wait_for_timeout(100)
+    print("badges G+ shoot:",names()==exp['badges_gold_shooting'],names())
+    pg.select_option('#selCat','all'); pg.wait_for_timeout(50); print("  Certified Bucket gold+ all:",card("Certified Bucket"),"| builder-consistent expect",exp['cb_goldplus_all'])
+    pg.click('[data-sort="takeovers"]'); pg.wait_for_timeout(100)
+    print("takeovers     :",names()==exp['takeovers'],names()); print("  Certified Bucket:",card("Certified Bucket"),"| expect",exp['cb_takeovers'])
+    pg.select_option('#selTk','ShotArtist'); pg.wait_for_timeout(100)
+    got=names(40); print("Shot Artist filter:",got==exp['shot_artist'],len(got),"archetypes")
+    pg.click('[data-pos="PG"]'); pg.wait_for_timeout(50); print("  + PG:",pg.evaluate("()=>document.getElementById('bpCount').textContent"))
+    pg.screenshot(path="shot_bsort.png")
+    m=b.new_page(viewport={"width":375,"height":820},has_touch=True,is_mobile=True); m.goto("file:///home/claude/site/builds.html"); m.wait_for_timeout(500)
+    m.click('[data-sort="badges"]'); m.wait_for_timeout(100)
+    print("375 overflow:",m.evaluate("()=>document.documentElement.scrollWidth>innerWidth+1"),"| small targets:",m.evaluate("()=>[...document.querySelectorAll('.bp-controls button,.bp-controls select')].filter(e=>{const r=e.getBoundingClientRect();return r.height<24||r.width<24}).length"))
+    m.screenshot(path="shot_bsort_mob.png")
+    print("PAGE ERRORS:",errs or "none"); b.close()

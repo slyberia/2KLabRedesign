@@ -1,0 +1,243 @@
+/* =============================================================================
+   NBA2KLAB — DESIGN TOKENS
+   Three tiers. One rule: components reference ONLY Tier 2 (semantic) tokens.
+   Never a Tier 1 primitive, never a raw value, in a component.
+   That rule is the entire reason a season can re-skin the site by
+   overriding a handful of Tier 2 tokens.
+
+   Tier 1  primitives   — raw palette + scales. Named by what they ARE.
+   Tier 2  semantic     — roles. Named by what they DO. Themeable surface.
+   Tier 3  themes        — a theme is a set of Tier 2 values. Base = :root.
+                           A season is a [data-theme] block that overrides
+                           ONLY the tokens that make it seasonal.
+
+   Contrast: every semantic text/surface pair below is verified >= WCAG AA
+   (4.5:1 body, 3:1 large/UI) in both themes. See TOKENS.md for the table.
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   TIER 1 — PRIMITIVES  (reference only; do not use directly in components)
+   ----------------------------------------------------------------------------- */
+:root {
+  /* neutrals — warm charcoal, tinted toward the brand red hue (25) --------- */
+  --neutral-950: oklch(0.150 0.010 25);
+  --neutral-900: oklch(0.185 0.012 25);
+  --neutral-850: oklch(0.225 0.014 25);
+  --neutral-800: oklch(0.260 0.016 25);
+  --neutral-700: oklch(0.320 0.016 25);
+  --neutral-600: oklch(0.440 0.015 25);
+  --neutral-500: oklch(0.560 0.012 25);
+  --neutral-400: oklch(0.620 0.012 25);
+  --neutral-300: oklch(0.720 0.012 25);
+  --neutral-200: oklch(0.840 0.008 25);
+  --neutral-100: oklch(0.920 0.006 25);
+  --neutral-050: oklch(0.960 0.004 25);
+
+  /* brand red ramp -------------------------------------------------------- */
+  --red-900: oklch(0.300 0.110 25);   /* deep broadcast header             */
+  --red-700: oklch(0.420 0.150 25);
+  --red-600: oklch(0.500 0.180 25);   /* pressed                           */
+  --red-500: oklch(0.560 0.190 25);   /* brand fill                        */
+  --red-400: oklch(0.640 0.170 25);   /* accent-as-text (AA on surface)    */
+  --red-300: oklch(0.720 0.140 25);   /* focus ring                        */
+
+  /* badge tier ramp — the reserved "metal" family; used as DATA values --- */
+  --tier-bronze-ref: oklch(0.700 0.150 55);
+  --tier-silver-ref: oklch(0.830 0.045 240);
+  --tier-gold-ref:   oklch(0.830 0.190 92);
+  --tier-hof-ref:    oklch(0.700 0.200 300);
+
+  /* product category family — LABELS/accents; kept off the tier hues so a
+     category never collides with a tier on a data-dense page (badges != gold,
+     takeover != hof-purple) ------------------------------------------------ */
+  --category-shooting-ref:   oklch(0.740 0.130 158);
+  --category-badges-ref:     oklch(0.640 0.130 275);  /* indigo (not gold)   */
+  --category-animations-ref: oklch(0.700 0.120 235);  /* blue                */
+  --category-takeover-ref:   oklch(0.720 0.110 190);  /* teal (not purple)   */
+  --category-builder-ref:    oklch(0.680 0.045 250);  /* slate               */
+
+  /* status family — live/feedback; distinct token set from category-shooting */
+  --status-success-ref: oklch(0.720 0.150 145);
+  --status-warning-ref: oklch(0.800 0.120 75);
+  --status-error-ref:   oklch(0.620 0.200 25);
+  --status-info-ref:    oklch(0.700 0.120 235);
+
+  /* seasonal support hues (referenced by season themes) ------------------- */
+  --navy-950: oklch(0.150 0.030 258);
+  --navy-900: oklch(0.190 0.035 258);
+  --navy-850: oklch(0.250 0.042 258);
+  --navy-800: oklch(0.290 0.045 258);
+  --navy-700: oklch(0.400 0.045 258);
+  --navy-header: oklch(0.290 0.060 258);
+  --cyan-500: oklch(0.800 0.120 210);   /* the cover rim-light             */
+
+  --white: oklch(0.990 0 0);
+
+  /* type primitives ------------------------------------------------------- */
+  --font-display: 'Barlow Condensed', system-ui, sans-serif;
+  --font-body:    'Hanken Grotesk', system-ui, sans-serif;
+  --font-mono:    ui-monospace, 'Cascadia Code', monospace;
+
+  /* fixed rem scale for app UI (major-third ~1.25). clamp only on display. */
+  --size-xs:   0.75rem;   /* 12px — meaningful-text floor      */
+  --size-sm:   0.875rem;  /* 14px                              */
+  --size-base: 1rem;      /* 16px                              */
+  --size-md:   1.125rem;  /* 18px                              */
+  --size-lg:   1.375rem;  /* 22px                              */
+  --size-xl:   1.75rem;   /* 28px                              */
+  --size-2xl:  2.25rem;   /* 36px                              */
+  --size-3xl:  2.75rem;   /* 44px                              */
+  --display-1: clamp(2rem, 1.1rem + 3.6vw, 3.25rem); /* hero only */
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+
+  --leading-tight:  1.05;  /* display                          */
+  --leading-snug:   1.2;   /* headings                         */
+  --leading-normal: 1.55;  /* body on dark (+0.05 for light-on-dark) */
+  --tracking-tight: -0.01em;
+  --tracking-wide:  0.06em; /* caps labels                     */
+
+  /* space scale (4px base) ------------------------------------------------ */
+  --space-1: 0.25rem;  --space-2: 0.5rem;  --space-3: 0.75rem; --space-4: 1rem;
+  --space-5: 1.25rem;  --space-6: 1.5rem;  --space-8: 2rem;    --space-10: 2.5rem;
+  --space-12: 3rem;    --space-16: 4rem;
+
+  /* radius ---------------------------------------------------------------- */
+  --radius-sm: 2px; --radius-md: 3px; --radius-lg: 6px; --radius-pill: 999px;
+
+  /* border ---------------------------------------------------------------- */
+  --border-1: 1px; --border-2: 2px; --border-rule: 3px; /* the broadcast rule */
+
+  /* elevation (A is near-flat; keep shadows restrained) ------------------- */
+  --shadow-1: 0 1px 2px oklch(0 0 0 / 0.35);
+  --shadow-2: 0 6px 20px oklch(0 0 0 / 0.40);
+
+  /* z-index ladder (replaces the site's ad-hoc 2000..9999 sprawl) --------- */
+  --z-base: 0; --z-dropdown: 1000; --z-sticky: 1100; --z-overlay: 1200;
+  --z-modal: 1300; --z-toast: 1400;
+
+  /* motion ---------------------------------------------------------------- */
+  --duration-fast: 120ms; --duration-base: 200ms; --duration-slow: 320ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* breakpoints (documentation; the 5 values used across all media queries) */
+  --bp-sm: 576px; --bp-md: 768px; --bp-lg: 992px; --bp-xl: 1200px; --bp-2xl: 1400px;
+}
+
+/* -----------------------------------------------------------------------------
+   TIER 2 — SEMANTIC  (the ONLY tokens components may use)
+   Default values here ARE the base theme: "Broadcast" (Direction A).
+   ----------------------------------------------------------------------------- */
+:root {
+  /* surfaces */
+  --surface:         var(--neutral-900);
+  --surface-raised:  var(--neutral-850);
+  --surface-sunken:  var(--neutral-950);
+  --surface-hover:   var(--neutral-800);
+
+  /* text */
+  --text:            var(--neutral-050);
+  --text-muted:      var(--neutral-300);
+  --text-subtle:     var(--neutral-400);   /* tuned to 0.62 for AA          */
+  --text-on-accent:  var(--white);
+
+  /* lines */
+  --border:          var(--neutral-700);
+  --border-strong:   var(--neutral-600);
+
+  /* brand / action */
+  --accent:          var(--red-500);       /* FILLS: buttons, active pills  */
+  --accent-hover:    var(--red-400);
+  --accent-pressed:  var(--red-600);
+  --accent-text:     var(--red-400);        /* accent used AS TEXT on surface */
+  --on-accent:       var(--white);
+
+  /* "live / selected / top" — a season may repoint this to its spotlight hue.
+     In base it is simply the brand accent. */
+  --accent-live:     var(--red-500);
+  --on-accent-live:  var(--white);
+
+  /* focus (never removed; see reset) */
+  --focus-ring:      var(--red-300);
+
+  /* status family — feedback and live state (was conflated with category) */
+  --status-success:  var(--status-success-ref);   /* live / updated / pass  */
+  --status-warning:  var(--status-warning-ref);
+  --status-error:    var(--status-error-ref);
+  --status-info:     var(--status-info-ref);
+  /* back-compat aliases (map old data-* names onto the status family) */
+  --data-positive:   var(--status-success);
+  --data-negative:   var(--status-error);
+  --data-warning:    var(--status-warning);
+
+  /* product category family — content-type labels/accents */
+  --category-shooting:   var(--category-shooting-ref);
+  --category-badges:     var(--category-badges-ref);
+  --category-animations: var(--category-animations-ref);
+  --category-takeover:   var(--category-takeover-ref);
+  --category-builder:    var(--category-builder-ref);
+
+  /* badge tiers — data values only; never reused as a category accent */
+  --tier-bronze:     var(--tier-bronze-ref);
+  --tier-silver:     var(--tier-silver-ref);
+  --tier-gold:       var(--tier-gold-ref);
+  --tier-hof:        var(--tier-hof-ref);
+
+  /* named component roles that a season might restyle */
+  --table-header-bg: var(--red-900);
+  --table-header-fg: var(--neutral-050);
+  --rule-accent:     var(--accent);         /* the inset broadcast top rule  */
+  --brand-glow:      none;                    /* seasons may add a glow        */
+
+  /* type roles */
+  --font-heading:    var(--font-display);
+  --font-text:       var(--font-body);
+}
+
+/* -----------------------------------------------------------------------------
+   TIER 3 — THEMES
+   A season overrides ONLY what makes it seasonal. Everything else inherits
+   from the base above. Note: seasons change COLOR + SURFACE, not type.
+   ----------------------------------------------------------------------------- */
+
+/* Season: Arena Night — palette sampled from the NBA 2K27 cover.
+   Overrides: 12 tokens. Type, spacing, radius, motion all inherit from base. */
+[data-theme="arena-night-2k27"] {
+  --surface:         var(--navy-900);
+  --surface-raised:  var(--navy-850);
+  --surface-sunken:  var(--navy-950);
+  --surface-hover:   var(--navy-800);
+  --border:          var(--navy-700);
+
+  --accent-live:     var(--cyan-500);        /* the rim-light spotlight       */
+  --on-accent-live:  var(--navy-900);        /* dark text on cyan (AA 10.3:1) */
+  --focus-ring:      var(--cyan-500);
+  --tier-hof:        var(--cyan-500);         /* top tier glows like the cover */
+
+  --table-header-bg: var(--navy-header);
+  --brand-glow:      0 0 10px oklch(0.560 0.190 25 / 0.6); /* red neon mark    */
+  /* --accent (brand red) and type are intentionally UNCHANGED. */
+}
+
+/* Season template — copy, rename, override only what changes. Keep it minimal;
+   if you're overriding more than ~15 tokens, it's a new direction, not a season.
+[data-theme="your-season"] {
+  --surface: ...; --surface-raised: ...; --border: ...;
+  --accent-live: ...; --on-accent-live: ...; --focus-ring: ...;
+  --tier-hof: ...; --table-header-bg: ...;
+}
+*/
+
+/* -----------------------------------------------------------------------------
+   QUALITY FLOOR (part of the system, not per-component)
+   ----------------------------------------------------------------------------- */
+:where(a, button, [role="button"], input, select, [tabindex]):focus-visible {
+  outline: var(--border-2) solid var(--focus-ring);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

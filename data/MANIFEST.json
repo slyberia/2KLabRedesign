@@ -1,0 +1,235 @@
+{
+ "note": "Every file is data captured from nba2klab.com. 'captured' is the file's modification time in the build workspace. Counts are computed from the file.",
+ "base": "https://www.nba2klab.com",
+ "files": [
+  {
+   "file": "data/badges.json",
+   "source": [
+    "/badge-requirements",
+    "/badge-descriptions"
+   ],
+   "records": 53,
+   "captured": "2026-09-23",
+   "contents": "Badge requirements: tiers, operator (SINGLE/AND/OR), height range, conditions, description"
+  },
+  {
+   "file": "data/animations.json",
+   "source": [
+    "/animation-requirements"
+   ],
+   "records": 2503,
+   "captured": "2026-09-21",
+   "contents": "Animation requirements: subtype, thresholds, operator, height range"
+  },
+  {
+   "file": "data/blueprints.json",
+   "source": [
+    "/signature-blueprints"
+   ],
+   "records": 40,
+   "captured": "2026-09-21",
+   "contents": "Signature Blueprints: position, body, attribute ranges [floor, ceiling|null], potential, comps"
+  },
+  {
+   "file": "data/players.json",
+   "source": [
+    "/nba2k-player-ratings"
+   ],
+   "records": 516,
+   "captured": "2026-09-21",
+   "contents": "Real player ratings: 21 canonical attributes + extra ratings"
+  },
+  {
+   "file": "data/attribute-descriptions.json",
+   "source": [
+    "/nba2k-attributes"
+   ],
+   "records": 21,
+   "captured": "2026-09-21",
+   "contents": "Attribute descriptions keyed by canonical attribute name"
+  },
+  {
+   "file": "data/takeovers.json",
+   "source": [
+    "/takeover-requirements"
+   ],
+   "records": 24,
+   "captured": "2026-09-23",
+   "contents": "Takeovers: category, operator (ALWAYS/SINGLE/AND/OR), conditions, descriptions"
+  },
+  {
+   "file": "data/specializations.json",
+   "source": [
+    "/nba2k-build-specializations"
+   ],
+   "records": 6,
+   "captured": "2026-09-23",
+   "contents": "Build Specializations: unlock rule (OR of AND-groups), 10 goals with rewards"
+  },
+  {
+   "file": "data/rebirth.json",
+   "source": [
+    "/rebirth-rewards"
+   ],
+   "records": {
+    "tiers": 4
+   },
+   "captured": "2026-09-23",
+   "contents": "Rebirth tiers and how-it-works notes"
+  },
+  {
+   "file": "data/workout-warrior.json",
+   "source": [
+    "/nba2k-workout-warrior"
+   ],
+   "records": {
+    "workouts": 12
+   },
+   "captured": "2026-09-23",
+   "contents": "Workout Warrior: workouts, session steps, facts"
+  },
+  {
+   "file": "data/cap-breakers.json",
+   "source": [
+    "/nba2k-cap-breakers"
+   ],
+   "records": {
+    "tracks": 5
+   },
+   "captured": "2026-09-23",
+   "contents": "Cap Breaker sources: 5 tracks, stated totals"
+  },
+  {
+   "file": "data/rewards-rep.json",
+   "source": [
+    "/rep-rewards"
+   ],
+   "records": {
+    "tiers": 5
+   },
+   "captured": "2026-09-24",
+   "contents": "REP ladder: 5 tiers, levels, rewards"
+  },
+  {
+   "file": "data/rewards-lifetime.json",
+   "source": [
+    "/lifetime-challenges"
+   ],
+   "records": {
+    "nodes": 21
+   },
+   "captured": "2026-09-24",
+   "contents": "Lifetime Challenge milestones (incl. pending) and sections"
+  },
+  {
+   "file": "data/rewards-crew.json",
+   "source": [
+    "/nba2k-crew-rewards"
+   ],
+   "records": {
+    "ladder": 41
+   },
+   "captured": "2026-09-24",
+   "contents": "Crew ladder: level, reward, kind"
+  },
+  {
+   "file": "data/rewards-season.json",
+   "source": [
+    "/nba2k-season-rewards"
+   ],
+   "records": {
+    "tracks": 3
+   },
+   "captured": "2026-09-24",
+   "contents": "Season 1 tracks: Premium Pass, MyCareer, MyTeam"
+  },
+  {
+   "file": "data/rewards-starter.json",
+   "source": [
+    "/starter-challenges"
+   ],
+   "records": {
+    "sections": 6
+   },
+   "captured": "2026-09-24",
+   "contents": "Starter Challenges: sections, tasks, rewards"
+  },
+  {
+   "file": "data/settings.json",
+   "source": [
+    "/nba2k-best-settings",
+    "/nba2k-best-camera-settings"
+   ],
+   "records": {
+    "quick": 7
+   },
+   "captured": "2026-09-27",
+   "contents": "2KLab's 7 recommended settings, FAQ reasons, camera recommendation"
+  },
+  {
+   "file": "data/howto-inputs.json",
+   "source": [
+    "/nba2k-how-to-dunk",
+    "/nba2k-how-to-pass",
+    "/nba2k-layup-controls",
+    "/nba2k-post-controls"
+   ],
+   "records": {
+    "dunk": 4,
+    "pass": 18,
+    "layups": 9,
+    "post": 21
+   },
+   "captured": "2026-09-27",
+   "contents": "How-To move inputs (Xbox notation) from 2KLab's page data"
+  },
+  {
+   "file": "data/2ktv-episode.json",
+   "source": [
+    "/2ktv-answers"
+   ],
+   "records": {
+    "episode": 4,
+    "questions": 12
+   },
+   "captured": "2026-09-27",
+   "contents": "2KTV answers: snapshot of one episode"
+  },
+  {
+   "file": "data/shooting-badge-tests.json",
+   "source": [
+    "/how-to-shoot"
+   ],
+   "records": 9,
+   "captured": "2026-09-27",
+   "contents": "Shooting badge 2KLab test status (Results / Pending) with result page paths"
+  },
+  {
+   "file": "data/community-builds-live.json",
+   "source": [
+    "/.netlify/functions/builds"
+   ],
+   "records": 0,
+   "captured": "2026-09-27",
+   "contents": "Live 2KLab community builds endpoint response (was empty when fetched)"
+  },
+  {
+   "file": "data/howto-dribble-moves.json",
+   "source": [
+    "/nba2k-how-to-dribble"
+   ],
+   "records": 30,
+   "captured": "2026-09-27",
+   "contents": "Dribble move names (no inputs published as data)"
+  },
+  {
+   "file": "data/controls.json",
+   "source": [
+    "/nba2k-controls"
+   ],
+   "records": 17,
+   "captured": "2026-09-27",
+   "contents": "Full controller mapping (Xbox / PlayStation), offense and defense"
+  }
+ ]
+}

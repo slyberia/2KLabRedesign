@@ -1,0 +1,238 @@
+{
+ "dunk": {
+  "title": "How to Dunk in NBA 2K27",
+  "intro": "Every dunk input in NBA 2K27, for Xbox and PlayStation, plus how the dunk meter works and how to time the release.",
+  "moves": [
+   {
+    "name": "Normal Dunk",
+    "input": "RT + press X while driving in close range."
+   },
+   {
+    "name": "Two-Hand Dunk",
+    "input": "RT + move and hold RS up while driving in close range."
+   },
+   {
+    "name": "Dominant or Off-Hand Dunk",
+    "input": "RT + move and hold RS left or right. The RS direction determines the dunking hand."
+   },
+   {
+    "name": "Controllable Rim Hang",
+    "input": "When performing a dunk with RS, keep RT held to hang on the rim. Use LS to control swing, and move RS up to pull up on the rim or left/right to lift the legs."
+   }
+  ],
+  "source": "/nba2k-how-to-dunk"
+ },
+ "pass": {
+  "title": "NBA 2K27 Pass Controls",
+  "intro": "",
+  "moves": [
+   {
+    "name": "Normal Pass",
+    "input": "Press A to pass. Use LS to select receiver."
+   },
+   {
+    "name": "Bounce Pass",
+    "input": "Tap B to pass. Use LS to select receiver."
+   },
+   {
+    "name": "Lob Pass",
+    "input": "Press Y to pass. Use LS to select receiver."
+   },
+   {
+    "name": "Icon Pass",
+    "input": "Press RB then press the button of the desired receiver. Use LS to lead the receiver in any direction."
+   },
+   {
+    "name": "Wrap Pass",
+    "input": "Double tap B to pass. Use LS to select receiver."
+   },
+   {
+    "name": "Alley-oop",
+    "input": "Double tap Y to pass. Use LS to select receiver. To finish the alley-oop, press the button displayed once the meter reaches the make window when receiving the pass."
+   },
+   {
+    "name": "Alley-oop To Self",
+    "input": "Press X + Y + move LS toward the hoop. To finish the alley-oop, press the button displayed once the meter reaches the make window when receiving the pass."
+   },
+   {
+    "name": "Lead To Basket Pass",
+    "input": "Press and hold Y to make the selected receiver cut to the basket. Release Y to pass. (Lead To Basket Pass must be enabled in Controller Settings.)"
+   },
+   {
+    "name": "Skip Pass",
+    "input": "Hold A to target a receiver farther away. Use LS to select receiver."
+   },
+   {
+    "name": "Get Open Pass",
+    "input": "Hold B to call for a teammate to get open. Release B to pass the ball. Use LS to select receiver."
+   },
+   {
+    "name": "Handoff Pass",
+    "input": "Hold B to call for a teammate to come to the ball for a handoff. Use LS to select receiver. (Handoff/Pitch Pass must be enabled in Controller Settings.)"
+   },
+   {
+    "name": "Fake Pass",
+    "input": "Press Y + B while standing or driving to the hoop."
+   },
+   {
+    "name": "Jump Pass",
+    "input": "Press X + A while standing or driving to the hoop."
+   },
+   {
+    "name": "Flashy Pass",
+    "input": "While holding RB, move RS towards a teammate."
+   },
+   {
+    "name": "Full Receiver Control",
+    "input": "Press and hold B to freely move the selected receiver with LS. Release B to pass. (Full Receiver Control must be enabled in Controller Settings.)"
+   },
+   {
+    "name": "Touch Pass",
+    "input": "Press A before the initial receiver gets the ball. Use LS to select second receiver."
+   },
+   {
+    "name": "Give and Go",
+    "input": "Press and hold A until the receiver catches the ball. While keeping A held, use LS to move the initial passer, then release A to get the ball back."
+   },
+   {
+    "name": "Rolling Inbound",
+    "input": "Press Y during baseline inbounds when no defenders are present."
+   }
+  ],
+  "source": "/nba2k-how-to-pass"
+ },
+ "layups": {
+  "title": "NBA 2K27 Layup Controls",
+  "intro": "",
+  "moves": [
+   {
+    "name": "Quick Scoop Layup",
+    "input": "Move and hold RS left or right while driving."
+   },
+   {
+    "name": "Step Through",
+    "input": "Press and hold RS in any direction to perform a step through after you've lost your dribble. Attempts from far out will result in shots, while trying this near the basket will result in a layup."
+   },
+   {
+    "name": "Normal Layup",
+    "input": "Press X while driving in close range. OR Move and hold RS up while driving in close range."
+   },
+   {
+    "name": "Euro Step Layup",
+    "input": "Move RS down left while driving. OR Double tap X while driving."
+   },
+   {
+    "name": "Spin Layup",
+    "input": "Hold RT and double tap X while driving, then release RT during the animation."
+   },
+   {
+    "name": "Slow Step Decel",
+    "input": "While performing a euro-step layup, press and hold LT to slow down your gather and try to throw the defense off-balance."
+   },
+   {
+    "name": "Runner / Floater",
+    "input": "Move and hold RS down while driving in close range."
+   },
+   {
+    "name": "Reverse Layup",
+    "input": "Move and hold RS right while driving along the right baseline."
+   },
+   {
+    "name": "Hop Step Finish",
+    "input": "RT + move RS down left or right while driving. OR Tap X while driving."
+   }
+  ],
+  "source": "/nba2k-layup-controls"
+ },
+ "post": {
+  "title": "NBA 2K27 Post Controls",
+  "intro": "",
+  "moves": [
+   {
+    "name": "Post Go-To Shot",
+    "input": "Hold LT to post up. With LS neutral, move and hold RS up."
+   },
+   {
+    "name": "Post Hook",
+    "input": "Hold LT to post up. With LS neutral, move and hold RS up left or up right."
+   },
+   {
+    "name": "Post Fade",
+    "input": "Hold LT to post up. Move and hold RS left or right away from the hoop."
+   },
+   {
+    "name": "Post Shimmy Hook",
+    "input": "Hold LT to post up. Hold RT + move and hold RS up left or up right."
+   },
+   {
+    "name": "Post Shimmy Fade",
+    "input": "Hold LT to post up. Hold RT + move and hold RS left or right."
+   },
+   {
+    "name": "Post Up and Under",
+    "input": "Hold LT to post up. Use RS to pump fake, then let go of LT and quickly move and hold RS again before the pump fake ends."
+   },
+   {
+    "name": "Post Layup",
+    "input": "Hold LT to post up. Move LS toward the hoop + hold RS up left or up right."
+   },
+   {
+    "name": "Post Dunk Attempt",
+    "input": "Hold LT to post up. Hold RT and move LS + RS up."
+   },
+   {
+    "name": "Post Hop Shot",
+    "input": "Hold LT to post up. Move and hold LS left, right, or down then tap X. OR Hold RT + move and hold RS away from the hoop."
+   },
+   {
+    "name": "Post Pump Fake",
+    "input": "Hold LT to post up. Move RS in any direction then quickly release (while holding the ball)."
+   },
+   {
+    "name": "Enter and Leave Post",
+    "input": "Press and hold LT to post up. Release LT to leave the post and faceup."
+   },
+   {
+    "name": "Post Pivot",
+    "input": "Press and hold LT to post up. Move LS in any direction then quickly release (while holding the ball)."
+   },
+   {
+    "name": "Drop Step",
+    "input": "Hold LT to post up. Move and hold LS left or right toward the hoop then tap X."
+   },
+   {
+    "name": "Spin or Drive",
+    "input": "Hold LT to post up. Then, rotate RS to either shoulder."
+   },
+   {
+    "name": "Switch Facing",
+    "input": "Hold LT to post up. Move RS up then quickly release."
+   },
+   {
+    "name": "Drive Fake",
+    "input": "Hold LT to post up. Hold RT and move RS towards the inside shoulder then quickly release."
+   },
+   {
+    "name": "Spin Fake",
+    "input": "Hold LT to post up. Hold RT and move RS towards the outside shoulder then quickly release."
+   },
+   {
+    "name": "Post Step-Away",
+    "input": "Hold LT to post up. Hold RT and move RS down then quickly release."
+   },
+   {
+    "name": "Disengage Away",
+    "input": "Hold LT to post up. Then, release LT while moving and holding the LS away from the basket."
+   },
+   {
+    "name": "Aggressive Backdown",
+    "input": "Hold LT to post up. Hold RT + LS toward the defender."
+   },
+   {
+    "name": "Avoid Steal",
+    "input": "Hold LT to post up. Move RS down and quickly release."
+   }
+  ],
+  "source": "/nba2k-post-controls"
+ }
+}

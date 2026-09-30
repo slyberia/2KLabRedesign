@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Shoot in NBA 2K27 | NBA2KLab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --neutral-950:oklch(.150 .010 25);--neutral-900:oklch(.185 .012 25);--neutral-850:oklch(.225 .014 25);
+  --neutral-800:oklch(.260 .016 25);--neutral-700:oklch(.320 .016 25);--neutral-600:oklch(.440 .015 25);
+  --neutral-500:oklch(.560 .012 25);--neutral-400:oklch(.620 .012 25);--neutral-300:oklch(.720 .012 25);--neutral-050:oklch(.960 .004 25);
+  --red-900:oklch(.300 .110 25);--red-500:oklch(.560 .190 25);--red-400:oklch(.640 .170 25);--red-300:oklch(.720 .140 25);--white:oklch(.990 0 0);
+  --tier-bronze:oklch(.700 .150 55);--tier-silver:oklch(.830 .045 240);--tier-gold:oklch(.830 .190 92);--tier-hof:oklch(.700 .200 300);
+  --op-or:oklch(.640 .210 25);--op-and:oklch(.720 .170 55);
+  --status-success:oklch(.720 .150 145);
+  --skill-finishing:oklch(.640 .140 258);--skill-shooting:oklch(.740 .130 158);--skill-playmaking:oklch(.770 .130 72);
+  --skill-defense:oklch(.600 .175 18);--skill-rebounding:oklch(.640 .150 320);--skill-physical:oklch(.700 .035 250);
+  --font-display:'Barlow Condensed',system-ui,sans-serif;--font-body:'Hanken Grotesk',system-ui,sans-serif;--font-mono:ui-monospace,monospace;
+  --size-xs:.75rem;--size-sm:.875rem;--size-base:1rem;--size-md:1.125rem;--size-lg:1.375rem;--size-xl:1.75rem;--size-2xl:2.25rem;
+  --leading-snug:1.2;--leading-normal:1.55;
+  --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;
+  --radius-sm:2px;--radius-md:3px;--radius-lg:6px;--radius-pill:999px;--border-1:1px;--border-2:2px;--border-rule:3px;--z-sticky:1100;--z-tray:1200;
+  --duration-fast:120ms;--duration-base:200ms;--ease-standard:cubic-bezier(.2,0,0,1);
+  --surface:var(--neutral-900);--surface-raised:var(--neutral-850);--surface-sunken:var(--neutral-950);--surface-hover:var(--neutral-800);
+  --text:var(--neutral-050);--text-muted:var(--neutral-300);--text-subtle:var(--neutral-400);--border:var(--neutral-700);--border-strong:var(--neutral-600);
+  --accent:var(--red-500);--accent-hover:var(--red-400);--accent-text:var(--red-400);--on-accent:var(--white);--focus-ring:var(--red-300);
+  --font-heading:var(--font-display);--font-text:var(--font-body);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--surface-sunken);color:var(--text);font-family:var(--font-text);line-height:var(--leading-normal)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+h1,h2,h3{font-family:var(--font-heading);line-height:var(--leading-snug);font-weight:700}
+.eyebrow{font-family:var(--font-heading);font-weight:700;font-size:var(--size-sm);letter-spacing:.1em;color:var(--accent-text);text-transform:uppercase}
+.crumb{font-size:var(--size-sm);color:var(--text-muted);padding:var(--space-4) 0 0}.crumb a{color:var(--accent-text);text-decoration:none}
+.pagehead{padding:var(--space-4) 0 var(--space-6)}
+.pagehead h1{font-size:var(--size-2xl);margin:.2rem 0 .5rem}
+.pagehead p{color:var(--text-muted);max-width:68ch;font-size:var(--size-md)}
+.source-note{margin-top:var(--space-3);font-size:var(--size-sm);color:var(--text-subtle)}
+.layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:var(--space-8);align-items:start;padding-bottom:var(--space-12)}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr)}}
+.layout > *{min-width:0}
+.toc{position:sticky;top:76px;background:var(--surface);border:var(--border-1) solid var(--border);border-radius:var(--radius-md);padding:var(--space-4)}
+@media(max-width:900px){.toc{position:static}}
+.toc h2{font-size:var(--size-sm);letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle);margin-bottom:.5rem}
+.toc ol{list-style:none;counter-reset:t;display:flex;flex-direction:column;gap:.1rem}
+.toc a{counter-increment:t;display:flex;gap:.5rem;text-decoration:none;color:var(--text-muted);font-size:var(--size-sm);padding:.3rem .4rem;border-radius:var(--radius-sm)}
+.toc a::before{content:counter(t);font-family:var(--font-heading);font-weight:700;color:var(--accent-text);min-width:1rem}
+.toc a:hover{color:var(--text);background:var(--surface-hover)}
+.sec{background:var(--surface);border:var(--border-1) solid var(--border);border-radius:var(--radius-md);padding:var(--space-6);margin-bottom:var(--space-4);scroll-margin-top:76px}
+.sec h2{font-size:var(--size-xl);margin-bottom:var(--space-3)}
+.sec p{color:var(--text-muted);max-width:72ch;margin-bottom:var(--space-3)}
+.sec p b,.sec li b{color:var(--text)}
+.status{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--size-xs);font-weight:600;color:var(--text-muted);background:var(--surface-sunken);border:1px dashed var(--border-strong);border-radius:var(--radius-pill);padding:.25rem .7rem;margin-top:.2rem}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--op-and)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3);margin-bottom:var(--space-3)}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--space-3);margin-bottom:var(--space-3)}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--surface-raised);border:var(--border-1) solid var(--border);border-radius:var(--radius-md);padding:var(--space-4)}
+.card h3{font-size:var(--size-base);margin-bottom:.3rem}
+.card p{font-size:var(--size-sm);margin-bottom:.4rem}
+.card.key{border-color:var(--accent)}
+.card .stat{font-family:var(--font-heading);font-weight:700;font-size:var(--size-lg);color:var(--accent-text);display:block;margin:.1rem 0 .3rem}
+.flag{font-family:var(--font-heading);font-weight:700;font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-text);border:1px solid var(--accent);border-radius:var(--radius-pill);padding:.05rem .45rem;margin-left:.4rem;vertical-align:middle}
+.factors{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.5rem;margin-bottom:var(--space-3)}
+.factors li{background:var(--surface-raised);border:var(--border-1) solid var(--border);border-radius:var(--radius-md);padding:.6rem .75rem;font-size:var(--size-sm);color:var(--text-muted)}
+.factors li b{display:block;font-family:var(--font-heading);color:var(--text);margin-bottom:.15rem}
+figure.schem{background:var(--surface-sunken);border:var(--border-1) solid var(--border);border-radius:var(--radius-md);padding:var(--space-4);margin:var(--space-3) 0}
+figure.schem svg{width:100%;height:auto;display:block}
+figure.schem figcaption{font-size:var(--size-xs);color:var(--text-subtle);margin-top:.5rem}
+.tbl-wrap{overflow-x:auto;margin-bottom:var(--space-3)}
+table.rs{width:100%;border-collapse:collapse;font-size:var(--size-sm);min-width:460px}
+table.rs th{font-family:var(--font-heading);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;text-align:left;color:var(--text-subtle);padding:.5rem .7rem;border-bottom:var(--border-2) solid var(--border)}
+table.rs td{padding:.55rem .7rem;border-bottom:var(--border-1) solid var(--border)}
+table.rs td.m{font-family:var(--font-heading);font-weight:700}
+table.rs td.m.neg{color:var(--accent-text)}
+table.rs td.m.unres{color:var(--text-subtle);font-weight:600}
+.small{font-size:var(--size-xs)!important;color:var(--text-subtle)!important}
+.matrix{display:grid;grid-template-columns:auto 1fr 1fr;gap:1px;background:var(--border);border:var(--border-1) solid var(--border);border-radius:var(--radius-md);overflow:hidden;max-width:520px;margin-bottom:var(--space-4)}
+.matrix div{background:var(--surface-raised);padding:.6rem .8rem;font-size:var(--size-sm)}
+.matrix .h{font-family:var(--font-heading);font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-subtle);background:var(--surface)}
+.matrix .b{font-family:var(--font-heading);font-weight:700}
+.bdg{display:grid;grid-template-columns:minmax(150px,1.1fr) auto auto;gap:.4rem 1rem;align-items:center;padding:.65rem 0;border-bottom:var(--border-1) solid var(--border)}
+.bdg:last-child{border-bottom:0}
+.bdg .nm{font-family:var(--font-heading);font-weight:700}
+.bdg .ds{grid-column:1/-1;font-size:var(--size-sm);color:var(--text-muted)}
+.tiles{display:flex;gap:.3rem}
+.tile{width:40px;height:34px;display:grid;place-items:center;border-radius:var(--radius-sm);border:1.5px solid var(--tc);font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--tc);background:var(--surface-sunken)}
+.tile.t-bronze{--tc:var(--tier-bronze)}.tile.t-silver{--tc:var(--tier-silver)}.tile.t-gold{--tc:var(--tier-gold)}.tile.t-hof{--tc:var(--tier-hof)}
+.tile.na{--tc:var(--border-strong);color:var(--text-subtle)}
+.links{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;font-size:var(--size-sm)}
+.xl,.il{font-family:var(--font-heading);font-weight:700;color:var(--accent-text);text-decoration:none}
+.xl:hover,.il:hover{text-decoration:underline}
+.pend{font-size:var(--size-xs);color:var(--text-subtle)}
+@media(max-width:640px){.bdg{grid-template-columns:1fr}}
+.cta{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;justify-content:space-between;background:var(--surface);border:var(--border-1) solid var(--border);border-left:var(--border-rule) solid var(--accent);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5)}
+.cta p{color:var(--text-muted);font-size:var(--size-sm);margin:0}
+</style></head><body>
+<header class="topbar"></header>
+<div class="wrap">
+  <div class="crumb"><a href="index.html">Home</a> / Shooting</div>
+  <div class="pagehead">
+    <div class="eyebrow">Shooting</div>
+    <h1>How to Shoot in NBA 2K27</h1>
+    <p>What a green window is, what shifts it, what widens it, and how to practice, built on 2KLab&rsquo;s measured shooting tests. Where a test is still running, this page says so.</p>
+    <p class="source-note">Summarized from 2KLab&rsquo;s shooting guide and test pages. <a class="xl ext" href="https://www.nba2klab.com/how-to-shoot" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">Read the full guide</a></p>
+  </div>
+  <div class="layout">
+    <nav class="toc" aria-labelledby="toc-h"><h2 id="toc-h">In this guide</h2><ol><li><a href="#green-window">What a green window is</a></li><li><a href="#what-moves-it">What moves your window</a></li><li><a href="#rhythm-vs-button">Rhythm vs button</a></li><li><a href="#jumpshot-grades">The four jumpshot grades</a></li><li><a href="#release-speed">Release speed</a></li><li><a href="#ratings-and-levers">Ratings and other levers</a></li><li><a href="#shooting-badges">Shooting badges</a></li><li><a href="#settings">Settings and shot cues</a></li><li><a href="#practice">How to practice</a></li></ol></nav>
+    <main>
+      <section class="sec" id="green-window"><h2>What a green window is</h2>
+        <p>Every jumper has a <b>green window</b>: the range of release timing that counts as a make. Without boosts, the part that goes in on every single attempt, the <b>pure window</b>, is typically only <b>15 to 20 milliseconds</b> wide.</p>
+        <p>It&rsquo;s a threshold, not a dice roll. A release inside the pure window always goes in, so a miss tells you something specific: you were early or late. Around the pure window sit <b>shoulders</b>, where the make rate falls away instead of stopping dead.</p>
+        <figure class="schem"><svg viewBox="0 0 640 200" role="img" aria-labelledby="schem-t schem-d"><title id="schem-t">Schematic of a green window</title><desc id="schem-d">Make rate across release timing: zero when far too early, rising through a shoulder, one hundred percent across the pure window, falling through a second shoulder, and zero when far too late.</desc>
+<line x1="40" y1="160" x2="620" y2="160" stroke="var(--border-strong)" stroke-width="1.5"/>
+<path d="M40 160 L170 160 C210 160 215 40 255 40 L405 40 C445 40 450 160 490 160 L620 160" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<rect x="255" y="40" width="150" height="120" fill="color-mix(in oklch,var(--accent) 16%,transparent)"/>
+<text x="330" y="100" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700" font-family="var(--font-heading)">Pure window</text>
+<text x="330" y="118" text-anchor="middle" fill="var(--text-muted)" font-size="12">every release here goes in</text>
+<text x="212" y="30" text-anchor="middle" fill="var(--text-muted)" font-size="12">shoulder</text><text x="448" y="30" text-anchor="middle" fill="var(--text-muted)" font-size="12">shoulder</text>
+<text x="100" y="150" text-anchor="middle" fill="var(--text-subtle)" font-size="12">no make</text><text x="560" y="150" text-anchor="middle" fill="var(--text-subtle)" font-size="12">no make</text>
+<text x="40" y="184" fill="var(--text-subtle)" font-size="12">&#8592; earlier release</text><text x="620" y="184" text-anchor="end" fill="var(--text-subtle)" font-size="12">later release &#8594;</text>
+<text x="30" y="44" text-anchor="end" fill="var(--text-subtle)" font-size="11">100%</text><text x="30" y="164" text-anchor="end" fill="var(--text-subtle)" font-size="11">0%</text></svg><figcaption>Schematic, not to scale. 2KLab&rsquo;s own figure for this is marked as placeholder until its 2K27 testing is finished, so no measured widths are shown here.</figcaption></figure>
+        <p>2KLab finds each window with modded controllers that hold the shoot button for an exact number of milliseconds, stepping through release times one millisecond at a time.</p>
+      </section>
+
+      <section class="sec" id="what-moves-it"><h2>What moves your window</h2>
+        <p>A jumper&rsquo;s window has a fixed width, but <b>when</b> it arrives changes from shot to shot. Anything that changes your shot speed slides it earlier or later:</p>
+        <ul class="factors">
+          <li><b>Stamina</b>A tired player gathers and releases slower, so the window comes later.</li>
+          <li><b>Low adrenaline</b>Same effect as fatigue, and 2K has said lower shot ratings also shrink the window.</li>
+          <li><b>Distance</b>A deep three and a shot inside the arc release at different moments.</li>
+          <li><b>The catch</b>How you receive the pass decides when the gather starts.</li>
+          <li><b>Load-ups</b>An awkward catch can trigger a slow gather that isn&rsquo;t the shot you practiced.</li>
+          <li><b>Contests</b>A contested release runs on a different clock and narrows the window too.</li>
+          <li><b>Ball position at the start</b>A gather from the left hip times slightly differently from the right. The smallest effect, and the hardest to control.</li>
+          <li><b>Set vs moving</b>Set feet, pull-ups, hop steps and spin shots each have their own timing.</li>
+          <li><b>Grades and release speed</b>The jumper sets the baseline; the creator&rsquo;s release speed moves it.</li>
+        </ul>
+        <span class="status">Still testing: window width open vs contested, and at full vs drained adrenaline</span>
+      </section>
+
+      <section class="sec" id="rhythm-vs-button"><h2>Rhythm vs button shooting</h2>
+        <p>Both start from the same base window. The difference is what happens after that.</p>
+        <div class="grid2">
+          <div class="card"><h3>Button</h3><p>You get the base window every time, with no bonus and no penalty. The reliable choice while you&rsquo;re learning a new jumper.</p></div>
+          <div class="card"><h3>Rhythm</h3><p>Your tempo, how fast you move the right stick from down to up, changes the window both ways. Match the shot&rsquo;s tempo and it grows; rush or drag it and it shrinks below what the button gives. You still have to time the release.</p></div>
+        </div>
+        <p class="small">Rhythm now applies at the free-throw line too.</p>
+      </section>
+
+      <section class="sec" id="jumpshot-grades"><h2>The four jumpshot grades</h2>
+        <p>Every jumper in the creator is graded on four things. Three describe how it holds up against a defender; the fourth is the one to read first.</p>
+        <div class="grid3">
+          <div class="card key"><h3>Release Window <span class="flag">Read first</span></h3><p>A direct multiplier on the size of your green window. The biggest effect on greening.</p></div>
+          <div class="card"><h3>Release Height</h3><p>How high the ball is at release. Matters against contests, not in an open gym.</p></div>
+          <div class="card"><h3>Defensive Immunity</h3><p>How much of a contest the jumper shrugs off.</p></div>
+          <div class="card"><h3>Release Speed</h3><p>How quickly the shot leaves. It trades directly against window size; see the next section.</p></div>
+        </div>
+        <span class="status">Still testing: measured window width across the A+ to F grade ladder</span>
+      </section>
+
+      <section class="sec" id="release-speed"><h2>Release speed is a trade</h2>
+        <p>Setting a faster release shrinks your green window. 2KLab tested 2K&rsquo;s stated figures over <b>4,500 shots</b> across the five settings.</p>
+        <div class="tbl-wrap"><table class="rs"><caption class="small" style="text-align:left;caption-side:bottom;padding-top:.5rem">2K&rsquo;s figures as stated by Mike Wang on 29 August 2026. Measurements from <a class="xl ext" href="https://www.nba2klab.com/release-speed-test" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">2KLab&rsquo;s release speed test</a>.</caption>
+          <thead><tr><th scope="col">Release speed</th><th scope="col">2K stated</th><th scope="col">2KLab measured</th></tr></thead>
+          <tbody><tr><td>Very Quick</td><td>&minus;10% window</td><td class="m neg">&minus;12.1%</td></tr><tr><td>Quick</td><td>&minus;5% window</td><td class="m neg">&minus;8.5%</td></tr>
+          <tr><td>Normal</td><td>No change</td><td class="m">Reference</td></tr><tr><td>Slow</td><td>Small boost</td><td class="m unres">+1.1%, not resolved</td></tr><tr><td>Very Slow</td><td>Small boost</td><td class="m unres">+1.1%, not resolved</td></tr></tbody></table></div>
+        <p>The two quick settings checked out: slightly worse than stated, within the margin of error. The slow settings came back about a point above Normal, but the margin was several times larger than that. That&rsquo;s a boost 2KLab <b>couldn&rsquo;t confirm</b>, not one it measured.</p>
+      </section>
+
+      <section class="sec" id="ratings-and-levers"><h2>Ratings and other levers</h2>
+        <p>A higher rating doesn&rsquo;t make you green more. It makes near-misses forgiving. The measured levers, each from its own 2KLab test:</p>
+        <div class="grid3">
+          <div class="card key"><h3>Shooting ratings</h3><span class="stat">2.4&times; more room</span><p>Over 30,700 shots, the always-green core barely moved: about &plusmn;3.1 ms at a 65 vs &plusmn;3.6 ms at a 99. The band that still makes ~70% of the time grew from &plusmn;5.8 to &plusmn;13.9 ms.</p><a class="xl ext" href="https://www.nba2klab.com/shooting-ratings-test" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">Ratings test</a></div>
+          <div class="card"><h3>Calibrated takeover</h3><span class="stat">2&times; the rating ladder</span><p>Worth twice what the whole 65-to-99 range buys, plus a 20 ms stretch of release times that greened 500 of 500.</p><a class="xl ext" href="https://www.nba2klab.com/takeover-test" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">Takeover test</a></div>
+          <div class="card"><h3>Hot zones</h3><span class="stat">+5.4 lethal / &minus;2.1 cold</span><p>Points across the window, mostly on late releases. A lethal zone is worth about 2.3 Jump Shots boosts, earned by practice.</p><a class="xl ext" href="https://www.nba2klab.com/hot-zone-test" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">Hot zone test</a></div>
+          <div class="card"><h3>Jump Shots skill boost</h3><span class="stat">+4.3% makes</span><p>Across the window, mostly on early releases.</p><a class="xl ext" href="https://www.nba2klab.com/shooting-boost-test" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">Shooting boost test</a></div>
+        </div>
+        <p>Your Three-Point Shot and Mid-Range Shot ratings also decide which jumpshot bases and releases you can equip at all. <a class="il" href="reference-table.html#animations">Shooting animation requirements &rarr;</a> <a class="il" href="builder.html">Plan ratings in the Builder &rarr;</a></p>
+      </section>
+
+      <section class="sec" id="shooting-badges"><h2>Shooting badges</h2>
+        <p>2K27 has <b>9 shooting badges</b>, 5 of them new. Four of the new ones split cleanly by shot type:</p>
+        <div class="matrix" role="table" aria-label="New shooting badges by shot type">
+          <div class="h" role="columnheader"></div><div class="h" role="columnheader">Three</div><div class="h" role="columnheader">Mid-range</div>
+          <div class="h" role="rowheader">Set</div><div class="b" role="cell">Set and Fire</div><div class="b" role="cell">Static Middy</div>
+          <div class="h" role="rowheader">Moving</div><div class="b" role="cell">Arc Cadence</div><div class="b" role="cell">Smooth Operator</div>
+        </div>
+        <p>So a spot-up shooter and a shot creator now want different badges, not different tiers of the same one. Tier values are the attribute ratings needed for Bronze, Silver, Gold and HoF.</p>
+        <div><div class="bdg"><span class="nm">Arc Cadence</span><span class="tiles"><span class="tile t-bronze" aria-label="Bronze 70">70</span><span class="tile t-silver" aria-label="Silver 86">86</span><span class="tile t-gold" aria-label="Gold 91">91</span><span class="tile t-hof" aria-label="HoF 98">98</span></span>
+<span class="links"><a class="xl ext" href="https://www.nba2klab.com/badges/arc-cadence" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">2KLab test results</a><a class="il" href="reference-table.html?badge=ArcCadence#badges">Requirements &rarr;</a></span>
+<span class="ds">Improves a player's ability to knock down 3-point shots on the move, including pull-ups, hop-steps, or spin shots. <span class="small">Keys on Three-Point Shot.</span></span></div><div class="bdg"><span class="nm">Deadeye</span><span class="tiles"><span class="tile t-bronze" aria-label="Bronze 65">65</span><span class="tile t-silver" aria-label="Silver 85">85</span><span class="tile t-gold" aria-label="Gold 92">92</span><span class="tile t-hof" aria-label="HoF 99">99</span></span>
+<span class="links"><span class="pend">Test pending</span><a class="il" href="reference-table.html?badge=Deadeye#badges">Requirements &rarr;</a></span>
+<span class="ds">Jump shots taken with a defender closing out receive less of a penalty from a shot contest. <span class="small">Keys on Mid-Range Shot OR Three-Point Shot.</span></span></div><div class="bdg"><span class="nm">Limitless Range</span><span class="tiles"><span class="tile t-bronze" aria-label="Bronze 83">83</span><span class="tile t-silver" aria-label="Silver 89">89</span><span class="tile t-gold" aria-label="Gold 93">93</span><span class="tile t-hof" aria-label="HoF 99">99</span></span>
+<span class="links"><a class="xl ext" href="https://www.nba2klab.com/badges/limitless-range" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">2KLab test results</a><a class="il" href="reference-table.html?badge=LimitlessRange#badges">Requirements &rarr;</a></span>
+<span class="ds">Extends the range from which a player can shoot 3PT shots effectively from deep. <span class="small">Keys on Three-Point Shot.</span></span></div><div class="bdg"><span class="nm">Mini Marksman</span><span class="tiles"><span class="tile t-bronze" aria-label="Bronze 60">60</span><span class="tile t-silver" aria-label="Silver 79">79</span><span class="tile t-gold" aria-label="Gold 94">94</span><span class="tile t-hof" aria-label="HoF 99">99</span></span>
+<span class="links"><span class="pend">Test pending</span><a class="il" href="reference-table.html?badge=MiniMarksman#badges">Requirements &rarr;</a></span>
+<span class="ds">Shorter shooters are less bothered by lengthy defenders. <span class="small">Keys on Mid-Range Shot OR Three-Point Shot.</span></span></div><div class="bdg"><span class="nm">Post Fade Phenom</span><span class="tiles"><span class="tile t-bronze" aria-label="Bronze 60">60</span><span class="tile t-silver" aria-label="Silver 71">71</span><span class="tile t-gold" aria-label="Gold 84">84</span><span class="tile t-hof" aria-label="HoF 91">91</span></span>
+<span class="links"><span class="pend">Test pending</span><a class="il" href="reference-table.html?badge=PostFadePhenom#badges">Requirements &rarr;</a></span>
+<span class="ds">Improves ability to make post fades and hop shots. <span class="small">Keys on Mid-Range Shot AND Post Control.</span></span></div><div class="bdg"><span class="nm">Quick Trigger</span><span class="tiles"><span class="tile t-bronze" aria-label="Bronze 80">80</span><span class="tile t-silver" aria-label="Silver 88">88</span><span class="tile t-gold" aria-label="Gold 95">95</span><span class="tile t-hof" aria-label="HoF 99">99</span></span>
+<span class="links"><a class="xl ext" href="https://www.nba2klab.com/badges/quick-trigger" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">2KLab test results</a><a class="il" href="reference-table.html?badge=QuickTrigger#badges">Requirements &rarr;</a></span>
+<span class="ds">Improves a player's ability to make no-dip jump shots. <span class="small">Keys on Mid-Range Shot OR Three-Point Shot.</span></span></div><div class="bdg"><span class="nm">Set and Fire</span><span class="tiles"><span class="tile t-bronze" aria-label="Bronze 60">60</span><span class="tile t-silver" aria-label="Silver 78">78</span><span class="tile t-gold" aria-label="Gold 89">89</span><span class="tile t-hof" aria-label="HoF 97">97</span></span>
+<span class="links"><a class="xl ext" href="https://www.nba2klab.com/badges/set-and-fire" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">2KLab test results</a><a class="il" href="reference-table.html?badge=SetAndFire#badges">Requirements &rarr;</a></span>
+<span class="ds">Applies a shooting boost to 3-point shots when the player's feet are completely set. <span class="small">Keys on Three-Point Shot.</span></span></div><div class="bdg"><span class="nm">Smooth Operator</span><span class="tiles"><span class="tile t-bronze" aria-label="Bronze 70">70</span><span class="tile t-silver" aria-label="Silver 87">87</span><span class="tile t-gold" aria-label="Gold 93">93</span><span class="tile t-hof" aria-label="HoF 99">99</span></span>
+<span class="links"><span class="pend">Test pending</span><a class="il" href="reference-table.html?badge=SmoothOperator#badges">Requirements &rarr;</a></span>
+<span class="ds">Improves a player's ability to knock down mid-range shots on the move, including pull-ups, hop-steps, or spin shots. <span class="small">Keys on Mid-Range Shot.</span></span></div><div class="bdg"><span class="nm">Static Middy</span><span class="tiles"><span class="tile t-bronze" aria-label="Bronze 55">55</span><span class="tile t-silver" aria-label="Silver 75">75</span><span class="tile t-gold" aria-label="Gold 85">85</span><span class="tile t-hof" aria-label="HoF 95">95</span></span>
+<span class="links"><a class="xl ext" href="https://www.nba2klab.com/badges/static-middy" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">2KLab test results</a><a class="il" href="reference-table.html?badge=StaticMiddy#badges">Requirements &rarr;</a></span>
+<span class="ds">Applies a shooting boost to stand-still mid-range shots. <span class="small">Keys on Mid-Range Shot.</span></span></div></div>
+      </section>
+
+      <section class="sec" id="settings"><h2>Settings and shot cues</h2>
+        <div class="grid2">
+          <div class="card key"><h3>Shot meter</h3><p>A live tick now tracks your stick tempo as you shoot. Leave it on while learning rhythm. Turning it off is a real boost: <b>about 10 points</b> across the window, all of it on late releases.</p><a class="xl ext" href="https://www.nba2klab.com/shot-meter-test" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">Shot meter test</a></div>
+          <div class="card"><h3>Shot feedback</h3><p>Now separates timing (early or late) from tempo (fast or slow). Different problems, different fixes.</p></div>
+          <div class="card"><h3>Shot cues</h3><p>Worth turning on while you learn where a jumper releases.</p></div>
+          <div class="card"><h3>Real Percentage</h3><p>Available offline, where dunk timing can also be switched off.</p></div>
+        </div>
+        <p><a class="il" href="game-details.html#settings">Best 2K27 settings &rarr;</a> <a class="il" href="game-details.html#controls">Controls &rarr;</a></p>
+      </section>
+
+      <section class="sec" id="practice"><h2>How to practice</h2>
+        <p>2K&rsquo;s own advice has two steps: find a jumper whose tempo you can match consistently, then stay on it and put in the reps.</p>
+        <p>The first step is the hard one. The creator has roughly 800 bases and about 800 options in each of two release slots, with 100 blend steps between them: billions of jumpers, with very different pure windows. Trial and error can&rsquo;t search that.</p>
+        <div class="grid3">
+          <div class="card"><h3>Pick one and stay on it</h3><p>Switching jumpers resets the timing you&rsquo;ve built.</p></div>
+          <div class="card"><h3>Aim for the middle</h3><p>Not the earliest release that greens. The middle is the only part wide enough to survive a slightly different start.</p></div>
+          <div class="card"><h3>Practice game shots</h3><p>Off the catch and off the dribble, not only standing still. They time differently.</p></div>
+        </div>
+        <p>2KLab Premium&rsquo;s <a class="xl ext" href="https://www.nba2klab.com/jumpshot-recommender" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">Jumpshot Recommender</a> reads ten shots off your meter and suggests jumpers that match the timing you already have.</p>
+      </section>
+
+      <div class="cta"><p>This page summarizes 2KLab&rsquo;s shooting guide. The full guide has more detail and 2K developer posts on shooting.</p><a class="xl ext" href="https://www.nba2klab.com/how-to-shoot" target="_blank" rel="noopener" aria-describedby="sh-ext-desc">Read the full guide</a></div>
+    </main>
+  </div>
+</div>
+</body></html>
