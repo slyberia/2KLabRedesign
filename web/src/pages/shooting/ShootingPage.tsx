@@ -50,7 +50,7 @@ function BadgeRow({ b, test }: { b: Badge; test: (typeof shootingBadgeTests)[num
         {test.status === "Results" && test.link
           ? <ExtLink className="xl" href={live(test.link)}>2KLab test results</ExtLink>
           : <span className="pend">Test pending</span>}
-        <a className="il" href={`reference-table.html?badge=${b.id}#badges`}>Requirements &rarr;</a>
+        <a className="il" href={`/reference-table?badge=${b.id}#badges`}>Requirements &rarr;</a>
       </span>
       <span className="ds">{b.description} <span className="small">Keys on {keys}.</span></span>
     </div>
@@ -70,7 +70,7 @@ export function ShootingPage() {
 
   return (
     <div className="wrap">
-      <div className="crumb"><a href="index.html">Home</a> / Shooting</div>
+      <div className="crumb"><a href="/">Home</a> / Shooting</div>
       <div className="pagehead">
         <div className="eyebrow">Shooting</div>
         <h1>How to Shoot in NBA 2K27</h1>
@@ -190,8 +190,8 @@ export function ShootingPage() {
             </div>
             <p>
               Your Three-Point Shot and Mid-Range Shot ratings also decide which jumpshot bases and releases you can equip at all.{" "}
-              <a className="il" href="reference-table.html#animations">Shooting animation requirements &rarr;</a>{" "}
-              <a className="il" href="builder.html">Plan ratings in the Builder &rarr;</a>
+              <a className="il" href="/reference-table#animations">Shooting animation requirements &rarr;</a>{" "}
+              <a className="il" href="/builder">Plan ratings in the Builder &rarr;</a>
             </p>
           </section>
 
@@ -223,7 +223,7 @@ export function ShootingPage() {
               <Card title="Shot cues">Worth turning on while you learn where a jumper releases.</Card>
               <Card title="Real Percentage">Available offline, where dunk timing can also be switched off.</Card>
             </div>
-            <p><a className="il" href="game-details.html#settings">Best 2K27 settings &rarr;</a> <a className="il" href="game-details.html#controls">Controls &rarr;</a></p>
+            <p><a className="il" href="/game-details#settings">Best 2K27 settings &rarr;</a> <a className="il" href="/game-details#controls">Controls &rarr;</a></p>
           </section>
 
           <section className="sec" id="practice">

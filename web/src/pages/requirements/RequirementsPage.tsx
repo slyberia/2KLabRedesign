@@ -93,7 +93,7 @@ export function RequirementsPage() {
   return (
     <>
       <div className="wrap">
-        <div className="crumb"><a href="index.html">Home</a> / Requirements</div>
+        <div className="crumb"><a href="/">Home</a> / Requirements</div>
         <div className="pagehead">
           <div className="eyebrow">Requirements</div>
           <h1>NBA 2K27 Requirements</h1>

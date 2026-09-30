@@ -4,7 +4,7 @@ import { api } from "../../lib/api";
 import type { CommunityBuild } from "../../lib/apiTypes";
 
 type Sort = "rating" | "new";
-const builderLink = (b: CommunityBuild) => `builder.html?preset=${b.preset}${b.a ? `&a=${b.a}` : ""}`;
+const builderLink = (b: CommunityBuild) => `/builder?preset=${b.preset}${b.a ? `&a=${b.a}` : ""}`;
 
 /** Community builds from /api/community. Rating needs a Premium demo account, as on the live site. */
 export function CommunityPanel() {
@@ -83,7 +83,7 @@ export function CommunityPanel() {
           <button type="button" aria-pressed={sort === "rating"} onClick={() => setSort("rating")}>Top rated</button>
           <button type="button" aria-pressed={sort === "new"} onClick={() => setSort("new")}>Newest</button>
         </div>
-        <a className="btnlink" href="builder.html#my-builds">Share a build</a>
+        <a className="btnlink" href="/builder#my-builds">Share a build</a>
       </div>
       <p className="c-msg" role="status" aria-live="polite">{msg}</p>
       {error ? (
@@ -94,7 +94,7 @@ export function CommunityPanel() {
         <div className="empty">
           <h2>No 2K27 builds have been shared yet</h2>
           <p>Save a build in the MyPlayer Builder, then share it from My Builds. Premium members rate them here.</p>
-          <a className="btnlink" href="builder.html#my-builds">Share a build</a>
+          <a className="btnlink" href="/builder#my-builds">Share a build</a>
         </div>
       ) : (
         <div className="c-grid">

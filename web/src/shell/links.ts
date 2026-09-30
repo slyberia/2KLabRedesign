@@ -5,14 +5,14 @@ export const live = (path: string) => LIVE + path;
 
 export type PageKey = "home" | "builds" | "builder" | "requirements" | "mycareer" | "shooting" | "gamedetails";
 
-export const PAGE_FILE: Record<PageKey, string> = {
-  home: "index.html",
-  builds: "builds.html",
-  builder: "builder.html",
-  requirements: "reference-table.html",
-  mycareer: "mycareer.html",
-  shooting: "shooting.html",
-  gamedetails: "game-details.html",
+export const PAGE_PATH: Record<PageKey, string> = {
+  home: "/",
+  builds: "/builds",
+  builder: "/builder",
+  requirements: "/reference-table",
+  mycareer: "/mycareer",
+  shooting: "/shooting",
+  gamedetails: "/game-details",
 };
 
 export const NAV: { label: string; key: Exclude<PageKey, "home"> }[] = [

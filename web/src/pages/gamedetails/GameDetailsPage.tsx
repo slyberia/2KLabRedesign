@@ -32,13 +32,13 @@ export function GameDetailsPage() {
   return (
     <>
       <div className="wrap">
-        <div className="crumb"><a href="index.html">Home</a> / Game Details</div>
+        <div className="crumb"><a href="/">Home</a> / Game Details</div>
         <div className="pagehead">
           <div className="eyebrow">Game Details</div>
           <h1>NBA 2K27 Game Details</h1>
           <p>
             Set up your game and look up the essentials: best settings, controls, VC prices, face creations, this week&rsquo;s 2KTV
-            answers, and every reward track. Attributes now live on <a href="mycareer.html#attributes">MyCareer</a>.
+            answers, and every reward track. Attributes now live on <a href="/mycareer#attributes">MyCareer</a>.
           </p>
           <Tabs tabs={TABS} selected={tab} onSelect={select} label="Section" />
         </div>

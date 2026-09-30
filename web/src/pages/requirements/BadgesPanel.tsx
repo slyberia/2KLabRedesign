@@ -92,7 +92,7 @@ function BadgeCard(props: {
           <span className="attrs">
             {b.operator === "SINGLE" ? c0.attribute : <>{c0.attribute} <OpChip op={b.operator} /> {b.conditions[1]!.attribute}</>}
           </span>
-          <a className="card-link" href={`builder.html?focus=${b.id}`}>Builder &rarr;</a>
+          <a className="card-link" href={`/builder?focus=${b.id}`}>Builder &rarr;</a>
         </div>
         <div className="tilerow">
           {TILE_ORDER.map((t) => <TierTile key={t} cond={c0} tier={t} onPick={props.onTile} />)}

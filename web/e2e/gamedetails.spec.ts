@@ -11,7 +11,7 @@ async function signOut(page: Page) {
 
 test.describe("Game Details", () => {
   test("hash tabs, the controls toggle and the how-to guides", async ({ page }) => {
-    await page.goto("/game-details.html#controls");
+    await page.goto("/game-details#controls");
     await expect(page.getByRole("tab", { name: "Controls" })).toHaveAttribute("aria-selected", "true");
     await expect(page.locator(".controller")).toContainText("Post Up");
     await page.getByRole("button", { name: "Defense" }).click();
@@ -33,7 +33,7 @@ test.describe("Game Details", () => {
   });
 
   test("VC, face creations and 2KTV render from their sources", async ({ page }) => {
-    await page.goto("/game-details.html#vc-prices");
+    await page.goto("/game-details#vc-prices");
     await expect(page.locator(".pack")).toHaveCount(6);
     await expect(page.locator(".pack.is-featured .amt")).toHaveText("35,000");
     await page.getByRole("tab", { name: "Face Creations" }).click();
@@ -44,7 +44,7 @@ test.describe("Game Details", () => {
   });
 
   test("Cap Breakers reference scenario: 15 of 28 (13 free, 2 locked); progress survives a reload", async ({ page }) => {
-    await page.goto("/game-details.html?track=rep#rewards");
+    await page.goto("/game-details?track=rep#rewards");
     await node(page, "Your REP level", /^Veteran IV:/).click();
     await page.getByRole("tab", { name: "Lifetime Challenges" }).click();
     await expect(page).toHaveURL(/\?track=lifetime#rewards$/);
@@ -65,7 +65,7 @@ test.describe("Game Details", () => {
   });
 
   test("roadmaps are radio groups with one tab stop and arrow keys", async ({ page }) => {
-    await page.goto("/game-details.html?track=crew#rewards");
+    await page.goto("/game-details?track=crew#rewards");
     const group = page.getByRole("radiogroup", { name: "Your Crew level" });
     await expect(group.locator('[tabindex="0"]')).toHaveCount(1);
     await group.getByRole("radio", { name: /^Level 1:/ }).focus();
@@ -80,7 +80,7 @@ test.describe("Game Details", () => {
   });
 
   test("starter challenges are independent toggles", async ({ page }) => {
-    await page.goto("/game-details.html?track=starter#rewards");
+    await page.goto("/game-details?track=starter#rewards");
     await expect(page.getByText("0 of 21 tasks done")).toBeVisible();
     const task = page.getByRole("button", { name: /Visit Swags/ });
     await task.click();
@@ -89,7 +89,7 @@ test.describe("Game Details", () => {
   });
 
   test("shared device: signing out keeps one account's progress out of the next account", async ({ page }) => {
-    await page.goto("/game-details.html?track=rep#rewards");
+    await page.goto("/game-details?track=rep#rewards");
     await openSignIn(page);
     await signIn(page, uniqueName("PlayerA"));
     await expect(page.getByText(/Saved to your demo account/)).toBeVisible();
@@ -109,7 +109,7 @@ test.describe("Game Details", () => {
   });
 
   test("progress marked while signed out joins the account on sign-in", async ({ page }) => {
-    await page.goto("/game-details.html?track=lifetime#rewards");
+    await page.goto("/game-details?track=lifetime#rewards");
     await node(page, "Lifetime Challenges completed", /^200 challenges:/).click();
     await openSignIn(page);
     await signIn(page, uniqueName("Joiner"));

@@ -7,7 +7,7 @@ import { FACES, VC_PACKS } from "./content";
 
 /** Short reasons shown next to each recommended setting (summarized from 2KLab's settings FAQ). */
 const SETTING_WHY: Record<string, React.ReactNode> = {
-  "Shot Meter": <>2KLab&rsquo;s most important setting. Turning the meter off is a measured boost; see the <a href="shooting.html#settings">Shooting guide</a>.</>,
+  "Shot Meter": <>2KLab&rsquo;s most important setting. Turning the meter off is a measured boost; see the <a href="/shooting#settings">Shooting guide</a>.</>,
   "Passive Dribble Hand Switches": "Stops your player switching dribble hands on their own when you release the left stick.",
   "Auto Lob to Moving Receiver": "Stops the primary pass button throwing contextual lobs to moving teammates.",
   "Camera Angle": "Start at Zoom 1 and Height 10, then adjust.",
@@ -160,7 +160,7 @@ export function HowToPanel() {
             <div className="vp-head">
               <h3>{label}</h3>
               {g === "shoot"
-                ? <a className="vp-more" href="shooting.html">Shooting guide &rarr;</a>
+                ? <a className="vp-more" href="/shooting">Shooting guide &rarr;</a>
                 : <ExtLink className="vp-more" href={live(GUIDE_LINK[g])}>Full guide &rarr;</ExtLink>}
             </div>
             {g === "dribble" && (
@@ -175,7 +175,7 @@ export function HowToPanel() {
             {g === "shoot" && (
               <>
                 <p className="vp-intro">Shooting has its own guide on this site: green windows, what moves them, release speed, ratings, badges and practice, with 2KLab&rsquo;s measurements.</p>
-                <p><a className="il-strong" href="shooting.html">Open the Shooting guide &rarr;</a></p>
+                <p><a className="il-strong" href="/shooting">Open the Shooting guide &rarr;</a></p>
               </>
             )}
             {(g === "dunk" || g === "pass" || g === "layups" || g === "post") && (

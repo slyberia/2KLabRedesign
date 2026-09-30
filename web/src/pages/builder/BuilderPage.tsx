@@ -97,7 +97,7 @@ export function BuilderPage() {
   return (
     <>
       <div className="wrap">
-        <div className="crumb"><a href="index.html">Home</a> / Builder</div>
+        <div className="crumb"><a href="/">Home</a> / Builder</div>
         <div className="pagehead">
           <div className="eyebrow">MyPlayer Builder</div>
           <h1>NBA 2K27 MyPlayer Builder</h1>

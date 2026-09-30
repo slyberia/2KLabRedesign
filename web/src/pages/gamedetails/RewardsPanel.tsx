@@ -228,7 +228,7 @@ function CapBreakersTrack({ p, goTo }: { p: Progress; goTo: (t: Track) => void }
           <button type="button" className="toggle" aria-pressed={spec9} onClick={() => p.set("spec9", !spec9)}>
             <span className="knob" aria-hidden="true" />Goal 9 complete
           </button>{" "}
-          <a className="linkbtn" href="mycareer.html#specializations">See the goals</a>
+          <a className="linkbtn" href="/mycareer#specializations">See the goals</a>
         </>
       ) },
     { name: "Season Track", got: tally.season, of: track("Season Track").stated,

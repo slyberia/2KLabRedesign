@@ -3,9 +3,9 @@ import { expectNoHorizontalOverflow, search } from "./helpers";
 
 test.describe("MyCareer", () => {
   test("attributes link to exact-match badge filters and to specializations", async ({ page }) => {
-    await page.goto("/mycareer.html");
+    await page.goto("/mycareer");
     const speed = page.locator(".attr-row", { has: page.getByRole("heading", { name: "Speed", exact: true }) });
-    await expect(speed.getByRole("link", { name: "Keys 2 badges" })).toHaveAttribute("href", "reference-table.html?attr=Speed#badges");
+    await expect(speed.getByRole("link", { name: "Keys 2 badges" })).toHaveAttribute("href", "/reference-table?attr=Speed#badges");
     const steal = page.locator(".attr-row", { has: page.getByRole("heading", { name: "Steal", exact: true }) });
     await steal.getByRole("button", { name: "Unlocks Defense" }).click();
     await expect(page.getByRole("tab", { name: "Specializations" })).toHaveAttribute("aria-selected", "true");
@@ -16,7 +16,7 @@ test.describe("MyCareer", () => {
   });
 
   test("?spec= opens a specialization; Defense is an OR of two AND groups", async ({ page }) => {
-    await page.goto("/mycareer.html?spec=defense#specializations");
+    await page.goto("/mycareer?spec=defense#specializations");
     const unlock = page.locator(".unlock");
     await expect(unlock.locator(".unlock-group")).toHaveCount(2);
     await expect(unlock.locator(".unlock-group").first()).toHaveText(/60 Perimeter Defense\s*AND\s*60 Steal/);
@@ -27,7 +27,7 @@ test.describe("MyCareer", () => {
   });
 
   test("hash tabs and the Workout Warrior checklist", async ({ page }) => {
-    await page.goto("/mycareer.html#workout");
+    await page.goto("/mycareer#workout");
     await expect(page.getByText("0 / 12 done")).toBeVisible();
     const boxes = page.locator(".checklist input");
     for (let i = 0; i < 12; i++) await boxes.nth(i).check();

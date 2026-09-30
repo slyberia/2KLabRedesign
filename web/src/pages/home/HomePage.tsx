@@ -15,7 +15,7 @@ function PositionChips() {
   return (
     <div className="subgrid cols5">
       {POSITIONS.map(([g, name]) => (
-        <a key={g} className="pos-chip" href="builds.html" aria-label={`${name} builds`}>
+        <a key={g} className="pos-chip" href="/builds" aria-label={`${name} builds`}>
           <span className="glyph">{g}</span><span className="tip">{name}</span>
         </a>
       ))}
@@ -73,7 +73,7 @@ export function HomePage() {
             <h1>The Best Jumpers, Badges and Builds by <span className="brand">NBA2KLab</span></h1>
             <p>Every number here comes from large-sample automated testing, not in-game letter grades or guesswork. This is our 10th year testing the 2K series, at the largest scale yet.</p>
             <div className="actions">
-              <a className="btn btn-primary btn-lg" href="builder.html">Open the MyPlayer Builder</a>
+              <a className="btn btn-primary btn-lg" href="/builder">Open the MyPlayer Builder</a>
               <a className="btn btn-ghost btn-lg" href="#jumpshots">Best Jumpshots</a>
               <ExtLink className="patch-pill" href={live("/nba2k-patch-notes")}>
                 <span className="dotlive" aria-hidden="true" />Updated for <b>Patch 1.4</b> &middot; Sep 3 &rarr;
@@ -95,18 +95,18 @@ export function HomePage() {
             <span className="k">MyPlayer Builder</span>
             <span className="d">Load a build and see every badge it unlocks.</span>
             <div className="subgrid cols3">
-              <a className="pill" style={{ ["--pc" as string]: "var(--category-builder)" }} href="builder.html">Blueprints</a>
-              <a className="pill" style={{ ["--pc" as string]: "var(--category-builder)" }} href="builder.html?preset=player:1">Players</a>
-              <a className="pill" style={{ ["--pc" as string]: "var(--category-builder)" }} href="builder.html#my-builds">My Builds</a>
+              <a className="pill" style={{ ["--pc" as string]: "var(--category-builder)" }} href="/builder">Blueprints</a>
+              <a className="pill" style={{ ["--pc" as string]: "var(--category-builder)" }} href="/builder?preset=player:1">Players</a>
+              <a className="pill" style={{ ["--pc" as string]: "var(--category-builder)" }} href="/builder#my-builds">My Builds</a>
             </div>
           </div>
           <div className="path">
             <span className="k">Requirements</span>
             <span className="d">The ratings that unlock everything your build can use.</span>
             <div className="subgrid cols3">
-              <a className="pill" style={{ ["--pc" as string]: "var(--category-badges)" }} href="reference-table.html#badges">Badges</a>
-              <a className="pill" style={{ ["--pc" as string]: "var(--category-animations)" }} href="reference-table.html#animations">Animations</a>
-              <a className="pill" style={{ ["--pc" as string]: "var(--category-takeover)" }} href="reference-table.html#takeovers">Takeover</a>
+              <a className="pill" style={{ ["--pc" as string]: "var(--category-badges)" }} href="/reference-table#badges">Badges</a>
+              <a className="pill" style={{ ["--pc" as string]: "var(--category-animations)" }} href="/reference-table#animations">Animations</a>
+              <a className="pill" style={{ ["--pc" as string]: "var(--category-takeover)" }} href="/reference-table#takeovers">Takeover</a>
             </div>
           </div>
           <div className="path">
@@ -125,7 +125,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div><div className="eyebrow">Shooting</div><h2>Best Jumpshots for 2K27</h2></div>
-            <a className="more" href="shooting.html">Read the Full Shooting Guide &rarr;</a>
+            <a className="more" href="/shooting">Read the Full Shooting Guide &rarr;</a>
           </div>
           <div className="inner">
             <div>
@@ -166,7 +166,7 @@ export function HomePage() {
               <div>
                 <h3>Start from a Blueprint or a Player</h3>
                 <p className="sub">Load one of 2K&rsquo;s 40 Signature Blueprints or a real player&rsquo;s card, adjust the attributes within the published range, and watch every badge tier update live.</p>
-                <a className="btn btn-primary" href="builder.html">Open the 2K27 Builder</a>
+                <a className="btn btn-primary" href="/builder">Open the 2K27 Builder</a>
               </div>
               <div>
                 <div className="builder-face" aria-hidden="true">
@@ -185,7 +185,7 @@ export function HomePage() {
               <div className="lead">Your attributes decide what you can equip. Look up the exact rating each one needs, at Bronze, Silver, Gold and Hall of Fame.</div>
             </div>
             <div className="facets">
-              <a className="facet" style={{ ["--fc" as string]: "var(--category-badges)" }} href="reference-table.html?badge=Deadeye#badges">
+              <a className="facet" style={{ ["--fc" as string]: "var(--category-badges)" }} href="/reference-table?badge=Deadeye#badges">
                 <div className="fh"><span className="fd" aria-hidden="true" /><h4>Badge Requirements</h4></div>
                 <p>All {badges.length} badges and the rating each needs at every tier, filtered to your build&rsquo;s height.</p>
                 <div className="preview" aria-hidden="true">
@@ -201,7 +201,7 @@ export function HomePage() {
                 </div>
                 <span className="go">Explore Badges &rarr;</span>
               </a>
-              <a className="facet" style={{ ["--fc" as string]: "var(--category-animations)" }} href="reference-table.html#animations">
+              <a className="facet" style={{ ["--fc" as string]: "var(--category-animations)" }} href="/reference-table#animations">
                 <div className="fh"><span className="fd" aria-hidden="true" /><h4>Animation Requirements</h4></div>
                 <p>Jumpers, dribble moves, shooting packages, motion styles and finishing, and the attributes each one needs.</p>
                 <div className="preview" aria-hidden="true">
@@ -214,7 +214,7 @@ export function HomePage() {
                 </div>
                 <span className="go">Explore Animations &rarr;</span>
               </a>
-              <a className="facet" style={{ ["--fc" as string]: "var(--category-takeover)" }} href={`reference-table.html?takeover=${shotArtist.id}#takeovers`}>
+              <a className="facet" style={{ ["--fc" as string]: "var(--category-takeover)" }} href={`/reference-table?takeover=${shotArtist.id}#takeovers`}>
                 <div className="fh"><span className="fd" aria-hidden="true" /><h4>Takeover Requirements</h4></div>
                 <p>All {takeovers.length} takeover abilities, what each does, and the attributes that unlock them.</p>
                 <div className="preview" aria-hidden="true">
@@ -252,8 +252,8 @@ export function HomePage() {
               <span className="head">Premium Tools</span>
               <ExtLink className="prem-tool" href={live("/jumpshot-recommender")}><span className="pt-name">Jumpshot Recommender</span><span className="pt-desc">Best base + release for your exact attributes.</span></ExtLink>
               <ExtLink className="prem-tool" href={live("/motion-styles")}><span className="pt-name">Fastest Motion Styles</span><span className="pt-desc">Ranked dribble speed database.</span></ExtLink>
-              <a className="prem-tool" href="game-details.html?track=cap-breakers#rewards"><span className="pt-name">Cap Breaker Tracker</span><span className="pt-desc">Mark your progress and see every Cap Breaker you&rsquo;ve earned.</span></a>
-              <a className="prem-tool" href="builds.html#blueprints"><span className="pt-name">Signature Blueprints</span><span className="pt-desc">Attributes, body and badges per build.</span></a>
+              <a className="prem-tool" href="/game-details?track=cap-breakers#rewards"><span className="pt-name">Cap Breaker Tracker</span><span className="pt-desc">Mark your progress and see every Cap Breaker you&rsquo;ve earned.</span></a>
+              <a className="prem-tool" href="/builds#blueprints"><span className="pt-name">Signature Blueprints</span><span className="pt-desc">Attributes, body and badges per build.</span></a>
               <ExtLink className="prem-tool" href={live("/badge-token-calculator")}><span className="pt-name">Badge Token Calculator</span><span className="pt-desc">Plan upgrades against each token budget.</span></ExtLink>
             </div>
           </div>
@@ -266,27 +266,27 @@ export function HomePage() {
             <div>
               <h2>More from NBA2KLab</h2>
               <div className="feature">
-                <a className="mini" href="game-details.html#guides"><h3>How-To Guides</h3><p>Move lists and inputs for dribbling, dunks, passing, layups and the post.</p></a>
-                <a className="mini" href="game-details.html#2ktv"><h3>2KTV Answers</h3><p>The latest episode&rsquo;s answers for free VC.</p></a>
-                <a className="mini" href="game-details.html#face-creations"><h3>Face Creations</h3><p>Recreate NBA players with slider sets.</p></a>
-                <a className="mini" href="game-details.html#settings"><h3>Best Settings</h3><p>Controller, shot timing and camera.</p></a>
+                <a className="mini" href="/game-details#guides"><h3>How-To Guides</h3><p>Move lists and inputs for dribbling, dunks, passing, layups and the post.</p></a>
+                <a className="mini" href="/game-details#2ktv"><h3>2KTV Answers</h3><p>The latest episode&rsquo;s answers for free VC.</p></a>
+                <a className="mini" href="/game-details#face-creations"><h3>Face Creations</h3><p>Recreate NBA players with slider sets.</p></a>
+                <a className="mini" href="/game-details#settings"><h3>Best Settings</h3><p>Controller, shot timing and camera.</p></a>
               </div>
             </div>
             <div className="linkgroup">
               <h3>Data &amp; Reference</h3>
               <ExtLink href={live("/nba2k-player-ratings")}>Player Ratings</ExtLink>
               <ExtLink href={live("/teams")}>Team Rosters</ExtLink>
-              <a href="reference-table.html#badges">Badge Descriptions</a>
-              <a href="reference-table.html#badges">Badge Tier Unlocks</a>
+              <a href="/reference-table#badges">Badge Descriptions</a>
+              <a href="/reference-table#badges">Badge Tier Unlocks</a>
               <ExtLink href={live("/motion-styles")}>Motion Styles</ExtLink>
             </div>
             <div className="linkgroup">
               <h3>Stay Current</h3>
               <ExtLink href={live("/nba2k-patch-notes")}>Patch Notes</ExtLink>
-              <a href="game-details.html#2ktv">2KTV Answers</a>
-              <a href="game-details.html?track=cap-breakers#rewards">Cap Breakers</a>
+              <a href="/game-details#2ktv">2KTV Answers</a>
+              <a href="/game-details?track=cap-breakers#rewards">Cap Breakers</a>
               <a href="#premium">What&rsquo;s on Premium</a>
-              <a href="game-details.html">All Guides &amp; Tools</a>
+              <a href="/game-details">All Guides &amp; Tools</a>
             </div>
           </div>
         </div>

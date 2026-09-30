@@ -21,7 +21,7 @@ export function BuildsPage() {
   return (
     <>
       <div className="wrap">
-        <div className="crumb"><a href="index.html">Home</a> / Builds</div>
+        <div className="crumb"><a href="/">Home</a> / Builds</div>
         <div className="pagehead">
           <div className="eyebrow">Builds</div>
           <h1>NBA 2K27 Builds</h1>

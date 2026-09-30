@@ -5,7 +5,7 @@ const reached = (page: import("@playwright/test").Page, tier: string) => page.lo
 
 test.describe("Builder", () => {
   test("Certified Bucket starting build: 1 HoF, 11 Gold, 18 Silver, 2 Bronze; 1,203 animations; 12 of 24 takeovers", async ({ page }) => {
-    await page.goto("/builder.html?preset=blueprint:certified-bucket");
+    await page.goto("/builder?preset=blueprint:certified-bucket");
     await expect(page.locator(".lname")).toContainText("Certified Bucket");
     await expect(reached(page, "hof")).toHaveCount(1);
     await expect(reached(page, "gold")).toHaveCount(11);
@@ -21,14 +21,14 @@ test.describe("Builder", () => {
   });
 
   test("share link values outside the range are clamped and reported", async ({ page }) => {
-    await page.goto("/builder.html?preset=blueprint:certified-bucket&a=tpt99.mid10.swb07");
+    await page.goto("/builder?preset=blueprint:certified-bucket&a=tpt99.mid10.swb07");
     await expect(page.locator(".clamp-note")).toContainText("Three-Point Shot 99 → 95, Mid-Range Shot 10 → 93, Speed With Ball 7 → 86");
     await expect.poll(() => search(page).get("a")).toBe("tpt95");
     await expect(page.getByText("Custom build: 1 change from the archetype start")).toBeVisible();
   });
 
   test("sliders update tiers live, the share URL and Reset", async ({ page }) => {
-    await page.goto("/builder.html?preset=blueprint:certified-bucket");
+    await page.goto("/builder?preset=blueprint:certified-bucket");
     const lr = page.locator("#bcard-LimitlessRange .reached-tag");
     await expect(lr).toHaveText("Silver");
     const slider = page.getByRole("slider", { name: "Three-Point Shot, 89 to 95" });
@@ -37,7 +37,7 @@ test.describe("Builder", () => {
     await expect(lr).toHaveText("Gold");
     await expect.poll(() => search(page).get("a")).toBe("tpt93");
     // the Requirements link carries height and the reached tier
-    await expect(page.locator("#bcard-LimitlessRange .card-link")).toHaveAttribute("href", "reference-table.html?badge=LimitlessRange&height=6-2&tier=gold#badges");
+    await expect(page.locator("#bcard-LimitlessRange .card-link")).toHaveAttribute("href", "/reference-table?badge=LimitlessRange&height=6-2&tier=gold#badges");
     await page.getByRole("button", { name: "Reset" }).click();
     await expect(lr).toHaveText("Silver");
     await expect.poll(() => search(page).get("a")).toBeNull();
@@ -45,21 +45,21 @@ test.describe("Builder", () => {
   });
 
   test("floor-only blueprints and players are fixed, and ignore a=", async ({ page }) => {
-    await page.goto("/builder.html?preset=blueprint:launchpad&a=tpt99");
+    await page.goto("/builder?preset=blueprint:launchpad&a=tpt99");
     await expect(page.locator(".lpotential .cap")).toHaveText("Not published by 2KLab");
     await expect(page.locator(".lpotential .num")).toHaveText("—");
     await expect(page.locator(".attr-row input[type=range]:not([disabled])")).toHaveCount(0);
     await expect(page.locator(".clamp-note")).toHaveCount(0);
     await expect.poll(() => search(page).get("a")).toBeNull();
 
-    await page.goto("/builder.html?preset=player:1");
+    await page.goto("/builder?preset=player:1");
     await expect(page.getByRole("tab", { name: "Real Players" })).toHaveAttribute("aria-selected", "true");
     await expect(page.locator(".lname")).toContainText("Joel Embiid");
     await expect(page.locator(".attr-row input[type=range]:not([disabled])")).toHaveCount(0);
   });
 
   test("focus= highlights the badge once a preset is picked", async ({ page }) => {
-    await page.goto("/builder.html?focus=LimitlessRange");
+    await page.goto("/builder?focus=LimitlessRange");
     await expect(page.locator(".dl-notice")).toContainText("Limitless Range");
     await page.getByRole("button", { name: /Certified Bucket/ }).click();
     await expect(page.locator("#bcard-LimitlessRange")).toHaveClass(/is-focus/);
@@ -68,7 +68,7 @@ test.describe("Builder", () => {
   });
 
   test("pinning two presets compares them", async ({ page }) => {
-    await page.goto("/builder.html?preset=blueprint:certified-bucket");
+    await page.goto("/builder?preset=blueprint:certified-bucket");
     await page.getByRole("button", { name: "☆ Pin to Compare" }).click();
     await page.getByRole("button", { name: /Backcourt Bully/ }).click();
     await page.getByRole("button", { name: "☆ Pin to Compare" }).click();
@@ -89,7 +89,7 @@ test.describe("Builder", () => {
 
   test("saved builds: sign in, save, open, share and delete", async ({ page }) => {
     page.on("dialog", (d) => d.accept());
-    await page.goto("/builder.html?preset=blueprint:certified-bucket&a=tpt93");
+    await page.goto("/builder?preset=blueprint:certified-bucket&a=tpt93");
     await page.getByRole("button", { name: "Save build" }).click();
     await signIn(page, uniqueName("Saver"));
     const nameField = page.getByLabel("Build name");
@@ -105,7 +105,7 @@ test.describe("Builder", () => {
     await expect(page.getByText("Shared. It now appears under Builds → Community Builds.")).toBeVisible();
     await expect(card.getByText("Shared")).toBeVisible();
 
-    await page.goto("/builder.html#my-builds");
+    await page.goto("/builder#my-builds");
     await expect(page.getByRole("tab", { name: "My Builds" })).toHaveAttribute("aria-selected", "true");
     await page.locator(".my-card", { hasText: "My Bucket" }).getByRole("button", { name: "Open" }).click();
     await expect(page.locator(".lname")).toContainText("Certified Bucket");
@@ -117,7 +117,7 @@ test.describe("Builder", () => {
 
   test("phones get a live results bar", async ({ page }) => {
     test.skip(!isPhone(page), "phone layout only");
-    await page.goto("/builder.html?preset=blueprint:certified-bucket");
+    await page.goto("/builder?preset=blueprint:certified-bucket");
     const bar = page.getByRole("region", { name: "Live results" });
     await expect(bar).toContainText("1 HoF");
     await expect(bar).toContainText("1203 anims");

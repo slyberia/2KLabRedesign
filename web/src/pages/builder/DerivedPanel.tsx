@@ -39,7 +39,7 @@ function BadgeRow({ b, tier, build, focus }: { b: Badge; tier: TierResult; build
           {b.operator === "SINGLE" ? c0.attribute : <>{c0.attribute} <OpChip op={b.operator} /> {b.conditions[1]!.attribute}</>}
         </span>
         <span className={`reached-tag r-${tier}`}>{tier === "none" ? "Not Reached" : TIER_LABEL[tier]}</span>
-        <a className="card-link" href={`reference-table.html?${q.toString()}#badges`}>Requirements &rarr;</a>
+        <a className="card-link" href={`/reference-table?${q.toString()}#badges`}>Requirements &rarr;</a>
       </div>
       <div className="tilerow">
         {TILE_ORDER.map((t) =>
@@ -101,7 +101,7 @@ export function DerivedPanel({ build, focusBadge }: { build: Build; focusBadge: 
           const ok = qualifiesForSpecialization(r, build);
           const sk = r.id === "physicals" ? "physical" : r.id;
           return (
-            <a key={r.id} className={`spec-chip${ok ? " ok" : ""}`} style={{ ["--sk" as string]: `var(--skill-${sk})` }} href={`mycareer.html?spec=${r.id}#specializations`}>
+            <a key={r.id} className={`spec-chip${ok ? " ok" : ""}`} style={{ ["--sk" as string]: `var(--skill-${sk})` }} href={`/mycareer?spec=${r.id}#specializations`}>
               <span className="cdot" aria-hidden="true" />
               {r.name}
               <span className="sr-only">{ok ? " (qualifies)" : " (not yet)"}</span>
@@ -115,7 +115,7 @@ export function DerivedPanel({ build, focusBadge }: { build: Build; focusBadge: 
         {takeovers.filter((t) => t.operator !== "ALWAYS").map((t) => {
           const ok = takeoverUnlocked(t, build);
           return (
-            <a key={t.id} className={`spec-chip${ok ? " ok" : ""}`} style={{ ["--sk" as string]: `var(--skill-${t.category.toLowerCase()})` }} href={`reference-table.html?takeover=${t.id}#takeovers`}>
+            <a key={t.id} className={`spec-chip${ok ? " ok" : ""}`} style={{ ["--sk" as string]: `var(--skill-${t.category.toLowerCase()})` }} href={`/reference-table?takeover=${t.id}#takeovers`}>
               <span className="cdot" aria-hidden="true" />
               {t.name}
               <span className="sr-only">{ok ? " (unlocked)" : " (locked)"}</span>

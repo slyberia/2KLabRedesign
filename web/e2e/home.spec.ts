@@ -29,7 +29,7 @@ test.describe("Home", () => {
     } else {
       await page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "Requirements" }).click();
     }
-    await expect(page).toHaveURL(/reference-table\.html/);
+    await expect(page).toHaveURL(/\/reference-table(\?|#|$)/);
     await expect(page.locator(".sh-link", { hasText: "Requirements" })).toHaveAttribute("aria-current", "page");
   });
 });

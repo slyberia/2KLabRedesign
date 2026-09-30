@@ -46,7 +46,7 @@ export function MyCareerPage() {
   return (
     <>
       <div className="wrap">
-        <div className="crumb"><a href="index.html">Home</a> / MyCareer</div>
+        <div className="crumb"><a href="/">Home</a> / MyCareer</div>
         <div className="pagehead">
           <div className="eyebrow">MyCareer</div>
           <h1>NBA 2K27 MyCareer Progression</h1>
@@ -95,7 +95,7 @@ function AttributesPanel({ onGotoSpec }: { onGotoSpec: (id: string) => void }) {
                 <div className="attr-desc">{attributeDescriptions[a]}</div>
                 <div className="attr-meta">
                   {n ? (
-                    <a className="meta-pill" href={`reference-table.html?attr=${encodeURIComponent(a)}#badges`}>Keys {n} badge{n === 1 ? "" : "s"}</a>
+                    <a className="meta-pill" href={`/reference-table?attr=${encodeURIComponent(a)}#badges`}>Keys {n} badge{n === 1 ? "" : "s"}</a>
                   ) : (
                     <span className="meta-pill">No badge keys on it</span>
                   )}

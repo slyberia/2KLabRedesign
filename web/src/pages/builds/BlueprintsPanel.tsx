@@ -163,7 +163,7 @@ function BlueprintCard(props: { bp: Blueprint; a: Record<Attribute, number>; top
         {props.top.map((k) => <span key={k} title={k}>{ABBR[k]} <b>{props.a[k]}</b></span>)}
       </div>
       {bp.comparisons.length > 0 && <div className="bp-comps">Plays like {bp.comparisons.join(", ")}</div>}
-      <a className="bp-link" href={`builder.html?preset=blueprint:${encodeURIComponent(bp.id)}`}>Explore in Builder &rarr;</a>
+      <a className="bp-link" href={`/builder?preset=blueprint:${encodeURIComponent(bp.id)}`}>Explore in Builder &rarr;</a>
     </article>
   );
 }

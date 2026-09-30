@@ -11,9 +11,38 @@ const here = (p: string) => fileURLToPath(new URL(p, import.meta.url));
 // the app imports them through the @data alias rather than keeping a copy.
 const dataDir = here("../data");
 
-// One HTML entry per page, named like the static site's files so every URL, hash and deep link
-// (HANDOVER.md section 8) keeps working unchanged.
+// One HTML entry per page. Pages are served at clean URLs (/builder, not /builder.html); the
+// query strings and hashes from HANDOVER.md section 8 are unchanged.
 const PAGES = ["index", "builds", "builder", "reference-table", "mycareer", "shooting", "game-details"];
+
+/**
+ * Clean URLs in dev and preview, matching `cleanUrls` in ../vercel.json: /builder serves
+ * builder.html, and old links to /builder.html (or /index.html) redirect to the clean path with
+ * their query string kept. The hash never reaches the server; the browser keeps it across the redirect.
+ */
+function cleanUrls(): Plugin {
+  const attach = (middlewares: { use: (fn: (req: any, res: any, next: () => void) => void) => void }) => {
+    middlewares.use((req, res, next) => {
+      if (req.method !== "GET" && req.method !== "HEAD") return next();
+      const [path, query = ""] = (req.url as string).split(/\?(.*)/s);
+      const qs = query ? `?${query}` : "";
+      const html = /^\/([a-z-]+)\.html$/.exec(path!);
+      if (html && PAGES.includes(html[1]!)) {
+        res.statusCode = 308;
+        res.setHeader("Location", `${html[1] === "index" ? "/" : `/${html[1]}`}${qs}`);
+        return res.end();
+      }
+      const clean = /^\/([a-z-]+)\/?$/.exec(path!);
+      if (clean && clean[1] !== "index" && PAGES.includes(clean[1]!)) req.url = `/${clean[1]}.html${qs}`;
+      next();
+    });
+  };
+  return {
+    name: "clean-urls",
+    configureServer: (server) => attach(server.middlewares),
+    configurePreviewServer: (server) => attach(server.middlewares),
+  };
+}
 
 /**
  * Dev and preview only: serves /api/* from the Vercel Functions in ../api, backed by a local
@@ -56,7 +85,9 @@ function localApi(): Plugin {
 }
 
 export default defineConfig({
-  plugins: [react(), localApi()],
+  // multi-page: unknown paths are 404s, not a fallback to the homepage
+  appType: "mpa",
+  plugins: [react(), cleanUrls(), localApi()],
   resolve: { alias: { "@data": dataDir } },
   server: { fs: { allow: [".", dataDir] } },
   build: {

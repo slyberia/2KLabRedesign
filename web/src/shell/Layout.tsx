@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { useAccount } from "./account";
-import { EXT_DESC_ID, NAV, PAGE_FILE, live, type PageKey } from "./links";
+import { EXT_DESC_ID, NAV, PAGE_PATH, live, type PageKey } from "./links";
 import "./shell.css";
 
 /** A link to the live nba2klab.com: opens in a new tab and says so (the footer carries the description). */
@@ -16,7 +16,7 @@ function NavLinks({ current, cls }: { current: PageKey; cls: string }) {
   return (
     <>
       {NAV.map((n) => (
-        <a key={n.key} className={cls} href={PAGE_FILE[n.key]} aria-current={current === n.key ? "page" : undefined}>
+        <a key={n.key} className={cls} href={PAGE_PATH[n.key]} aria-current={current === n.key ? "page" : undefined}>
           {n.label}
         </a>
       ))}
@@ -63,8 +63,8 @@ function AccountControl({ id }: { id: string }) {
       </button>
       <div className="sh-menu" id={id} hidden={!open}>
         <span className="sh-menu-note">Demo account</span>
-        <a href="builder.html#my-builds" onClick={() => setOpen(false)}>My builds</a>
-        <a href="game-details.html?track=rep#rewards" onClick={() => setOpen(false)}>My progress</a>
+        <a href="/builder#my-builds" onClick={() => setOpen(false)}>My builds</a>
+        <a href="/game-details?track=rep#rewards" onClick={() => setOpen(false)}>My progress</a>
         <button type="button" data-closes-drawer onClick={() => { setOpen(false); void signOut(); }}>Sign out</button>
       </div>
     </span>
@@ -103,7 +103,7 @@ function Header({ current }: { current: PageKey }) {
     <>
       <header className="sh-bar">
         <div className="sh-wrap">
-          <a className="sh-logo" href="index.html" aria-current={current === "home" ? "page" : undefined}>
+          <a className="sh-logo" href="/" aria-current={current === "home" ? "page" : undefined}>
             NBA2K<em>LAB</em>
           </a>
           <nav className="sh-nav" aria-label="Primary">
@@ -111,7 +111,7 @@ function Header({ current }: { current: PageKey }) {
           </nav>
           <div className="sh-actions">
             <AccountControl id="sh-menu-0" />
-            <a className="sh-btn sh-primary" href="index.html#premium">Go Premium</a>
+            <a className="sh-btn sh-primary" href="/#premium">Go Premium</a>
           </div>
           <button
             ref={toggle}
@@ -138,7 +138,7 @@ function Header({ current }: { current: PageKey }) {
           <NavLinks current={current} cls="sh-dl" />
           <div className="sh-drawer-actions">
             <AccountControl id="sh-menu-1" />
-            <a className="sh-btn sh-primary" href="index.html#premium">Go Premium</a>
+            <a className="sh-btn sh-primary" href="/#premium">Go Premium</a>
           </div>
         </div>
       </div>
@@ -149,18 +149,18 @@ function Header({ current }: { current: PageKey }) {
 type FooterLink = { label: string; href: string; ext?: boolean };
 const FOOTER_COLS: [string, FooterLink[]][] = [
   ["Tools", [
-    { label: "Builds", href: "builds.html" }, { label: "MyPlayer Builder", href: "builder.html" },
-    { label: "Requirements", href: "reference-table.html" }, { label: "MyCareer Progression", href: "mycareer.html" },
-    { label: "Shooting Guide", href: "shooting.html" }, { label: "Game Details", href: "game-details.html" },
+    { label: "Builds", href: "/builds" }, { label: "MyPlayer Builder", href: "/builder" },
+    { label: "Requirements", href: "/reference-table" }, { label: "MyCareer Progression", href: "/mycareer" },
+    { label: "Shooting Guide", href: "/shooting" }, { label: "Game Details", href: "/game-details" },
   ]],
   ["Reference", [
-    { label: "Signature Blueprints", href: "builds.html#blueprints" }, { label: "Build Specializations", href: "mycareer.html#specializations" },
-    { label: "REP & Lifetime Rewards", href: "game-details.html?track=rep#rewards" }, { label: "Rebirth Rewards", href: "mycareer.html#rebirth" },
-    { label: "Takeover Requirements", href: "reference-table.html#takeovers" }, { label: "Cap Breakers", href: "game-details.html?track=cap-breakers#rewards" },
-    { label: "Best Settings", href: "game-details.html#settings" }, { label: "Controls", href: "game-details.html#controls" },
+    { label: "Signature Blueprints", href: "/builds#blueprints" }, { label: "Build Specializations", href: "/mycareer#specializations" },
+    { label: "REP & Lifetime Rewards", href: "/game-details?track=rep#rewards" }, { label: "Rebirth Rewards", href: "/mycareer#rebirth" },
+    { label: "Takeover Requirements", href: "/reference-table#takeovers" }, { label: "Cap Breakers", href: "/game-details?track=cap-breakers#rewards" },
+    { label: "Best Settings", href: "/game-details#settings" }, { label: "Controls", href: "/game-details#controls" },
   ]],
   ["Support", [
-    { label: "Go Premium", href: "index.html#premium" },
+    { label: "Go Premium", href: "/#premium" },
     { label: "Jumpshot Lab", href: live("/jumpshot-recommender"), ext: true },
     { label: "Contact", href: live("/contact"), ext: true },
     { label: "Terms", href: live("/terms-and-conditions"), ext: true },
@@ -174,7 +174,7 @@ function Footer() {
       <div className="sh-wrap">
         <div className="sh-cols">
           <div className="sh-brand">
-            <a className="sh-logo" href="index.html">NBA2K<em>LAB</em></a>
+            <a className="sh-logo" href="/">NBA2K<em>LAB</em></a>
             <p>Data-tested jumpers, badges and builds for NBA 2K27, backed by 10 years of large-sample testing.</p>
           </div>
           {FOOTER_COLS.map(([title, links], i) => (

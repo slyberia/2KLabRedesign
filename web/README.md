@@ -1,9 +1,11 @@
 # web/: React + TypeScript port
 
 The static site (repo root) rebuilt with Vite + React + TypeScript, following `../HANDOVER.md`.
-Each page is its own entry with the same filename as the static page (`index.html`,
-`reference-table.html`, `builder.html`, ...), so every URL, hash and deep link in HANDOVER.md
-section 8 keeps working.
+Each page is its own entry, served at a clean URL: `/`, `/builds`, `/builder`, `/reference-table`,
+`/mycareer`, `/shooting`, `/game-details`. Query strings and hashes are the ones in HANDOVER.md
+section 8. Old `.html` links redirect (308) to the clean path with their query and hash kept:
+`cleanUrls` in `../vercel.json` in production, and a matching plugin in `vite.config.ts` for
+dev and preview.
 
 ```
 npm install
@@ -38,5 +40,5 @@ point it at one with `CHROMIUM_PATH=/path/to/chrome`.
 
 ## Status
 
-All seven pages are ported. Not deployed: the root `vercel.json` still serves the static site,
-and switching the deployment to `web/dist` is a separate step.
+All seven pages are ported. `../vercel.json` builds `web/` and serves `web/dist` with the
+Functions in `../api`. The project hasn't been deployed yet, so that configuration is untested on Vercel.
