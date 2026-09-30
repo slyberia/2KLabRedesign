@@ -1,3 +1,4 @@
 import { mount } from "../../shell/mount";
+import { HomePage } from "./HomePage";
 
-mount("home", <div className="wrap"><p>Not ported yet.</p></div>);
+mount("home", <HomePage />);

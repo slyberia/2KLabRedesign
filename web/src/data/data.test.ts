@@ -84,3 +84,13 @@ describe("datasets", () => {
     });
   });
 });
+
+describe("homepage examples", () => {
+  it("the animation preview matches the data", async () => {
+    const { HOME_ANIMATION_EXAMPLE: ex } = await import("../pages/home/examples");
+    const a = animations.find((x) => x.id === ex.id)!;
+    expect(a.animationName).toBe(ex.name);
+    expect(a.thresholds).toEqual(ex.thresholds);
+    expect(a.operator).toBe("AND");
+  });
+});

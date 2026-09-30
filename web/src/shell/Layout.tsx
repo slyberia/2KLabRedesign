@@ -1,11 +1,12 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { useAccount } from "./account";
 import { EXT_DESC_ID, NAV, PAGE_FILE, live, type PageKey } from "./links";
 import "./shell.css";
 
-export function ExtLink({ href, className, children }: { href: string; className?: string; children: ReactNode }) {
+/** A link to the live nba2klab.com: opens in a new tab and says so (the footer carries the description). */
+export function ExtLink({ href, className, style, children }: { href: string; className?: string; style?: CSSProperties; children: ReactNode }) {
   return (
-    <a className={`${className ?? ""} ext`} href={href} target="_blank" rel="noopener" aria-describedby={EXT_DESC_ID}>
+    <a className={`${className ?? ""} ext`} href={href} target="_blank" rel="noopener" aria-describedby={EXT_DESC_ID} style={style}>
       {children}
     </a>
   );
