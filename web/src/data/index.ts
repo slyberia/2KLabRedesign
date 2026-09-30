@@ -12,3 +12,5 @@ export { repRewards } from "./repRewards";
 export { lifetimeRewards } from "./lifetimeRewards";
 export { crewRewards } from "./crewRewards";
 export { attributeDescriptions } from "./attributeDescriptions";
+export { rebirth } from "./rebirth";
+export { workoutWarrior } from "./workoutWarrior";

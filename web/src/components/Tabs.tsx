@@ -6,6 +6,8 @@ export interface TabDef<T extends string> {
   /** DOM id of the tab button (defaults to `tab-${id}`). */
   tabId?: string;
   panelId?: string;
+  /** Optional category color: shown as a dot and exposed to CSS as --sk. */
+  color?: string;
 }
 
 export const tabDomId = <T extends string>(t: TabDef<T>) => t.tabId ?? `tab-${t.id}`;
@@ -57,7 +59,9 @@ export function Tabs<T extends string>(props: {
           tabIndex={t.id === selected ? 0 : -1}
           onClick={() => onSelect(t.id)}
           onKeyDown={(e) => onKey(e, i)}
+          style={t.color ? { ["--sk" as string]: t.color } : undefined}
         >
+          {t.color && <span className="cdot" aria-hidden="true" />}
           {t.label}
         </button>
       ))}
