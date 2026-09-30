@@ -43,7 +43,7 @@ function AccountControl({ id }: { id: string }) {
   if (!user) {
     return (
       <span className="sh-acct">
-        <button type="button" className="sh-btn sh-ghost" onClick={() => signIn()}>Log In</button>
+        <button type="button" className="sh-btn sh-ghost" data-closes-drawer onClick={() => signIn()}>Log In</button>
       </span>
     );
   }
@@ -64,7 +64,7 @@ function AccountControl({ id }: { id: string }) {
         <span className="sh-menu-note">Demo account</span>
         <a href="builder.html#my-builds" onClick={() => setOpen(false)}>My builds</a>
         <a href="game-details.html?track=rep#rewards" onClick={() => setOpen(false)}>My progress</a>
-        <button type="button" onClick={() => { setOpen(false); void signOut(); }}>Sign out</button>
+        <button type="button" data-closes-drawer onClick={() => { setOpen(false); void signOut(); }}>Sign out</button>
       </div>
     </span>
   );
@@ -130,7 +130,8 @@ function Header({ current }: { current: PageKey }) {
         id="sh-drawer"
         ref={drawer}
         hidden={!open}
-        onClick={(e) => { if ((e.target as HTMLElement).closest("a")) setOpen(false); }}
+        // links and account actions (which open a dialog or change the page) close the drawer
+        onClick={(e) => { if ((e.target as HTMLElement).closest("a, [data-closes-drawer]")) setOpen(false); }}
       >
         <div className="sh-wrap">
           <NavLinks current={current} cls="sh-dl" />

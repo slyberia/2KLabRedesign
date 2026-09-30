@@ -14,3 +14,6 @@ export { crewRewards } from "./crewRewards";
 export { attributeDescriptions } from "./attributeDescriptions";
 export { rebirth } from "./rebirth";
 export { workoutWarrior } from "./workoutWarrior";
+export { seasonRewards } from "./seasonRewards";
+export { starterRewards } from "./starterRewards";
+export { settings, controls, howToInputs, dribbleMoves, tvEpisode } from "./guides";
