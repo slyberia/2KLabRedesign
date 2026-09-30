@@ -1,3 +1,4 @@
 import { mount } from "../../shell/mount";
+import { BuilderPage } from "./BuilderPage";
 
-mount("builder", <div className="wrap"><p>Not ported yet.</p></div>);
+mount("builder", <BuilderPage />);

@@ -11,3 +11,4 @@ export { capBreakers } from "./capBreakers";
 export { repRewards } from "./repRewards";
 export { lifetimeRewards } from "./lifetimeRewards";
 export { crewRewards } from "./crewRewards";
+export { attributeDescriptions } from "./attributeDescriptions";

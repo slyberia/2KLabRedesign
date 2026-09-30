@@ -28,6 +28,8 @@ export function Compare(props: {
   /** The full comparison (grids). */
   full: ReactNode;
   onClear: () => void;
+  /** Shown in the side panel while only one item is pinned. */
+  hint?: string;
 }) {
   const { view, count } = props;
   const trayOpen = view.trayExpanded && count > 0;
@@ -67,7 +69,7 @@ export function Compare(props: {
           {count > 0 && (
             <>
               <div className="sp-cards">{props.cards}</div>
-              {sideOpen && count >= 2 ? props.full : count === 1 ? <p className="sp-hint">Pin one more to compare them side by side.</p> : null}
+              {sideOpen && count >= 2 ? props.full : count === 1 ? <p className="sp-hint">{props.hint ?? "Pin one more to compare them side by side."}</p> : null}
             </>
           )}
         </div>

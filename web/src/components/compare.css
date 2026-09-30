@@ -46,3 +46,5 @@
 .ct-cell.delta-up{color:var(--status-success)}
 .ct-clear{background:transparent;border:0;color:var(--accent-text);font-family:var(--font-heading);font-weight:700;font-size:var(--size-xs);cursor:pointer;padding:.2rem .4rem;margin-bottom:var(--space-2)}
 .ct-section{background:transparent;padding-left:0;margin-bottom:.3rem}
+.mp-potential{font-family:var(--font-heading);font-weight:700;color:var(--accent-text);font-size:.85rem;margin-top:.3rem}
+.mp-potential span{color:var(--text-subtle);font-weight:400;font-size:.65rem;text-transform:uppercase;letter-spacing:.03em}
