@@ -1,0 +1,25 @@
+from playwright.sync_api import sync_playwright
+S="file:///home/claude/site/"
+with sync_playwright() as p:
+    b=p.chromium.launch(args=["--no-sandbox"]); errs=[]
+    pg=b.new_page(viewport={"width":1280,"height":900}); pg.on("pageerror",lambda e:errs.append(str(e))); E=lambda js: pg.evaluate(js)
+    pg.goto(S+"builds.html"); pg.wait_for_timeout(600)
+    print("1 nav current:",E("()=>document.querySelector('.sh-link[aria-current=page]')?.textContent"),"| cards:",E("()=>document.querySelectorAll('.bp-card').length"),"| unpublished shown as dash:",E("()=>document.querySelectorAll('.bp-pot.unpub').length"),"(expect 31)")
+    pg.click('[data-pos="PG"]'); print("  PG filter:",E("()=>document.getElementById('bpCount').textContent"),"(expect 8)")
+    pg.click('#tab-community'); pg.wait_for_timeout(100)
+    print("2 community: hash",E("()=>location.hash"),"| empty:",E("()=>document.querySelector('.empty h2').textContent"))
+    pg.focus('#tab-community'); pg.keyboard.press("ArrowLeft"); pg.wait_for_timeout(50); print("  ArrowLeft ->",E("()=>document.activeElement.id"),E("()=>location.hash"))
+    pg.goto(S+"builds.html#community"); pg.wait_for_timeout(300); print("3 direct #community visible:",E("()=>!document.getElementById('panel-community').hidden"))
+    pg.goto(S+"builds.html#blueprints"); pg.wait_for_timeout(300); pg.click('[data-pos="All"]'); pg.click('.bp-card:has(.bp-name:text-is("Clamps")) .bp-link'); pg.wait_for_timeout(700)
+    print("4 card -> Builder:",E("()=>document.querySelector('.lname')?.textContent"))
+    pg.goto(S+"mycareer.html"); pg.wait_for_timeout(500)
+    print("5 mycareer tabs:",E("()=>[...document.querySelectorAll('.pagehead [role=tab]')].map(t=>t.textContent)"))
+    pg.goto(S+"mycareer.html#blueprints"); pg.wait_for_timeout(400); print("  stale #blueprints on mycareer ->",E("()=>document.querySelector('.pagehead [aria-selected=true]').textContent"))
+    pg.goto(S+"index.html"); pg.wait_for_timeout(400)
+    print("6 homepage build links:",E("()=>[...new Set([...document.querySelectorAll('a')].map(a=>a.getAttribute('href')).filter(h=>/build/.test(h)))]"))
+    m=b.new_page(viewport={"width":375,"height":800}); m.goto(S+"builds.html"); m.wait_for_timeout(400); o1=m.evaluate("()=>document.documentElement.scrollWidth>innerWidth+1")
+    m.click('#tab-community'); m.wait_for_timeout(100); o2=m.evaluate("()=>document.documentElement.scrollWidth>innerWidth+1")
+    print("7 375px overflow: blueprints",o1,"| community",o2)
+    pg=b.new_page(viewport={"width":1280,"height":900}); pg.goto(S+"builds.html"); pg.wait_for_timeout(600); pg.screenshot(path="shot_builds.png")
+    pg.goto(S+"builds.html#community"); pg.wait_for_timeout(400); pg.screenshot(path="shot_community.png")
+    print("PAGE ERRORS:",errs or "none"); b.close()

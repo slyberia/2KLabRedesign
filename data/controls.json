@@ -1,0 +1,114 @@
+{
+ "header": [
+  "Input",
+  "Offense",
+  "Off Ball Offense",
+  "Defense",
+  "Off Ball Defense"
+ ],
+ "rows": [
+  [
+   "Sticks and D-Pad"
+  ],
+  [
+   "Left Stick",
+   "Move Player",
+   "Move Player",
+   "Move Player",
+   "Move Player"
+  ],
+  [
+   "Right Stick",
+   "Pro Stick",
+   "Pro Stick",
+   "Pro Stick Defense",
+   "Pro Stick Defense"
+  ],
+  [
+   "D-Pad",
+   "On The Fly Coaching",
+   "On The Fly Coaching",
+   "On The Fly Coaching",
+   "On The Fly Coaching"
+  ],
+  [
+   "Triggers and Bumpers"
+  ],
+  [
+   "LT L2",
+   "Post Up",
+   "Post Up",
+   "Intense-D",
+   "Intense-D"
+  ],
+  [
+   "LB L1",
+   "Call Play",
+   "Call For Screen",
+   "Double Team",
+   "Double Team"
+  ],
+  [
+   "RT R2",
+   "Sprint",
+   "Sprint",
+   "Sprint",
+   "Sprint"
+  ],
+  [
+   "RB R1",
+   "Icon Pass",
+   "Unused",
+   "Icon Swap",
+   "Icon Swap"
+  ],
+  [
+   "Face Buttons"
+  ],
+  [
+   "A Cross",
+   "Pass",
+   "Call For Pass",
+   "Player Swap (closest to ball)",
+   "Player Swap (closest to ball)"
+  ],
+  [
+   "B Circle",
+   "Bounce Pass",
+   "Quick Screen",
+   "Take Charge",
+   "Take Charge"
+  ],
+  [
+   "X Square",
+   "Shoot",
+   "Tell Teammate To Shoot",
+   "Steal",
+   "Steal"
+  ],
+  [
+   "Y Triangle",
+   "Lob Pass",
+   "Call For Alley-oop",
+   "Block / Rebound",
+   "Block / Rebound"
+  ],
+  [
+   "System Buttons"
+  ],
+  [
+   "View Create",
+   "Call Timeout / Coach's Challenge",
+   "Call Timeout / Coach's Challenge",
+   "Intentional Foul",
+   "Intentional Foul"
+  ],
+  [
+   "Menu Options",
+   "Pause",
+   "Pause",
+   "Pause",
+   "Pause"
+  ]
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "quick": [
+  [
+   "Shot Meter",
+   "Off"
+  ],
+  [
+   "Passive Dribble Hand Switches",
+   "Disabled"
+  ],
+  [
+   "Auto Lob to Moving Receiver",
+   "Disabled"
+  ],
+  [
+   "Boxout Assist Strength",
+   "0"
+  ],
+  [
+   "Defensive Assist Strength",
+   "15"
+  ],
+  [
+   "Camera Angle",
+   "2K Cam"
+  ],
+  [
+   "Right Stick Dribble Orientation",
+   "Absolute"
+  ]
+ ],
+ "faq": [
+  [
+   "What is the most important setting in NBA 2K27?",
+   "Your shot meter, by a long way. Turning it off is still the move in NBA 2K27."
+  ],
+  [
+   "Should I turn off Passive Dribble Hand Switches in NBA 2K27?",
+   "Yes. Set Passive Dribble Hand Switches to Disabled in the Controller Settings menu. It decides whether your player passively switches dribble hands when the left stick is released."
+  ],
+  [
+   "Should I turn off Auto Lob to Moving Receiver in NBA 2K27?",
+   "Yes. Set Auto Lob to Moving Receiver to Disabled in the Controller Settings menu. It decides whether contextual lob passes go to a moving receiver when you press the primary pass button."
+  ],
+  [
+   "What assist strength settings should I use in NBA 2K27?",
+   "Set Boxout Assist Strength to 0 and Defensive Assist Strength to 15."
+  ]
+ ],
+ "camera": "Use 2K Cam in every game mode. Start with Zoom 1 and Height 10, then adjust to your preference. It gives you the best view of the defense, passing lanes, and rebounds, and nearly all the 2K content you see online is played on it."
+}
