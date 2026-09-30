@@ -1,3 +1,4 @@
 import { mount } from "../../shell/mount";
+import { ShootingPage } from "./ShootingPage";
 
-mount("shooting", <div className="wrap"><p>Not ported yet.</p></div>);
+mount("shooting", <ShootingPage />);

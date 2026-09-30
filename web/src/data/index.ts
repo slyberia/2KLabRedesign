@@ -17,3 +17,4 @@ export { workoutWarrior } from "./workoutWarrior";
 export { seasonRewards } from "./seasonRewards";
 export { starterRewards } from "./starterRewards";
 export { settings, controls, howToInputs, dribbleMoves, tvEpisode } from "./guides";
+export { shootingBadgeTests } from "./shootingBadgeTests";
