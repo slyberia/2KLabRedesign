@@ -1,0 +1,42 @@
+/* Shared by every page: the Broadcast theme tokens (see ../../design/TOKENS.md), reset and page chrome.
+   Page-specific styles live next to each page. */
+:root{
+  --neutral-950:oklch(.150 .010 25);--neutral-900:oklch(.185 .012 25);--neutral-850:oklch(.225 .014 25);
+  --neutral-800:oklch(.260 .016 25);--neutral-700:oklch(.320 .016 25);--neutral-600:oklch(.440 .015 25);
+  --neutral-500:oklch(.560 .012 25);--neutral-400:oklch(.620 .012 25);--neutral-300:oklch(.720 .012 25);--neutral-050:oklch(.960 .004 25);
+  --red-900:oklch(.300 .110 25);--red-500:oklch(.560 .190 25);--red-400:oklch(.640 .170 25);--red-300:oklch(.720 .140 25);--white:oklch(.990 0 0);
+  /* tier colors are ONLY for badge tiers */
+  --tier-bronze:oklch(.700 .150 55);--tier-silver:oklch(.830 .045 240);--tier-gold:oklch(.830 .190 92);--tier-hof:oklch(.700 .200 300);
+  --op-or:oklch(.640 .210 25);--op-and:oklch(.720 .170 55);
+  --status-success:oklch(.720 .150 145);
+  --skill-finishing:oklch(.640 .140 258);--skill-shooting:oklch(.740 .130 158);--skill-playmaking:oklch(.770 .130 72);
+  --skill-defense:oklch(.600 .175 18);--skill-rebounding:oklch(.640 .150 320);--skill-physical:oklch(.700 .035 250);
+  --skill-balanced:oklch(.720 .012 25);
+  --font-display:'Barlow Condensed',system-ui,sans-serif;--font-body:'Hanken Grotesk',system-ui,sans-serif;--font-mono:ui-monospace,monospace;
+  --size-xs:.75rem;--size-sm:.875rem;--size-base:1rem;--size-md:1.125rem;--size-lg:1.375rem;--size-xl:1.75rem;--size-2xl:2.25rem;
+  --leading-snug:1.2;--leading-normal:1.55;
+  --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;
+  --radius-sm:2px;--radius-md:3px;--radius-lg:6px;--radius-pill:999px;--border-1:1px;--border-2:2px;--border-rule:3px;--z-sticky:1100;--z-tray:1200;
+  --duration-fast:120ms;--duration-base:200ms;--ease-standard:cubic-bezier(.2,0,0,1);
+  --surface:var(--neutral-900);--surface-raised:var(--neutral-850);--surface-sunken:var(--neutral-950);--surface-hover:var(--neutral-800);
+  --text:var(--neutral-050);--text-muted:var(--neutral-300);--text-subtle:var(--neutral-400);--border:var(--neutral-700);--border-strong:var(--neutral-600);
+  --accent:var(--red-500);--accent-hover:var(--red-400);--accent-text:var(--red-400);--on-accent:var(--white);--focus-ring:var(--red-300);
+  --font-heading:var(--font-display);--font-text:var(--font-body);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+body{background:var(--surface-sunken);color:var(--text);font-family:var(--font-text);line-height:var(--leading-normal);font-size:var(--size-base)}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:where(a,button,input,select,summary,[tabindex]):focus-visible{outline:var(--border-2) solid var(--focus-ring);outline-offset:2px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+h1,h2,h3,h4{font-family:var(--font-heading);line-height:var(--leading-snug);font-weight:700}
+.eyebrow{font-family:var(--font-heading);font-weight:700;font-size:var(--size-sm);letter-spacing:.1em;color:var(--accent-text);text-transform:uppercase}
+.crumb{font-size:var(--size-sm);color:var(--text-muted);padding:var(--space-4) 0 0}
+.crumb a{color:var(--accent-text);text-decoration:none}
+.pagehead{padding:var(--space-4) 0 var(--space-6)}
+.pagehead h1{font-size:var(--size-2xl);margin:.2rem 0 .4rem}
+.pagehead p{color:var(--text-muted);max-width:70ch;font-size:var(--size-md)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+[hidden]{display:none!important}

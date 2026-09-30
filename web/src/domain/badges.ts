@@ -1,4 +1,4 @@
-import type { Attribute } from "./attributes";
+import { ATTRIBUTE_CATEGORY, type Attribute, type Category } from "./attributes";
 import { isWithinHeight } from "./height";
 import type { Badge, BadgeCondition, Build, Height, Tier, TierResult } from "./types";
 
@@ -57,3 +57,6 @@ export function badgesAvailableAtHeight(badges: readonly Badge[], height: Height
 export function badgesKeyedOn(badges: readonly Badge[], attribute: Attribute): Badge[] {
   return badges.filter((b) => b.conditions.some((c) => c.attribute === attribute));
 }
+
+/** A badge is grouped under the category of its first condition's attribute. */
+export const badgeCategory = (b: Badge): Category => ATTRIBUTE_CATEGORY[b.conditions[0]!.attribute];

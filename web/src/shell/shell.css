@@ -1,0 +1,81 @@
+/* Site shell: shared header, mobile drawer, footer, account menu and sign-in dialog (sh- prefixed). */
+.sh-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sh-bar{position:sticky;top:0;z-index:var(--z-sticky,1100);height:60px;background:var(--surface-raised);border-bottom:var(--border-1,1px) solid var(--border)}
+.sh-wrap{max-width:1280px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+.sh-bar .sh-wrap{display:flex;align-items:center;gap:var(--space-4,1rem);height:100%}
+.sh-logo{font-family:var(--font-heading);font-weight:700;font-size:var(--size-lg,1.375rem);white-space:nowrap;text-decoration:none;color:var(--text)}
+.sh-logo em{font-style:normal;color:var(--accent-text)}
+.sh-nav{display:flex;gap:.1rem;margin-left:var(--space-2,.5rem);flex-wrap:nowrap}
+.sh-link{color:var(--text-muted);text-decoration:none;font-weight:600;font-size:var(--size-sm,.875rem);padding:.5rem .65rem;border-radius:var(--radius-md,3px);min-height:40px;display:inline-flex;align-items:center;white-space:nowrap}
+.sh-link:hover,.sh-link[aria-current=page]{color:var(--text);background:var(--surface-hover)}
+.sh-link[aria-current=page]{box-shadow:inset 0 -2px 0 var(--accent)}
+a.ext::after{content:"\2197";font-size:.78em;margin-left:.2em;opacity:.65}
+.sh-actions{margin-left:auto;display:flex;gap:var(--space-2,.5rem);flex-shrink:0;align-items:center}
+.sh-btn{text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:var(--size-sm,.875rem);padding:.55rem .9rem;min-height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-md,3px);white-space:nowrap}
+.sh-primary{background:var(--accent);color:var(--on-accent)}.sh-primary:hover{background:var(--accent-hover)}
+button.sh-btn{font-family:var(--font-heading);cursor:pointer;border:var(--border-1,1px) solid transparent}
+.sh-ghost{color:var(--text);background:transparent;border:var(--border-1,1px) solid var(--border)}.sh-ghost:hover{border-color:var(--border-strong)}
+.sh-toggle{display:none;margin-left:auto;width:44px;height:44px;border:var(--border-1,1px) solid var(--border);border-radius:var(--radius-md,3px);background:transparent;color:var(--text);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.sh-toggle span{display:block;width:20px;height:2px;background:currentColor;transition:transform .12s,opacity .12s}
+.sh-toggle[aria-expanded=true] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.sh-toggle[aria-expanded=true] span:nth-child(2){opacity:0}
+.sh-toggle[aria-expanded=true] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.sh-drawer{display:none}
+@media(max-width:1080px){
+  .sh-nav,.sh-actions{display:none}
+  .sh-toggle{display:flex}
+  .sh-drawer{display:block;position:fixed;inset:60px 0 auto 0;z-index:1300;background:var(--surface-raised);border-bottom:var(--border-1,1px) solid var(--border);box-shadow:0 12px 30px oklch(0 0 0 / .5);max-height:calc(100vh - 60px);overflow:auto}
+  .sh-drawer[hidden]{display:none}
+  .sh-drawer .sh-wrap{display:flex;flex-direction:column;padding-top:var(--space-4,1rem);padding-bottom:var(--space-4,1rem);gap:var(--space-1,.25rem)}
+  .sh-dl{color:var(--text);text-decoration:none;font-family:var(--font-heading);font-weight:600;font-size:var(--size-md,1.125rem);padding:.85rem .5rem;min-height:48px;display:flex;align-items:center;border-bottom:var(--border-1,1px) solid var(--border)}
+  .sh-dl:hover,.sh-dl[aria-current=page]{color:var(--accent-text)}
+  .sh-drawer-actions{display:flex;gap:var(--space-3,.75rem);margin-top:var(--space-4,1rem);flex-wrap:wrap}
+  .sh-drawer-actions .sh-btn{flex:1}
+}
+/* Builder / Requirements compare panel reflows the page with body padding-right;
+   the header should keep spanning the full viewport (the panel sits beneath it). */
+@media(min-width:768px){
+  body.side-has-items .sh-bar{margin-right:-300px}
+  body.side-extended .sh-bar{margin-right:calc(-1 * min(780px,60vw))}
+}
+.sh-foot{background:var(--surface-raised);border-top:var(--border-1,1px) solid var(--border);padding:var(--space-10,2.5rem) 0 var(--space-6,1.5rem);margin-top:var(--space-10,2.5rem)}
+.sh-cols{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:var(--space-8,2rem) var(--space-6,1.5rem)}
+.sh-brand .sh-logo{font-size:var(--size-xl,1.75rem)}
+.sh-brand p{color:var(--text-subtle);font-size:var(--size-sm,.875rem);line-height:1.5;margin-top:var(--space-2,.5rem);max-width:30ch}
+.sh-fcol{display:flex;flex-direction:column;align-items:flex-start}
+.sh-fh{font-family:var(--font-heading);font-weight:700;font-size:var(--size-sm,.875rem);letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle);margin:0 0 var(--space-3,.75rem)}
+.sh-fl{color:var(--text-muted);text-decoration:none;font-size:var(--size-sm,.875rem);line-height:1.35;padding:.3rem 0;border-radius:var(--radius-sm,2px)}
+.sh-fl:hover{color:var(--text)}
+.sh-fine{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--space-2,.5rem) var(--space-6,1.5rem);margin-top:var(--space-8,2rem);padding-top:var(--space-4,1rem);border-top:var(--border-1,1px) solid var(--border);color:var(--text-subtle);font-size:var(--size-xs,.75rem)}
+.sh-fine p{margin:0}
+:where(.sh-bar,.sh-drawer,.sh-foot) :where(a,button):focus-visible{outline:2px solid var(--focus-ring,var(--accent));outline-offset:2px}
+@media(max-width:960px){.sh-cols{grid-template-columns:repeat(2,1fr)}.sh-brand{grid-column:1/-1}}
+@media(max-width:300px){.sh-cols{grid-template-columns:1fr}}
+/* ---- demo accounts: header control, menu, sign-in dialog ---- */
+.sh-acct{position:relative;display:inline-flex}
+.sh-acct-btn{gap:.45rem}
+.sh-acct-btn .sh-prem{font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-text);border:1px solid var(--accent);border-radius:999px;padding:.02rem .4rem}
+.sh-menu{position:absolute;right:0;top:calc(100% + .4rem);min-width:190px;background:var(--surface-raised);border:var(--border-1,1px) solid var(--border-strong);border-radius:var(--radius-md,3px);box-shadow:0 10px 28px oklch(0 0 0/.45);padding:.3rem;z-index:1400;display:flex;flex-direction:column}
+.sh-menu[hidden]{display:none}
+.sh-menu a,.sh-menu button{display:flex;align-items:center;min-height:40px;padding:0 .7rem;border-radius:var(--radius-sm,2px);background:none;border:0;color:var(--text);font:inherit;font-size:var(--size-sm,.875rem);text-decoration:none;text-align:left;cursor:pointer}
+.sh-menu a:hover,.sh-menu button:hover{background:var(--surface-hover)}
+.sh-menu .sh-menu-note{font-size:.72rem;color:var(--text-subtle);padding:.35rem .7rem .2rem}
+.sh-drawer .sh-menu{position:static;box-shadow:none;margin-top:.4rem;width:100%}
+.sh-dialog{margin:auto;max-width:min(460px,calc(100vw - 2rem));width:100%;background:var(--surface-raised);color:var(--text);border:var(--border-1,1px) solid var(--border-strong);border-radius:var(--radius-md,3px);padding:0}
+.sh-dialog::backdrop{background:oklch(0 0 0/.6)}
+.sh-signin-form{display:flex;flex-direction:column;gap:.7rem;padding:var(--space-6,1.5rem)}
+.sh-signin-form h2{font-family:var(--font-heading);font-size:var(--size-lg,1.375rem)}
+.sh-demo-note{font-size:var(--size-sm,.875rem);color:var(--text-muted);background:var(--surface-sunken);border-left:3px solid var(--accent);padding:.6rem .75rem;border-radius:var(--radius-sm,2px)}
+.sh-field{display:flex;flex-direction:column;gap:.3rem;font-weight:600;font-size:var(--size-sm,.875rem)}
+.sh-field input{background:var(--surface-sunken);border:var(--border-1,1px) solid var(--border-strong);color:var(--text);border-radius:var(--radius-sm,2px);padding:.6rem .7rem;font:inherit;font-weight:400;min-height:44px}
+.sh-check{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;font-size:var(--size-sm,.875rem)}
+.sh-check input{width:18px;height:18px;accent-color:var(--accent)}
+.sh-hint{font-size:.75rem;color:var(--text-subtle);font-weight:400}
+.sh-err{color:var(--accent-text);font-size:var(--size-sm,.875rem)}
+.sh-err[hidden]{display:none}
+.sh-dialog-actions{display:flex;justify-content:flex-end;gap:.5rem;margin-top:.3rem}
+/* ---- social links (footer) ---- */
+.sh-social{list-style:none;display:flex;flex-wrap:wrap;gap:var(--space-2,.5rem);margin-top:var(--space-4,1rem)}
+.sh-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:var(--border-1,1px) solid var(--border);color:var(--text-muted);background:var(--surface)}
+.sh-social svg{display:block}
+@media (hover:hover){.sh-social a:hover{color:var(--text);border-color:var(--accent)}}

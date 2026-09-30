@@ -84,3 +84,33 @@ describe("datasets", () => {
     });
   });
 });
+
+describe("homepage examples", () => {
+  it("the animation preview matches the data", async () => {
+    const { HOME_ANIMATION_EXAMPLE: ex } = await import("../pages/home/examples");
+    const a = animations.find((x) => x.id === ex.id)!;
+    expect(a.animationName).toBe(ex.name);
+    expect(a.thresholds).toEqual(ex.thresholds);
+    expect(a.operator).toBe("AND");
+  });
+});
+
+describe("scraped live data", () => {
+  it("face creations: 108 players, unique ids, every section present", async () => {
+    const { faceCreations: f } = await import("./faceCreations");
+    expect(f.players).toHaveLength(108);
+    expect(new Set(f.players.map((p) => p.id)).size).toBe(108);
+    expect(f.sections).toHaveLength(13);
+    for (const p of f.players) {
+      expect(["current", "legend"]).toContain(p.category);
+      for (const s of f.sections) expect(p.sections[s.key]).toBeDefined();
+    }
+  });
+
+  it("VC: seven tiers whose stated VC per $1 matches VC / price", async () => {
+    const { vcPrices: v } = await import("./vcPrices");
+    expect(v.tiers).toHaveLength(7);
+    for (const t of v.tiers) expect(t.vcPerDollar).toBe(Math.round(t.vc / t.price));
+    expect(v.season1Bundles.map((b) => b.name)).toEqual(["Season 1 MyCAREER", "Season 1 MyTEAM"]);
+  });
+});

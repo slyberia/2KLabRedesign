@@ -18,7 +18,7 @@ with no password; the same name reaches the same account. Don't enter personal i
 - `data/`: verified datasets with `MANIFEST.json` (sources, counts, capture dates)
 - `design/`: design tokens, original audit, early schema docs
 - `legacy/`: static-build sources, build scripts and verification suites (reference for the rebuild)
-- `web/`: the React + TypeScript port in progress (see `web/README.md`)
+- `web/`: the React + TypeScript version of all seven pages, with unit and browser tests (see `web/README.md`)
 - `lib/`: storage adapter (private Vercel Blob, conditional writes with ETag retry), sessions, validation
 
 ## Environment
