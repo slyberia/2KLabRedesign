@@ -148,3 +148,5 @@ section.tight{padding:var(--space-section-tight) 0}
 .facet .tiers .op-chip{display:inline-flex;align-items:center;font-family:var(--font-heading);font-weight:700;font-size:max(.62rem,11px);letter-spacing:.06em;padding:.08rem .38rem;border-radius:var(--radius-sm);background:var(--surface-sunken);border:1.5px solid var(--op);color:var(--op);text-transform:uppercase;align-self:center}
 .op-chip.or{--op:var(--op-or)}.op-chip.and{--op:var(--op-and)}
 .video iframe{width:100%;height:100%;border:0}
+a.video{text-decoration:none;color:inherit}
+a.video.ext::after{content:none}

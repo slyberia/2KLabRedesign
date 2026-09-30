@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { badges } from "../../data/badges";
 import { takeovers } from "../../data/takeovers";
 import { TIER_LABEL, type Tier } from "../../domain";
 import { OpChip } from "../../components/OpChip";
 import { ExtLink } from "../../shell/Layout";
 import { live } from "../../shell/links";
+import { YOUTUBE_URL } from "../../shell/Social";
 import { HOME_ANIMATION_EXAMPLE as anim } from "./examples";
 import "./home.css";
 
@@ -23,40 +23,18 @@ function PositionChips() {
   );
 }
 
-/** Click-to-load video facade: no iframe until the visitor asks for it. */
+/** The video card opens NBA2KLab's YouTube channel in a new tab. */
 function HeroVideo() {
-  // No real video ID yet: the poster stays and says so, rather than pretending to play.
-  const VIDEO_ID: string | null = null;
-  const [playing, setPlaying] = useState(false);
-  const [note, setNote] = useState<string | null>(null);
-  if (playing && VIDEO_ID) {
-    return (
-      <div className="video">
-        <iframe
-          src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
-          title="See the Lab in Action"
-          allow="accelerated-motion; autoplay; encrypted-media; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-    );
-  }
   return (
-    <button
-      className="video"
-      type="button"
-      aria-label="Play video: See the Lab in Action, 2 minutes 14 seconds"
-      onClick={() => (VIDEO_ID ? setPlaying(true) : setNote("Video not set up yet in this redesign."))}
-    >
+    <ExtLink className="video" href={YOUTUBE_URL}>
       <span className="court" aria-hidden="true" />
       <span className="vtag">Testing Footage</span>
-      <span className="vdur">2:14</span>
       <span className="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>
       <span className="vlabel">
         <span className="vt">See the Lab in Action</span>
-        <span className="vs" aria-live="polite">{note ?? "How NBA2KLab tests jumpshots, green windows and release timing"}</span>
+        <span className="vs">Watch NBA2KLab&rsquo;s testing videos on YouTube</span>
       </span>
-    </button>
+    </ExtLink>
   );
 }
 

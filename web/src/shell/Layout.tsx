@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { useAccount } from "./account";
 import { EXT_DESC_ID, NAV, PAGE_PATH, live, type PageKey } from "./links";
+import { SocialLinks } from "./Social";
 import "./shell.css";
 
 /** A link to the live nba2klab.com: opens in a new tab and says so (the footer carries the description). */
@@ -176,6 +177,7 @@ function Footer() {
           <div className="sh-brand">
             <a className="sh-logo" href="/">NBA2K<em>LAB</em></a>
             <p>Data-tested jumpers, badges and builds for NBA 2K27, backed by 10 years of large-sample testing.</p>
+            <SocialLinks />
           </div>
           {FOOTER_COLS.map(([title, links], i) => (
             <nav key={title} className="sh-fcol" aria-labelledby={`sh-fh-${i}`}>
