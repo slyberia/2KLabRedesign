@@ -25,3 +25,10 @@ export function heightFromParam(s: string): Height | null {
   const inches = Number(m[2]);
   return inches <= 11 ? (`${m[1]}'${inches}` as Height) : null;
 }
+
+/** Every height a build can have, 5'9 to 7'4. */
+export const HEIGHT_OPTIONS: readonly Height[] = (() => {
+  const out: Height[] = [];
+  for (let i = 5 * 12 + 9; i <= 7 * 12 + 4; i++) out.push(`${Math.floor(i / 12)}'${i % 12}` as Height);
+  return out;
+})();

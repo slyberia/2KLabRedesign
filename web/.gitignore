@@ -1,2 +1,7 @@
 node_modules/
 dist/
+.dev-store/
+.e2e-store/
+test-results/
+playwright-report/
+.shot.mjs

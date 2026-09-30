@@ -44,3 +44,12 @@ export function coUnlocks(
   }
   return out;
 }
+
+export const SUBTYPES: readonly Animation["subtype"][] = ["jumper", "shooting", "dribble", "motionStyle", "finishing"];
+export const SUBTYPE_LABEL: Record<Animation["subtype"], string> = {
+  jumper: "Jumpers",
+  shooting: "Shooting Packages",
+  dribble: "Dribble Moves",
+  motionStyle: "Motion Styles",
+  finishing: "Finishing",
+};
