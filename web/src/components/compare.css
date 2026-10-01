@@ -16,7 +16,7 @@
 /* ---- desktop/tablet side panel (>=768px) ---- */
 .side-panel{display:none}
 @media(min-width:768px){
-  .side-panel{display:flex;flex-direction:column;position:fixed;top:60px;right:0;bottom:0;z-index:var(--z-tray);
+  .side-panel{display:flex;flex-direction:column;position:fixed;top:var(--shell-bottom,60px);right:0;bottom:0;z-index:var(--z-tray);
     width:300px;background:var(--surface-raised);border-left:var(--border-2) solid var(--accent);
     box-shadow:-8px 0 24px oklch(0 0 0/.4);transform:translateX(100%);
     transition:transform var(--duration-base) var(--ease-standard),width var(--duration-base) var(--ease-standard)}
