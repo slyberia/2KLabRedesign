@@ -1,5 +1,6 @@
 /// <reference types="vitest/config" />
 import { randomBytes } from "node:crypto";
+import { readFileSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { Readable } from "node:stream";
 import { defineConfig, type Plugin } from "vite";
@@ -84,10 +85,29 @@ function localApi(): Plugin {
   };
 }
 
+/**
+ * Preview only: send the response headers from ../vercel.json (CSP, X-Robots-Tag, ...), so the browser
+ * tests run under the same policy production will. Not in dev, where Vite injects inline scripts.
+ */
+function vercelHeaders(): Plugin {
+  const rules = (JSON.parse(readFileSync(here("../vercel.json"), "utf8")).headers ?? []) as { source: string; headers: { key: string; value: string }[] }[];
+  const compiled = rules.map((r) => ({ re: new RegExp(`^${r.source.replace(/\(\.\*\)/g, ".*")}$`), headers: r.headers }));
+  return {
+    name: "vercel-headers",
+    configurePreviewServer: (server) => {
+      server.middlewares.use((req: any, res: any, next: () => void) => {
+        const path = String(req.url).split("?")[0];
+        for (const r of compiled) if (r.re.test(path)) for (const h of r.headers) res.setHeader(h.key, h.value);
+        next();
+      });
+    },
+  };
+}
+
 export default defineConfig({
   // multi-page: unknown paths are 404s, not a fallback to the homepage
   appType: "mpa",
-  plugins: [react(), cleanUrls(), localApi()],
+  plugins: [react(), vercelHeaders(), cleanUrls(), localApi()],
   resolve: { alias: { "@data": dataDir } },
   server: { fs: { allow: [".", dataDir] } },
   build: {
@@ -95,5 +115,5 @@ export default defineConfig({
     // Builder and Requirements carry the animation list (2,503 rows); split into shared chunks.
     chunkSizeWarningLimit: 700,
   },
-  test: { include: ["src/**/*.test.ts"] },
+  test: { include: ["src/**/*.test.ts", "test/**/*.test.mjs"] },
 });

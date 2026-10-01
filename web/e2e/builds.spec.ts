@@ -40,8 +40,10 @@ test.describe("Builds", () => {
     await page.goto("/builds#community");
     await openSignIn(page);
     await signIn(page, owner);
-    const saved = await (await page.request.post("/api/builds", { data: { name: `${owner} build`, preset: "blueprint:certified-bucket", a: "tpt93" } })).json();
-    await page.request.post("/api/community", { data: { action: "publish", buildId: saved.build.id } });
+    // Writes need a same-origin Origin header, as a browser sends (HANDOVER.md section 13, item 6).
+    const headers = { origin: new URL(page.url()).origin };
+    const saved = await (await page.request.post("/api/builds", { headers, data: { name: `${owner} build`, preset: "blueprint:certified-bucket", a: "tpt93" } })).json();
+    await page.request.post("/api/community", { headers, data: { action: "publish", buildId: saved.build.id } });
     await page.reload();
     const mine = page.locator(".c-card", { hasText: `${owner} build` });
     await expect(mine).toContainText("Your build");

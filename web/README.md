@@ -9,7 +9,7 @@ dev and preview.
 
 ```
 npm install
-npm test            # domain rules + dataset invariants (Vitest)
+npm test            # domain rules, dataset invariants and API tests (Vitest)
 npm run typecheck
 npm run dev         # Vite dev server; /api is served from ../api with a local folder store
 npm run build
@@ -35,6 +35,8 @@ point it at one with `CHROMIUM_PATH=/path/to/chrome`.
   rewards progress store.
 - `src/components/`: shared UI (tabs with roving tabindex, compare tray/side panel, ...).
 - `src/pages/<page>/`: one folder per page, with its own stylesheet.
+- `test/`: API tests that call `../api` directly against a temporary local store, and a real
+  Vercel Blob integration test that skips unless `BLOB_READ_WRITE_TOKEN` is set.
 - `e2e/`: Playwright tests per page, including the reference values, each deep link, the
   saved-build and community flows, and the shared-device progress case.
 

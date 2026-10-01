@@ -191,7 +191,10 @@ function Footer() {
           ))}
         </div>
         <div className="sh-fine">
-          <p>&copy; 2026 NBA2KLab. Not associated with NBA 2K, Take-Two Interactive, or the NBA.</p>
+          <p>
+            Unofficial redesign concept by Kyle Semple. Content and data &copy; NBA2KLab. Not affiliated with or reviewed by
+            NBA2KLab, NBA 2K, Take-Two Interactive, or the NBA.
+          </p>
           <p className="sh-extnote"><span aria-hidden="true">&#8599;</span> Opens the current NBA2KLab site in a new tab</p>
         </div>
         <span id={EXT_DESC_ID} hidden>Opens the current NBA2KLab site in a new tab</span>
@@ -200,9 +203,39 @@ function Footer() {
   );
 }
 
+/** Says up front that this is a redesign concept, not 2KLab's own site (HANDOVER.md section 13, item 3). */
+function ConceptBanner() {
+  return (
+    <div className="sh-concept" role="note">
+      <span><b>Unofficial redesign concept.</b> Not affiliated with or reviewed by NBA2KLab.</span>{" "}
+      <ExtLink href={live("/")}>Go to the real NBA2KLab</ExtLink>
+    </div>
+  );
+}
+
+/**
+ * Keeps --shell-bottom on <html> equal to the header's bottom edge. The concept banner sits above the
+ * sticky header until you scroll, so fixed panels (mobile menu, compare panel) read this instead of 60px.
+ */
+function useShellBottom() {
+  useEffect(() => {
+    const bar = document.querySelector(".sh-bar");
+    const set = () => document.documentElement.style.setProperty("--shell-bottom", `${Math.max(0, bar?.getBoundingClientRect().bottom ?? 60)}px`);
+    set();
+    window.addEventListener("scroll", set, { passive: true });
+    window.addEventListener("resize", set);
+    return () => {
+      window.removeEventListener("scroll", set);
+      window.removeEventListener("resize", set);
+    };
+  }, []);
+}
+
 export function Layout({ current, children }: { current: PageKey; children: ReactNode }) {
+  useShellBottom();
   return (
     <>
+      <ConceptBanner />
       <Header current={current} />
       {children}
       <Footer />

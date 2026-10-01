@@ -5,5 +5,8 @@
     "@vercel/blob": "2.8.0"
   },
   "private": true,
-  "type": "module"
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  }
 }

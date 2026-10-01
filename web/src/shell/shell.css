@@ -24,7 +24,7 @@ button.sh-btn{font-family:var(--font-heading);cursor:pointer;border:var(--border
 @media(max-width:1080px){
   .sh-nav,.sh-actions{display:none}
   .sh-toggle{display:flex}
-  .sh-drawer{display:block;position:fixed;inset:60px 0 auto 0;z-index:1300;background:var(--surface-raised);border-bottom:var(--border-1,1px) solid var(--border);box-shadow:0 12px 30px oklch(0 0 0 / .5);max-height:calc(100vh - 60px);overflow:auto}
+  .sh-drawer{display:block;position:fixed;inset:var(--shell-bottom,60px) 0 auto 0;z-index:1300;background:var(--surface-raised);border-bottom:var(--border-1,1px) solid var(--border);box-shadow:0 12px 30px oklch(0 0 0 / .5);max-height:calc(100vh - var(--shell-bottom,60px));overflow:auto}
   .sh-drawer[hidden]{display:none}
   .sh-drawer .sh-wrap{display:flex;flex-direction:column;padding-top:var(--space-4,1rem);padding-bottom:var(--space-4,1rem);gap:var(--space-1,.25rem)}
   .sh-dl{color:var(--text);text-decoration:none;font-family:var(--font-heading);font-weight:600;font-size:var(--size-md,1.125rem);padding:.85rem .5rem;min-height:48px;display:flex;align-items:center;border-bottom:var(--border-1,1px) solid var(--border)}
@@ -79,3 +79,7 @@ button.sh-btn{font-family:var(--font-heading);cursor:pointer;border:var(--border
 .sh-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:var(--border-1,1px) solid var(--border);color:var(--text-muted);background:var(--surface)}
 .sh-social svg{display:block}
 @media (hover:hover){.sh-social a:hover{color:var(--text);border-color:var(--accent)}}
+/* ---- concept banner (above the sticky header) ---- */
+.sh-concept{background:var(--surface-sunken);border-bottom:var(--border-1,1px) solid var(--border);color:var(--text-muted);font-size:var(--size-xs,.75rem);text-align:center;padding:.4rem 1rem;line-height:1.4}
+.sh-concept b{color:var(--text)}
+.sh-concept a{color:var(--accent-text);font-weight:700;text-decoration:none;white-space:nowrap}

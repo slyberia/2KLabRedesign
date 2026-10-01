@@ -2,8 +2,9 @@
 
 Kept as the **behavioral reference** for the React/TypeScript rebuild. Nothing here is served.
 
-- `src/`: page sources (HTML with inline CSS/JS, plus `*-app.js`). The deployed pages at the repo
-  root were generated from these by `build/wire.py`.
+- `src/`: page sources (HTML with inline CSS/JS, plus `*-app.js`). `build/wire.py` generated the
+  static site from these; that built copy used to sit at the repo root and was removed once
+  `web/` replaced it (it remains in git history).
 - `build/`: `wire.py` (build: injects the shared header/footer/link map from `shell.py`, inlines
   `site-shell.css/js`, guards against page CSS landing in the shell block), `shell.py`
   (nav, footer, verified link map).

@@ -3,13 +3,12 @@
 An unofficial redesign of nba2klab.com by Kyle Semple: AI-assisted design and web development. Not affiliated with NBA2KLab.
 **Start with [HANDOVER.md](HANDOVER.md)** for goals, domain rules, reference values and the React/TypeScript rebuild plan.
 
-A redesign of nba2klab.com: seven static pages plus a small API for demo accounts.
+A redesign of nba2klab.com: seven pages built with React + TypeScript, plus a small API for demo accounts.
 
 **Demo accounts only.** This mockup can't reach real 2KLab accounts, so sign-in takes a display name
 with no password; the same name reaches the same account. Don't enter personal information.
 
 ## Layout
-- `*.html`, `*-app.js`: the site (Builds, Builder, Requirements, MyCareer, Shooting, Game Details, home)
 - `api/`: Vercel Functions (web-standard `fetch` handlers)
   - `session`: demo sign-in / sign-out
   - `progress`: rewards progress, merged per key (newer wins)
@@ -17,9 +16,16 @@ with no password; the same name reaches the same account. Don't enter personal i
   - `community`: shared builds and ratings (Premium demo accounts only)
 - `data/`: verified datasets with `MANIFEST.json` (sources, counts, capture dates)
 - `design/`: design tokens, original audit, early schema docs
-- `legacy/`: static-build sources, build scripts and verification suites (reference for the rebuild)
-- `web/`: the React + TypeScript version of all seven pages, with unit and browser tests (see `web/README.md`)
+- `legacy/`: the original static build (page sources, build scripts, verification suites), kept as a reference
+- `scripts/`: data refresh scripts (`scrape_face_vc.py`)
+- `web/`: the site, all seven pages (Home, Builds, Builder, Requirements, MyCareer, Shooting, Game Details), with unit and browser tests (see `web/README.md`)
 - `lib/`: storage adapter (private Vercel Blob, conditional writes with ETag retry), sessions, validation
+
+## Checks
+CI (`.github/workflows/ci.yml`) runs typecheck, unit and API tests, the build, and the Playwright
+browser tests on every pull request. Not yet deployed: the Vercel settings in `vercel.json` (clean
+URLs, security headers, Functions) and the real Blob integration test can only be verified once a
+Vercel project and Blob store exist.
 
 ## Environment
 - `BLOB_READ_WRITE_TOKEN`: set automatically when a private Blob store is connected to the project
