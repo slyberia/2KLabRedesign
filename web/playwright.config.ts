@@ -6,7 +6,7 @@ const PORT = 4173;
 export default defineConfig({
   testDir: "e2e",
   fullyParallel: true,
-  reporter: "list",
+  reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "list",
   use: {
     baseURL: `http://localhost:${PORT}`,
     launchOptions: process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : undefined,
