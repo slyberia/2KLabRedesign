@@ -21,6 +21,12 @@ with no password; the same name reaches the same account. Don't enter personal i
 - `web/`: the site, all seven pages (Home, Builds, Builder, Requirements, MyCareer, Shooting, Game Details), with unit and browser tests (see `web/README.md`)
 - `lib/`: storage adapter (private Vercel Blob, conditional writes with ETag retry), sessions, validation
 
+## Checks
+CI (`.github/workflows/ci.yml`) runs typecheck, unit and API tests, the build, and the Playwright
+browser tests on every pull request. Not yet deployed: the Vercel settings in `vercel.json` (clean
+URLs, security headers, Functions) and the real Blob integration test can only be verified once a
+Vercel project and Blob store exist.
+
 ## Environment
 - `BLOB_READ_WRITE_TOKEN`: set automatically when a private Blob store is connected to the project
 - `SESSION_SECRET`: random string, 32+ characters (signs session cookies)
