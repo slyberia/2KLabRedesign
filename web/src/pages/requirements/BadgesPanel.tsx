@@ -3,40 +3,16 @@ import { animations } from "../../data/animations";
 import { badges } from "../../data/badges";
 import {
   CATEGORIES, CATEGORY_LABEL, SUBTYPE_LABEL, TIER_LABEL, badgeCategory, coUnlocks, isWithinHeight,
-  type Attribute, type Badge, type BadgeCondition, type Category, type Height, type Tier,
+  type Attribute, type Badge, type Category, type Height, type Tier,
 } from "../../domain";
 import { OpChip } from "../../components/OpChip";
 import { SearchBox } from "../../components/SearchBox";
+import { BadgeRequirements, type BadgeRequirementPick } from "../../components/BadgeRequirements";
 
-export interface Crossing {
-  attribute: Attribute;
-  value: number;
-  tier: Tier;
-}
+export type Crossing = BadgeRequirementPick;
 
 const TILE_ORDER: Tier[] = ["bronze", "silver", "gold", "hof"];
 const CROSSINGS_SHOWN = 14;
-
-function TierTile({ cond, tier, onPick }: { cond: BadgeCondition; tier: Tier; onPick: (c: Crossing) => void }) {
-  const v = cond[tier];
-  if (v == null) {
-    return (
-      <span className="tile na" role="img" aria-label={`${TIER_LABEL[tier]}: not published`}>
-        <span className="v" aria-hidden="true">&mdash;</span>
-      </span>
-    );
-  }
-  return (
-    <button
-      type="button"
-      className={`tile t-${tier}`}
-      aria-label={`${TIER_LABEL[tier]}: ${v}. Show animations unlocked at this rating.`}
-      onClick={() => onPick({ attribute: cond.attribute, value: v, tier })}
-    >
-      <span className="v">{v}</span>
-    </button>
-  );
-}
 
 function Crossings({ c, height }: { c: Crossing; height: Height | null }) {
   const hits = useMemo(() => coUnlocks(animations, c.attribute, c.value, height), [c, height]);
@@ -94,8 +70,8 @@ function BadgeCard(props: {
           </span>
           <a className="card-link" href={`/builder?focus=${b.id}`}>Builder &rarr;</a>
         </div>
-        <div className="tilerow">
-          {TILE_ORDER.map((t) => <TierTile key={t} cond={c0} tier={t} onPick={props.onTile} />)}
+        <div className="badge-requirements-layout">
+          <BadgeRequirements badge={b} onPick={props.onTile} />
           <span className="htchip">{b.minHeight}&ndash;{b.maxHeight}</span>
         </div>
       </div>

@@ -1,7 +1,8 @@
 import { useEffect, type ReactNode } from "react";
 import { badges } from "../../data/badges";
 import { shootingBadgeTests } from "../../data/shootingBadgeTests";
-import { TIER_LABEL, type Badge, type Tier } from "../../domain";
+import { type Badge } from "../../domain";
+import { BadgeRequirements } from "../../components/BadgeRequirements";
 import { ExtLink } from "../../shell/Layout";
 import { live } from "../../shell/links";
 import "./shooting.css";
@@ -17,7 +18,6 @@ const SECTIONS: [string, string][] = [
   ["settings", "Settings and shot cues"],
   ["practice", "How to practice"],
 ];
-const TIERS: Tier[] = ["bronze", "silver", "gold", "hof"];
 
 /** A measurement or claim still being tested by 2KLab: labeled, never presented as measured. */
 const Pending = ({ children }: { children: ReactNode }) => <span className="status">Still testing: {children}</span>;
@@ -34,18 +34,11 @@ function Card(props: { title: ReactNode; stat?: string; link?: [string, string];
 }
 
 function BadgeRow({ b, test }: { b: Badge; test: (typeof shootingBadgeTests)[number] }) {
-  const c0 = b.conditions[0]!;
   const keys = b.conditions.map((c) => c.attribute).join(` ${b.operator} `);
   return (
     <div className="bdg">
       <span className="nm">{b.name}</span>
-      <span className="tiles">
-        {TIERS.map((t) =>
-          c0[t] == null
-            ? <span key={t} className="tile na" aria-label={`${TIER_LABEL[t]}: not published`}>&mdash;</span>
-            : <span key={t} className={`tile t-${t}`} aria-label={`${TIER_LABEL[t]} ${c0[t]}`}>{c0[t]}</span>,
-        )}
-      </span>
+      <BadgeRequirements badge={b} compact />
       <span className="links">
         {test.status === "Results" && test.link
           ? <ExtLink className="xl" href={live(test.link)}>2KLab test results</ExtLink>

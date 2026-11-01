@@ -11,6 +11,9 @@ test.describe("Shooting", () => {
     await expect(lr.getByRole("link", { name: "Requirements →" })).toHaveAttribute("href", "/reference-table?badge=LimitlessRange#badges");
     await expect(page.locator(".bdg", { hasText: "Deadeye" }).getByText("Test pending")).toBeVisible();
     await expect(page.locator(".bdg", { hasText: "Post Fade Phenom" })).toContainText("Keys on Mid-Range Shot AND Post Control.");
+    const postFade = page.locator(".bdg", { hasText: "Post Fade Phenom" });
+    await expect(postFade.getByText("Meet both attribute rows for the desired tier.")).toBeVisible();
+    await expect(postFade.getByRole("group", { name: "Post Control requirements" }).locator(".v")).toHaveText(["55", "74", "84", "93"]);
     await expect(page.locator(".status")).toHaveCount(2);
     await expectNoHorizontalOverflow(page);
   });

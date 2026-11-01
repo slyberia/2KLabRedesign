@@ -31,8 +31,9 @@ function readDeepLink() {
   const heightRaw = heightFromParam(p.get("height") ?? "");
   const height = heightRaw && HEIGHT_OPTIONS.includes(heightRaw) ? heightRaw : null;
   const tierRaw = p.get("tier") as Tier | null;
-  const tier = badge && tierRaw && TIERS_DESC.includes(tierRaw) && badge.conditions[0]![tierRaw] != null ? tierRaw : null;
-  return { badge, takeover, attr, height, tier, q: p.get("q") ?? "" };
+  const tier = tierRaw && TIERS_DESC.includes(tierRaw) ? tierRaw : null;
+  const condition = badge && tier ? badge.conditions.find((c) => (!attr || c.attribute === attr) && c[tier] != null) : null;
+  return { badge, takeover, attr, height, tier: condition ? tier : null, condition, q: p.get("q") ?? "" };
 }
 
 export function RequirementsPage() {
@@ -50,8 +51,8 @@ export function RequirementsPage() {
   const [openDesc, setOpenDesc] = useState<Record<string, boolean>>(() => (link.badge ? { [link.badge.id]: true } : {}));
   const [crossings, setCrossings] = useState<Record<string, Crossing>>(() => {
     if (!link.badge || !link.tier) return {};
-    const c0 = link.badge.conditions[0]!;
-    return { [link.badge.id]: { attribute: c0.attribute, value: c0[link.tier]!, tier: link.tier } };
+    const condition = link.condition!;
+    return { [link.badge.id]: { attribute: condition.attribute, value: condition[link.tier]!, tier: link.tier } };
   });
   const focusOutOfHeight = link.badge && height != null && !isWithinHeight(height, link.badge.minHeight, link.badge.maxHeight);
 
