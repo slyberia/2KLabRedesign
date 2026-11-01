@@ -44,6 +44,7 @@
 .op-chip.or{--op:var(--op-or)}.op-chip.and{--op:var(--op-and)}
 
 .tilerow{display:flex;gap:.45rem;flex-wrap:wrap;align-items:center}
+.badge-requirements-layout{display:flex;align-items:flex-end;gap:.7rem;flex-wrap:wrap}
 .tile{position:relative;display:flex;align-items:center;justify-content:center;
   width:52px;height:44px;border-radius:var(--radius-md);background:var(--surface-sunken);border:1.5px solid var(--tc);
   transition:border-width var(--duration-fast) var(--ease-standard),background var(--duration-fast) var(--ease-standard),

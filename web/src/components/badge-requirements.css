@@ -1,0 +1,10 @@
+.badge-requirements{min-width:0;--requirement-tile-width:52px;--requirement-gap:.45rem}
+.badge-requirements .requirement-rule{margin:0 0 .6rem;font-size:var(--size-xs);color:var(--text-muted)}
+.badge-requirements .badge-condition + .badge-condition{margin-top:.7rem}
+.badge-requirements .condition-label{display:block;margin-bottom:.25rem;font-size:var(--size-sm);color:var(--text);font-weight:600}
+.badge-requirements .requirement-legend{display:grid;grid-template-columns:repeat(4,var(--requirement-tile-width));gap:var(--requirement-gap);margin-bottom:.2rem;text-align:center;font-size:.65rem;color:var(--text-muted)}
+.badge-requirements .tilerow{display:flex;gap:var(--requirement-gap);flex-wrap:wrap}
+.badge-requirements .tile{width:var(--requirement-tile-width);height:44px;flex:none}
+.badge-requirements.compact{--requirement-tile-width:40px;--requirement-gap:.3rem}
+.badge-requirements.compact .tile{height:34px}
+.badge-requirements.compact .v{font-size:.9rem}

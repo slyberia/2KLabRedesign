@@ -2,6 +2,36 @@ import { expect, test } from "@playwright/test";
 import { expectNoHorizontalOverflow, isPhone, search } from "./helpers";
 
 test.describe("Requirements", () => {
+  test("OR badge cards show both paths and use the selected attribute for co-unlocks", async ({ page }) => {
+    await page.goto("/reference-table?q=Unpluckable#badges");
+    const card = page.locator("#bcard-Unpluckable");
+    await expect(card.getByText("Meet either attribute row for the desired tier.")).toBeVisible();
+    const post = card.getByRole("group", { name: "Post Control requirements" });
+    const handle = card.getByRole("group", { name: "Ball Handle requirements" });
+    await expect(post.locator(".v")).toHaveText(["65", "86", "96", "—"]);
+    await expect(handle.locator(".v")).toHaveText(["65", "80", "92", "97"]);
+    await handle.getByRole("button", { name: /^HoF: 97/ }).click();
+    await expect(page.locator("#desc-Unpluckable .crossings-head")).toContainText("Ball Handle ≥ 97");
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test("AND badge cards keep distinct thresholds and both-required wording", async ({ page }) => {
+    await page.goto("/reference-table?q=Hook%20Specialist#badges");
+    const card = page.locator("#bcard-HookSpecialist");
+    await expect(card.getByText("Meet both attribute rows for the desired tier.")).toBeVisible();
+    await expect(card.getByRole("group", { name: "Close Shot requirements" }).locator(".v")).toHaveText(["60", "75", "87", "94"]);
+    await expect(card.getByRole("group", { name: "Post Control requirements" }).locator(".v")).toHaveText(["55", "65", "80", "90"]);
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test("a tier link can resolve an available second condition", async ({ page }) => {
+    await page.goto("/reference-table?badge=Unpluckable&tier=hof#badges");
+    await expect(page.locator("#desc-Unpluckable .crossings-head")).toContainText("Ball Handle ≥ 97");
+    expect(search(page).get("tier")).toBe("hof");
+    await page.goto("/reference-table?badge=HookSpecialist&tier=gold&attr=Post%20Control#badges");
+    await expect(page.locator("#desc-HookSpecialist .crossings-head")).toContainText("Post Control ≥ 80");
+  });
+
   test("loads every badge and keeps the URL in step with the filters", async ({ page }) => {
     await page.goto("/reference-table");
     await expect(page.getByText("53 of 53 badges")).toBeVisible();
