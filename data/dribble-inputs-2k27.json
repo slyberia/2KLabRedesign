@@ -1,0 +1,267 @@
+[
+  {
+    "key": "move",
+    "name": "Move",
+    "group": "Basics",
+    "stick": "LS",
+    "motion": "any_direction"
+  },
+  {
+    "key": "sprint",
+    "name": "Sprint",
+    "group": "Basics",
+    "hold": [
+      "RT"
+    ],
+    "stick": "LS",
+    "motion": "any_direction"
+  },
+  {
+    "key": "signature-size-up",
+    "name": "Signature Size-up",
+    "group": "Dribble Moves",
+    "stick": "RS",
+    "motion": "alternate_left_right",
+    "repeat": 5
+  },
+  {
+    "key": "quick-protect",
+    "name": "Quick Protect",
+    "group": "Basics",
+    "tap": [
+      "LT"
+    ]
+  },
+  {
+    "key": "in-and-out",
+    "name": "In and Out",
+    "group": "Dribble Moves",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "up"
+  },
+  {
+    "key": "hesitation",
+    "name": "Hesitation",
+    "group": "Dribble Moves",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "right"
+  },
+  {
+    "key": "hesitation-escape",
+    "name": "Hesitation Escape",
+    "group": "Dribble Moves",
+    "hold": [
+      "RT"
+    ],
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "right"
+  },
+  {
+    "key": "crossover",
+    "name": "Crossover",
+    "group": "Dribble Moves",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "up_left"
+  },
+  {
+    "key": "signature-combo",
+    "name": "Signature Combo",
+    "group": "Dribble Moves",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "up",
+    "repeat": 2
+  },
+  {
+    "key": "breakdown-combo",
+    "name": "Breakdown Combo",
+    "group": "Dribble Moves",
+    "hold": [
+      "RT"
+    ],
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "up"
+  },
+  {
+    "key": "between-legs-cross",
+    "name": "Between Legs Cross",
+    "group": "Dribble Moves",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "left"
+  },
+  {
+    "key": "escape-crossover",
+    "name": "Escape Crossover",
+    "group": "Dribble Moves",
+    "hold": [
+      "RT"
+    ],
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "up_left_or_left"
+  },
+  {
+    "key": "behind-the-back",
+    "name": "Behind the Back",
+    "group": "Dribble Moves",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "down_left"
+  },
+  {
+    "key": "behind-the-back-escape",
+    "name": "Behind the Back Escape",
+    "group": "Dribble Moves",
+    "hold": [
+      "RT"
+    ],
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "down_left"
+  },
+  {
+    "key": "stepback",
+    "name": "Stepback",
+    "group": "Dribble Moves",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "down"
+  },
+  {
+    "key": "stepback-crossover",
+    "name": "Stepback Crossover",
+    "group": "Dribble Moves",
+    "hold": [
+      "RT"
+    ],
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "down"
+  },
+  {
+    "key": "spin",
+    "name": "Spin",
+    "group": "Dribble Moves",
+    "stick": "RS",
+    "motion": "rotate",
+    "rotation": "clockwise"
+  },
+  {
+    "key": "half-spin",
+    "name": "Half Spin",
+    "group": "Dribble Moves",
+    "stick": "RS",
+    "motion": "rotate",
+    "rotation": "quarter_circle_right_to_up"
+  },
+  {
+    "key": "hold-off-defenders",
+    "name": "Hold Off Defenders",
+    "group": "Basics",
+    "hold": [
+      "LT"
+    ],
+    "stick": "LS",
+    "motion": "any_direction"
+  },
+  {
+    "key": "triple-threat-emote",
+    "name": "Triple Threat Emote",
+    "group": "Triple Threat",
+    "tap": [
+      "DPAD_DOWN"
+    ]
+  },
+  {
+    "key": "triple-threat-side-jab",
+    "name": "Triple Threat Side Jab",
+    "group": "Triple Threat",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "down_right"
+  },
+  {
+    "key": "triple-threat-large-jab",
+    "name": "Triple Threat Large Jab",
+    "group": "Triple Threat",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "right"
+  },
+  {
+    "key": "triple-threat-mid-stepover",
+    "name": "Triple Threat Mid-Stepover",
+    "group": "Triple Threat",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "up"
+  },
+  {
+    "key": "triple-threat-stepover",
+    "name": "Triple Threat Stepover",
+    "group": "Triple Threat",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "left_or_up_left"
+  },
+  {
+    "key": "triple-threat-back-to-basket-stepover",
+    "name": "Triple Threat Back-to-Basket Stepover",
+    "group": "Triple Threat",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "down_left"
+  },
+  {
+    "key": "triple-threat-pump-fake",
+    "name": "Triple Threat Pump Fake",
+    "group": "Triple Threat",
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "down"
+  },
+  {
+    "key": "triple-threat-hesitation-escape",
+    "name": "Triple Threat Hesitation Escape",
+    "group": "Triple Threat",
+    "hold": [
+      "RT"
+    ],
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "left_or_right"
+  },
+  {
+    "key": "triple-threat-stepback",
+    "name": "Triple Threat Stepback",
+    "group": "Triple Threat",
+    "hold": [
+      "RT"
+    ],
+    "stick": "RS",
+    "motion": "flick",
+    "direction": "down"
+  },
+  {
+    "key": "triple-threat-spin-out",
+    "name": "Triple Threat Spin-Out",
+    "group": "Triple Threat",
+    "stick": "RS",
+    "motion": "rotate",
+    "rotation": "clockwise"
+  },
+  {
+    "key": "triple-threat-cross-spin-out",
+    "name": "Triple Threat Cross Spin-Out",
+    "group": "Triple Threat",
+    "stick": "RS",
+    "motion": "rotate",
+    "rotation": "counter_clockwise"
+  }
+]

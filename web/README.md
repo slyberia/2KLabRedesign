@@ -42,5 +42,5 @@ point it at one with `CHROMIUM_PATH=/path/to/chrome`.
 
 ## Status
 
-All seven pages are ported. `../vercel.json` builds `web/` and serves `web/dist` with the
+The seven original pages and the [Dribble Lab](DRIBBLE_LAB.md) are available. `../vercel.json` builds `web/` and serves `web/dist` with the
 Functions in `../api`. The project hasn't been deployed yet, so that configuration is untested on Vercel.

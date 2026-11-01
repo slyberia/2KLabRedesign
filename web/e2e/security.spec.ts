@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { openSignIn, signIn, uniqueName } from "./helpers";
 
-const PAGES = ["/", "/builds", "/builder?preset=blueprint:certified-bucket", "/reference-table", "/mycareer", "/shooting", "/game-details#face-creations"];
+const PAGES = ["/", "/builds", "/builder?preset=blueprint:certified-bucket", "/reference-table", "/mycareer", "/shooting", "/game-details#face-creations", "/dribble-lab"];
 
 test.describe("Public-deploy safety (HANDOVER.md section 13)", () => {
   test("every page runs under the CSP with no violations, and asks not to be indexed", async ({ page }) => {

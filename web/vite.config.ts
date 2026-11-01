@@ -14,7 +14,7 @@ const dataDir = here("../data");
 
 // One HTML entry per page. Pages are served at clean URLs (/builder, not /builder.html); the
 // query strings and hashes from HANDOVER.md section 8 are unchanged.
-const PAGES = ["index", "builds", "builder", "reference-table", "mycareer", "shooting", "game-details"];
+const PAGES = ["index", "builds", "builder", "reference-table", "mycareer", "shooting", "game-details", "dribble-lab"];
 
 /**
  * Clean URLs in dev and preview, matching `cleanUrls` in ../vercel.json: /builder serves

@@ -105,6 +105,7 @@ export function ControlsPanel() {
         </div>
       </div>
       <div className="ctrl-wrap"><Controller mode={mode} /></div>
+      <p className="mediahint"><a href="/dribble-lab">Try the interactive Dribble Lab &rarr;</a> — animated inputs, a live controller overlay, and stick-path practice.</p>
       <div className="tablewrap">
         <table className="reftable ctrl-table">
           <caption className="ctrl-cap">Full controller mapping (Xbox / PlayStation)</caption>
@@ -165,9 +166,10 @@ export function HowToPanel() {
             {g === "dribble" && (
               <>
                 <p className="vp-intro">
-                  All {dribbleMoves.moves.length} dribble moves in 2KLab&rsquo;s guide. The guide shows each move&rsquo;s stick motion as an
-                  animated diagram, so the inputs live there.
+                  All {dribbleMoves.moves.length} dribble moves in 2KLab&rsquo;s guide. Watch animated inputs, connect your controller,
+                  and compare your movement path in the Dribble Lab.
                 </p>
+                <p><a className="il-strong" href="/dribble-lab">Open the Dribble Lab &rarr;</a></p>
                 <ul className="move-chips">{dribbleMoves.moves.map((m) => <li key={m}>{m}</li>)}</ul>
               </>
             )}
