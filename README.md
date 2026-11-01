@@ -3,7 +3,7 @@
 An unofficial redesign of nba2klab.com by Kyle Semple: AI-assisted design and web development. Not affiliated with NBA2KLab.
 **Start with [HANDOVER.md](HANDOVER.md)** for goals, domain rules, reference values and the React/TypeScript rebuild plan.
 
-A redesign of nba2klab.com: seven pages built with React + TypeScript, plus a small API for demo accounts.
+A redesign of nba2klab.com: eight pages built with React + TypeScript, plus a small API for demo accounts.
 
 **Demo accounts only.** This mockup can't reach real 2KLab accounts, so sign-in takes a display name
 with no password; the same name reaches the same account. Don't enter personal information.
@@ -18,7 +18,9 @@ with no password; the same name reaches the same account. Don't enter personal i
 - `design/`: design tokens, original audit, early schema docs
 - `legacy/`: the original static build (page sources, build scripts, verification suites), kept as a reference
 - `scripts/`: data refresh scripts (`scrape_face_vc.py`)
-- `web/`: the site, all seven pages (Home, Builds, Builder, Requirements, MyCareer, Shooting, Game Details), with unit and browser tests (see `web/README.md`)
+- `web/`: the site (Home, Builds, Builder, Requirements, MyCareer, Shooting, Game Details, Dribble Lab), with unit and browser tests (see `web/README.md`)
+
+The [Dribble Lab](web/DRIBBLE_LAB.md) adds animated controller instructions, live input overlays, stick-path practice, and optional response simulations at `/dribble-lab`.
 - `lib/`: storage adapter (private Vercel Blob, conditional writes with ETag retry), sessions, validation
 
 ## Checks

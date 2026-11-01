@@ -255,6 +255,15 @@
    },
    "captured": "2026-09-30",
    "contents": "VC tiers with price and stated VC per $1, Season 1 bundles, approximate VC to max a build. Rebuilt by scripts/scrape_face_vc.py"
+  },
+  {
+   "file": "data/dribble-inputs-2k27.json",
+   "source": [
+    "/nba2k-how-to-dribble"
+   ],
+   "records": 30,
+   "captured": "2026-11-01",
+   "contents": "Symbolic controller inputs for Dribble Lab; no authored article text or media. Playback pacing and recognition tolerances are separate browser-training references."
   }
  ]
 }
